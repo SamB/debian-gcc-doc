@@ -1,0 +1,63 @@
+Source: gcc-4.1-doc-non-dfsg
+Section: non-free/doc
+Priority: optional
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Uploaders:
+ Nikita V. Youshchenko <yoush@debian.org>
+Build-Depends-Indep: debhelper (>> 5), texinfo, perl, dpatch
+Build-Depends: debhelper (>> 5), dpatch
+Standards-Version: 3.7.2
+
+Package: gcc-4.1-doc
+Architecture: all
+Suggests: doc-base
+Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
+Replaces: gcc (<=2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
+Description: documentation for the GNU compilers (gcc, gobjc, g++)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU compilers.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, so it can't be part of Debian main.
+
+Package: cpp-4.1-doc
+Architecture: all
+Suggests: doc-base
+Conflicts: cpp-4.1 (<< 4.1.1-11)
+Replaces: cpp-4.1 (<< 4.1.1-11)
+Description: documentation for the GNU C preprocessor (cpp)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU C prerocessor.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, so it can't be part of Debian main.
+
+Package: gfortran-4.1-doc
+Architecture: all
+Suggests: doc-base
+Conflicts: gfortran-4.1 (<< 4.1.1-11)
+Replaces: gfortran-4.1 (<< 4.1.1-11)
+Description: documentation for the GNU Fortran Compiler (gfortran)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU Fortran 95 compiler.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, so it can't be part of Debian main.
+
+Package: treelang-4.1-doc
+Architecture: all
+Suggests: doc-base
+Conflicts: treelang-4.1 (<< 4.1.1-11)
+Replaces: treelang-4.1 (<< 4.1.1-11)
+Description: documentation for the GNU Treelang
+ This package contains manual pages and documentation in info and
+ html format, for the GNU Treelang.
+ .
+ Treelang is a sample language, useful only to help people understand how
+ to implement a new language front end to GCC. It is not a useful
+ language in itself other than as an example or basis for building a new
+ language. Therefore only language developers are likely to have an
+ interest in it.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, so it can't be part of Debian main.

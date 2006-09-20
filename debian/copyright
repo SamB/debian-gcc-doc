@@ -1,0 +1,21 @@
+This package was put together by Nikita V. Youshchenko <yoush@debian.org>.
+
+Package contains documentation files from gcc upstream distribution,
+that was downloaded from ftp://ftp.gnu.org/gnu/gcc/.
+
+Several Debian-related files have been taken from version 4.1.1-10
+of gcc-4.1 package, mainained by Matthias Klose <doko@debian.org>.
+
+
+GCC is Copyright (C) 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994,
+1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006
+Free Software Foundation, Inc.
+
+Documentation files are distributed under the terms of
+GNU Free Documentation License, version 1.2.
+Full text of this license is included into documentation itself.
+
+Other files from this package are distributed under the terms of
+GNU General Public License. 
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'. 

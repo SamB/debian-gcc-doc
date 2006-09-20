@@ -1,0 +1,7 @@
+gcc-4.1-doc-non-dfsg (4.1.1-nf1) unstable; urgency=low
+
+  * Initial release, based in files from gcc-4.1.1 tarball.
+  * Version is numbered in such way to make transparent updates from
+    previous gcc documentation packages.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Thu, 21 Sep 2006 00:04:14 +0400

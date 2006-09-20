@@ -1,0 +1,78 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 02-info-link.dpatch by  <yoush@debian.org>
+##
+## DP: Changes links in info dir, so link could be actually followed.
+
+@DPATCH@
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/fortran-texi/gfortran.texi gcc-4.1-doc-non-dfsg-4.1.1/fortran-texi/gfortran.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/fortran-texi/gfortran.texi	2006-09-17 23:46:26.706620371 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/fortran-texi/gfortran.texi	2006-09-17 23:49:50.218468863 +0400
+@@ -63,7 +63,7 @@
+ @ifinfo
+ @dircategory Development
+ @direntry
+-* gfortran: (gfortran).                  The GNU Fortran 95 Compiler.
++* gfortran: (gfortran-4.1).		The GNU Fortran 95 Compiler.
+ @end direntry
+ This file documents the use and the internals of
+ the GNU Fortran 95 compiler, (@command{gfortran}).
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/texi/cpp.texi gcc-4.1-doc-non-dfsg-4.1.1/texi/cpp.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/texi/cpp.texi	2006-09-17 23:46:26.707620120 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/texi/cpp.texi	2006-09-17 23:48:33.275808338 +0400
+@@ -52,7 +52,7 @@
+ @ifinfo
+ @dircategory Development
+ @direntry
+-* Cpp: (cpp).		       The GNU C preprocessor.
++* Cpp: (cpp-4.1).			The GNU C preprocessor.
+ @end direntry
+ @end ifinfo
+ 
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/texi/cppinternals.texi gcc-4.1-doc-non-dfsg-4.1.1/texi/cppinternals.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/texi/cppinternals.texi	2006-09-17 23:46:26.708619869 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/texi/cppinternals.texi	2006-09-17 23:48:23.801189743 +0400
+@@ -7,7 +7,7 @@
+ @ifinfo
+ @dircategory Development
+ @direntry
+-* Cpplib: (cppinternals).      Cpplib internals.
++* Cpplib: (cppinternals-4.1).		Cpplib internals.
+ @end direntry
+ @end ifinfo
+ 
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/texi/gcc.texi gcc-4.1-doc-non-dfsg-4.1.1/texi/gcc.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/texi/gcc.texi	2006-09-17 23:46:26.708619869 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/texi/gcc.texi	2006-09-17 23:48:52.682930418 +0400
+@@ -64,7 +64,7 @@
+ @ifnottex
+ @dircategory Development
+ @direntry
+-* gcc: (gcc).                  The GNU Compiler Collection.
++* gcc: (gcc-4.1).			The GNU Compiler Collection.
+ @end direntry
+ This file documents the use of the GNU compilers.
+ @sp 1
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/texi/gccint.texi gcc-4.1-doc-non-dfsg-4.1.1/texi/gccint.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/texi/gccint.texi	2006-09-17 23:46:26.709619617 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/texi/gccint.texi	2006-09-17 23:49:25.037798055 +0400
+@@ -50,7 +50,7 @@
+ @ifnottex
+ @dircategory Development
+ @direntry
+-* gccint: (gccint).            Internals of the GNU Compiler Collection.
++* gccint: (gccint-4.1).		Internals of the GNU Compiler Collection.
+ @end direntry
+ This file documents the internals of the GNU compilers.
+ @sp 1
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.1~/texi/treelang.texi gcc-4.1-doc-non-dfsg-4.1.1/texi/treelang.texi
+--- gcc-4.1-doc-non-dfsg-4.1.1~/texi/treelang.texi	2006-09-17 23:46:26.709619617 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.1/texi/treelang.texi	2006-09-17 23:49:37.744604190 +0400
+@@ -102,7 +102,7 @@
+ @ifnottex
+ @dircategory Development
+ @direntry
+-* treelang: (treelang).                  The GNU Treelang compiler.
++* treelang: (treelang-4.1).		The GNU Treelang compiler.
+ @end direntry
+ @ifset INTERNALS
+ @ifset USING
