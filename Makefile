@@ -1,33 +1,58 @@
-DOCS = cpp cppinternals gcc gccint gfortran treelang
+I_DOC = gcc gccint cpp cppinternals
+I_FORTRAN = gfortran
+I_TREELANG = treelang
+I = $(I_DOC) $(I_FORTRAN) $(I_TREELANG)
+INFODOCS = $(I:%=%-$(VER).info)
+HTMLDOCS = $(I:%=%.html)
+
+M1 = gcc gcov cpp gfortran
+M = $(M1)
+MANS = $(M:%=%-$(VER).1)
+PODS = $(M:%=%.pod)
+
 VER = 4.1
 FULLVER = 4.1.1
 
-INFODOCS = $(DOCS:%=%-$(VER).info)
-HTMLDOCS = $(DOCS:%=%.html)
-FORTRANMAN = gfortran-$(VER).1
+TARGETS = $(INFODOCS) $(HTMLDOCS) $(MANS)
+GENFILES = $(TARGETS) gcc-vers.texi $(PODS)
 
-TARGETS = $(INFODOCS) $(HTMLDOCS) $(FORTRANMAN)
-GENFILES = $(TARGETS) gcc-vers.texi gfortran.pod
+MKINFO_DEFINES := $(shell echo $(I) gcj cppint | sed 's/\([a-z]\+\)/-D "fn\1 \1-$(VER)"/g')
+MKINFO = makeinfo $(MKINFO_DEFINES)
 
 all : $(TARGETS)
 
-gfortran-$(VER).info : fortran-texi/gfortran.texi gcc-vers.texi
-	makeinfo --no-split -Itexi -o $@ $<
+$(I_DOC:%=%-$(VER).info) : %-$(VER).info : doc/%.texi gcc-vers.texi
+	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
 
-%-$(VER).info : texi/%.texi gcc-vers.texi
-	makeinfo --no-split -o $@ $<
+$(I_DOC:%=%.html) : %.html : doc/%.texi gcc-vers.texi
+	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
 
-gfortran.html : fortran-texi/gfortran.texi gcc-vers.texi
-	makeinfo --html --no-split -Itexi -o $@ $<
+$(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : fortran/%.texi gcc-vers.texi
+	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
 
-%.html : texi/%.texi gcc-vers.texi
-	makeinfo --html --no-split -o $@ $<
+$(I_FORTRAN:%=%.html) : %.html : fortran/%.texi gcc-vers.texi
+	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
 
-$(FORTRANMAN) : gfortran.pod
+$(I_TREELANG:%=%-$(VER).info) : %-$(VER).info : treelang/%.texi gcc-vers.texi
+	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
+
+$(I_TREELANG:%=%.html) : %.html : treelang/%.texi gcc-vers.texi
+	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
+
+%-$(VER).1 : %.pod
 	pod2man --center="GNU" --release="gcc-$(FULLVER)" --section=1 $< > $@
 
-gfortran.pod : fortran-texi/invoke.texi gcc-vers.texi
-	perl ./texi2pod.pl < fortran-texi/invoke.texi > $@
+gcc.pod : doc/invoke.texi gcc-vers.texi
+	(cd doc && perl ../texi2pod.pl) < $< > $@
+
+gcov.pod : doc/gcov.texi gcc-vers.texi
+	(cd doc && perl ../texi2pod.pl) < $< > $@
+
+cpp.pod : doc/cpp.texi gcc-vers.texi
+	(cd doc && perl ../texi2pod.pl) < $< > $@
+
+gfortran.pod: fortran/invoke.texi gcc-vers.texi
+	(cd fortran && perl ../texi2pod.pl) < $< > $@
 
 gcc-vers.texi :
 	(echo @set version-GCC $(FULLVER); echo @clear DEVELOPMENT) > $@

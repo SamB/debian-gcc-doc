@@ -1,3 +1,20 @@
+gcc-4.1-doc-non-dfsg (4.1.1.nf2-1) unstable; urgency=low
+
+  * Redone packaging, so man pages are also built from source.
+  * Fixed package descriptions to mention that documents are not just GFDL,
+    but contain invariant sections.
+  * Added script to convert patches from debian gcc package to form
+    suitable for this package.
+  * Using that script, added patches from debian gcc-4.1 4.1.1ds1-14
+  * Those patches superseed pathes that I've manually added in the
+    previous version of the package, so removed my versions.
+  * Added preinst scripts that remove old symlink to doc/gcc-4.1-base
+    (Closes: #390093).
+  * Not adding more documentation packages in this release, so upload
+    will not get to NEW.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sun,  1 Oct 2006 12:56:14 +0400
+
 gcc-4.1-doc-non-dfsg (4.1.1-nf1) unstable; urgency=low
 
   * Initial release, based in files from gcc-4.1.1 tarball.

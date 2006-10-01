@@ -1,2 +1,10 @@
-01-info-section
-02-info-link
+from-debian-gcc-svn-doc-updates.dpatch
+from-debian-gcc-rename-info-files.dpatch
+from-debian-gcc-alpha-ieee-doc.dpatch
+from-debian-gcc-classpath-tooldoc.dpatch
+from-debian-gcc-gcc-4.1-x86-blended.dpatch
+from-debian-gcc-gcc-ssp-on.dpatch
+from-debian-gcc-libjava-doc-backport.dpatch
+from-debian-gcc-pr25524-doc.dpatch
+from-debian-gcc-pr26885-doc.dpatch
+from-debian-gcc-sparc-niagara-doc.dpatch

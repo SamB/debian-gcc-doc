@@ -18,7 +18,8 @@ Description: documentation for the GNU compilers (gcc, gobjc, g++)
  html format, for the GNU compilers.
  .
  This documentation is licensed under the terms of the GNU Free
- Documentation License, so it can't be part of Debian main.
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.
 
 Package: cpp-4.1-doc
 Architecture: all
@@ -30,7 +31,8 @@ Description: documentation for the GNU C preprocessor (cpp)
  html format, for the GNU C prerocessor.
  .
  This documentation is licensed under the terms of the GNU Free
- Documentation License, so it can't be part of Debian main.
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.
 
 Package: gfortran-4.1-doc
 Architecture: all
@@ -42,7 +44,8 @@ Description: documentation for the GNU Fortran Compiler (gfortran)
  html format, for the GNU Fortran 95 compiler.
  .
  This documentation is licensed under the terms of the GNU Free
- Documentation License, so it can't be part of Debian main.
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.
 
 Package: treelang-4.1-doc
 Architecture: all
@@ -60,4 +63,5 @@ Description: documentation for the GNU Treelang
  interest in it.
  .
  This documentation is licensed under the terms of the GNU Free
- Documentation License, so it can't be part of Debian main.
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.

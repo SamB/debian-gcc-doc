@@ -1,0 +1,246 @@
+#!/bin/sh -e
+
+# DP: This patch was converted from rename-info-files.dpatch
+# DP: Original comment:
+# DP:
+# DP: Allow transformations on info file names. Reference the
+# DP: transformed info file names in the texinfo files.
+
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+--- doc/cpp.texi	2005-11-13 00:07:53.854611888 +0000
++++ doc/cpp.texi	2005-11-13 00:08:39.139727504 +0000
+@@ -52,7 +52,7 @@
+ @ifinfo
+ @dircategory Programming
+ @direntry
+-* Cpp: (cpp).		       The GNU C preprocessor.
++* @value{fncpp}: (@value{fncpp}).		       The GNU C preprocessor.
+ @end direntry
+ @end ifinfo
+ 
+--- doc/cppinternals.texi	2005-11-13 00:07:53.856611584 +0000
++++ doc/cppinternals.texi	2005-11-13 00:08:39.141727200 +0000
+@@ -7,7 +7,7 @@
+ @ifinfo
+ @dircategory Programming
+ @direntry
+-* Cpplib: (cppinternals).      Cpplib internals.
++* @value{fncppint}: (@value{fncppint}).      Cpplib internals.
+ @end direntry
+ @end ifinfo
+ 
+--- doc/extend.texi	2005-11-13 00:07:53.900604896 +0000
++++ doc/extend.texi	2005-11-13 00:08:39.185720512 +0000
+@@ -9786,7 +9786,7 @@
+ test for the GNU compiler the same way as for C programs: check for a
+ predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
+ test specifically for GNU C++ (@pxref{Common Predefined Macros,,
+-Predefined Macros,cpp,The GNU C Preprocessor}).
++Predefined Macros,@value{fncpp},The GNU C Preprocessor}).
+ 
+ @menu
+ * Volatiles::		What constitutes an access to a volatile object.
+--- doc/gcc.texi	2005-11-13 00:07:53.901604744 +0000
++++ doc/gcc.texi	2005-11-13 00:08:39.187720208 +0000
+@@ -64,7 +64,7 @@
+ @ifnottex
+ @dircategory Programming
+ @direntry
+-* gcc: (gcc).                  The GNU Compiler Collection.
++* @value{fngcc}: (@value{fngcc}).                  The GNU Compiler Collection.
+ @end direntry
+ This file documents the use of the GNU compilers.
+ @sp 1
+@@ -123,7 +123,7 @@
+ The internals of the GNU compilers, including how to port them to new
+ targets and some information about how to write front ends for new
+ languages, are documented in a separate manual.  @xref{Top,,
+-Introduction, gccint, GNU Compiler Collection (GCC) Internals}.
++Introduction, @value{fngccint}, GNU Compiler Collection (GCC) Internals}.
+ 
+ @menu
+ * G++ and GCC::     You can compile C or C++ programs.
+--- doc/gccint.texi	2005-11-13 00:07:53.901604744 +0000
++++ doc/gccint.texi	2005-11-13 00:08:39.187720208 +0000
+@@ -50,7 +50,7 @@
+ @ifnottex
+ @dircategory Programming
+ @direntry
+-* gccint: (gccint).            Internals of the GNU Compiler Collection.
++* @value{fngccint}: (@value{fngccint}).            Internals of the GNU Compiler Collection.
+ @end direntry
+ This file documents the internals of the GNU compilers.
+ @sp 1
+@@ -82,7 +82,7 @@
+ how to port them to new targets and some information about how to
+ write front ends for new languages.  It corresponds to GCC version
+ @value{version-GCC}.  The use of the GNU compilers is documented in a
+-separate manual.  @xref{Top,, Introduction, gcc, Using the GNU
++separate manual.  @xref{Top,, Introduction, @value{fngcc}, Using the GNU
+ Compiler Collection (GCC)}.
+ 
+ This manual is mainly a reference manual rather than a tutorial.  It
+--- doc/invoke.texi	2005-11-13 00:07:53.966594864 +0000
++++ doc/invoke.texi	2005-11-13 00:08:39.204717624 +0000
+@@ -6272,7 +6272,7 @@
+ @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
+ that GCC uses to overcome shortcomings of particular machines, or special
+ needs for some languages.
+-(@xref{Interface,,Interfacing to GCC Output,gccint,GNU Compiler
++(@xref{Interface,,Interfacing to GCC Output,@value{fngccint},GNU Compiler
+ Collection (GCC) Internals},
+ for more discussion of @file{libgcc.a}.)
+ In most cases, you need @file{libgcc.a} even when you want to avoid
+@@ -6280,7 +6280,7 @@
+ or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
+ This ensures that you have no unresolved references to internal GCC
+ library subroutines.  (For example, @samp{__main}, used to ensure C++
+-constructors will be called; @pxref{Collect2,,@code{collect2}, gccint,
++constructors will be called; @pxref{Collect2,,@code{collect2}, @value{fngccint},
+ GNU Compiler Collection (GCC) Internals}.)
+ 
+ @item -pie
+@@ -13093,7 +13093,7 @@
+ @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
+ take precedence over places specified using environment variables, which
+ in turn take precedence over those specified by the configuration of GCC@.
+-@xref{Driver,, Controlling the Compilation Driver @file{gcc}, gccint,
++@xref{Driver,, Controlling the Compilation Driver @file{gcc}, @value{fngccint},
+ GNU Compiler Collection (GCC) Internals}.
+ 
+ @table @env
+@@ -13245,7 +13245,7 @@
+ 
+ A precompiled header file will be searched for when @code{#include} is
+ seen in the compilation.  As it searches for the included file
+-(@pxref{Search Path,,Search Path,cpp,The C Preprocessor}) the
++(@pxref{Search Path,,Search Path,@value{fncpp},The C Preprocessor}) the
+ compiler looks for a precompiled header in each directory just before it
+ looks for the include file in that directory.  The name searched for is
+ the name specified in the @code{#include} with @samp{.gch} appended.  If
+--- doc/libgcc.texi	2005-11-13 00:07:53.968594560 +0000
++++ doc/libgcc.texi	2005-11-13 00:08:39.206717320 +0000
+@@ -24,7 +24,7 @@
+ GCC will also generate calls to C library routines, such as
+ @code{memcpy} and @code{memset}, in some cases.  The set of routines
+ that GCC may possibly use is documented in @ref{Other
+-Builtins,,,gcc, Using the GNU Compiler Collection (GCC)}.
++Builtins,,,@value{fngcc}, Using the GNU Compiler Collection (GCC)}.
+ 
+ These routines take arguments and return values of a specific machine
+ mode, not a specific C type.  @xref{Machine Modes}, for an explanation
+--- doc/makefile.texi	2005-11-13 00:07:53.969594408 +0000
++++ doc/makefile.texi	2005-11-13 00:08:39.207717168 +0000
+@@ -124,7 +124,7 @@
+ @item profiledbootstrap
+ Builds a compiler with profiling feedback information.  For more
+ information, see
+-@ref{Building,,Building with profile feedback,gccinstall,Installing GCC}.
++@ref{Building,,Building with profile feedback,@value{fngccinstall},Installing GCC}.
+ This is actually a target in the top-level directory, which then
+ recurses into the @file{gcc} subdirectory multiple times.
+ 
+--- doc/passes.texi	2005-11-13 00:07:53.987591672 +0000
++++ doc/passes.texi	2005-11-13 00:08:39.208717016 +0000
+@@ -191,7 +191,7 @@
+ @item Mudflap declaration registration
+ 
+ If mudflap (@pxref{Optimize Options,,-fmudflap -fmudflapth
+--fmudflapir,gcc.info,Using the GNU Compiler Collection (GCC)}) is
++-fmudflapir,@value{fngcc},Using the GNU Compiler Collection (GCC)}) is
+ enabled, we generate code to register some variable declarations with
+ the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
+ those variable declarations that have their addresses taken, or whose
+--- doc/standards.texi	2005-11-13 00:07:53.988591520 +0000
++++ doc/standards.texi	2005-11-13 00:08:39.209716864 +0000
+@@ -188,8 +188,8 @@
+ GNAT Reference Manual}, for information on standard
+ conformance and compatibility of the Ada compiler.
+ 
+-@xref{Standards,,Standards, gfortran, The GNU Fortran 95 Compiler}, for details
++@xref{Standards,,Standards, @value{fngfortran}, The GNU Fortran 95 Compiler}, for details
+ of standards supported by @command{gfortran}.
+ 
+-@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
++@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
+ for details of compatibility between @command{gcj} and the Java Platform.
+--- java/gcj.texi	2005-11-13 00:07:54.082577232 +0000
++++ java/gcj.texi	2005-11-13 00:08:39.216715800 +0000
+@@ -52,7 +52,7 @@
+ @format
+ @dircategory Programming
+ @direntry
+-* Gcj: (gcj).               Ahead-of-time compiler for the Java language
++* @value{fngcj}: (@value{fngcj}).               Ahead-of-time compiler for the Java language
+ @end direntry
+ 
+ @dircategory Individual utilities
+@@ -157,7 +157,7 @@
+ 
+ As @command{gcj} is just another front end to @command{gcc}, it supports many
+ of the same options as gcc.  @xref{Option Summary, , Option Summary,
+-gcc, Using the GNU Compiler Collection (GCC)}.  This manual only documents the
++@value{fngcc}, Using the GNU Compiler Collection (GCC)}.  This manual only documents the
+ options specific to @command{gcj}.
+ 
+ @c man end
+--- fortran/gfortran.texi	2005-11-13 00:07:54.044583008 +0000
++++ fortran/gfortran.texi	2005-11-13 00:08:39.212716408 +0000
+@@ -63,7 +63,7 @@
+ @ifinfo
+ @dircategory Programming
+ @direntry
+-* gfortran: (gfortran).                  The GNU Fortran 95 Compiler.
++* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran 95 Compiler.
+ @end direntry
+ This file documents the use and the internals of
+ the GNU Fortran 95 compiler, (@command{gfortran}).
+--- treelang/treelang.texi	2005-11-13 00:07:54.102574192 +0000
++++ treelang/treelang.texi	2005-11-13 00:08:39.284705464 +0000
+@@ -102,7 +102,7 @@
+ @ifnottex
+ @dircategory Programming
+ @direntry
+-* treelang: (treelang).                  The GNU Treelang compiler.
++* @value{fntreelang}: (@value{fntreelang}).                  The GNU Treelang compiler.
+ @end direntry
+ @ifset INTERNALS
+ @ifset USING
+@@ -258,7 +258,7 @@
+ @item
+ The packaging and compiler portions of GNU Treelang are based largely
+ on the GCC compiler.
+-@xref{Contributors,,Contributors to GCC,GCC,Using and Maintaining GCC},
++@xref{Contributors,,Contributors to GCC,@value{fngcc},Using and Maintaining GCC},
+ for more information.
+ 
+ @item
+@@ -878,7 +878,7 @@
+ command-line options that are designed to cater to Treelang users
+ but apply to other languages as well.
+ 
+-@xref{G++ and GCC,,Programming Languages Supported by GCC,GCC,Using
++@xref{G++ and GCC,,Programming Languages Supported by GCC,@value{fngcc},Using
+ the GNU Compiler Collection (GCC)},
+ for information on the way different languages are handled
+ by the GCC compiler (@code{gcc}).

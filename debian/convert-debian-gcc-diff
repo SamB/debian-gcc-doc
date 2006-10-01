@@ -1,0 +1,111 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $code = << 'END';
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+END
+
+sub conv_file($$) {
+	my $d = shift;
+	my $f = shift;
+	open F, "$d/$f" or die "can't open $d/$f";
+	my $in_diff = 0;
+	my $res = "";
+	my @dp;
+	my ($line, $nextline);
+	while ($line = <F>) {
+		if ($line =~ /^#\s*DP:/) {
+			push @dp, $line;
+			next;
+		}
+		$line =~ s/^#//;
+		if ($line =~ /^---/) {
+			$nextline = <F>;
+			$nextline =~ s/^#//;
+			if ($nextline =~ /^\+\+\+\s*(\S+)/) {
+				my $name = $1;
+				while ($name && ! -e $name) {
+					$name =~ s/^[^\/]*\/?//;
+				}
+				if ($name) {
+					$line =~ s/^(---\s*)\S+(.*)$/$1$name$2/;
+					$res .= $line;
+					$nextline =~ s/^(\+\+\+\s*)\S+(.*)$/$1$name$2/;
+					$res .= $nextline;
+					$in_diff = 1;
+					next;
+				}
+			}
+			$in_diff = 0;
+		}
+		if (!($line =~ /^[-+@ ]/)) {
+			$in_diff = 0;
+		}
+		if ($in_diff) {
+			$res .= $line;
+		}
+	}
+	close F;
+
+	if ($res) {
+		$res = "#!/bin/sh -e\n" .
+		       "\n" .
+		       "# DP: This patch was converted from $f\n" .
+		       "# DP: Original comment:\n" .
+		       "# DP:\n" . join("", @dp) . "\n" . $code . $res;
+	}
+
+	return $res;
+}
+
+my $dir = shift;
+if (! -d $dir) {
+	die "$dir is not a directory";
+}
+my @patches;
+if (! -d "debian/" || ! -e "debian/convert-debian-gcc-diff") {
+	die "Please run trhis script from top-level directory of gcc-*-doc-non-dfsg package.";
+}
+system("rm -f debian/patches/from-debian-gcc-*");
+for my $file (@ARGV) {
+	my $converted = conv_file($dir, $file);
+	next if (!$converted);
+	my $converted_name = "from-debian-gcc-" . $file;
+	my $full_converted_name = "debian/patches/$converted_name";
+	open F, ">$full_converted_name" or die "failed to open $full_converted_name";
+	print F $converted;
+	close F;
+	chmod 0755, $full_converted_name;
+	push @patches, $converted_name;
+}
+open F, "debian/patches/00list" or die "failed to open debian/patches/00list";
+while (<F>) {
+	chomp;
+	next if (/^from-debian-gcc-/);
+	push @patches, $_;
+}
+close F;
+open F, ">debian/patches/00list" or die "failed to open debian/patches/00list";
+print F $_ . "\n" for (@patches);
+close F;
