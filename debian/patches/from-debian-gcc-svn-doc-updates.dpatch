@@ -3,7 +3,7 @@
 # DP: This patch was converted from svn-doc-updates.dpatch
 # DP: Original comment:
 # DP:
-# DP: SVN updates from the 4.1 branch upto 20060829.
+# DP: SVN updates from the 4.1 branch upto 20060925.
 
 dir=
 if [ $# -eq 3 -a "$2" = '-d' ]; then
@@ -26,8 +26,8 @@ case "$1" in
 esac
 exit 0
 
---- doc/sourcebuild.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ doc/sourcebuild.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- doc/sourcebuild.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/sourcebuild.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -913,7 +913,7 @@
  @subsection Directives used within DejaGnu tests
  
@@ -37,8 +37,19 @@ exit 0
  are local to the GCC testsuite.
  
  The order in which test directives appear in a test can be important:
---- doc/passes.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ doc/passes.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- doc/cpp.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/cpp.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
+@@ -3785,7 +3785,7 @@
+ 
+ Currently, CPP requires its input to be ASCII or UTF-8.  The execution
+ character set may be controlled by the user, with the
+-@option{-ftarget-charset} and @option{-ftarget-wide-charset} options.
++@option{-fexec-charset} and @option{-fwide-exec-charset} options.
+ 
+ @item Identifier characters.
+ @anchor{Identifier characters}
+--- doc/passes.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/passes.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -246,7 +246,7 @@
  This pass rewrites the function such that it is in SSA form.  After
  this pass, all @code{is_gimple_reg} variables will be referenced by
@@ -241,8 +252,8 @@ exit 0
  @end itemize
  
  @node RTL passes
---- doc/invoke.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ doc/invoke.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- doc/invoke.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/invoke.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -922,7 +922,6 @@
  objective-c++ objective-c++-header objective-c++-cpp-output
  assembler  assembler-with-cpp
@@ -251,6 +262,15 @@ exit 0
  f95  f95-cpp-input
  java
  treelang
+@@ -2629,7 +2628,7 @@
+ @item -Wunused-variable
+ @opindex Wunused-variable
+ Warn whenever a local variable or non-constant static variable is unused
+-aside from its declaration
++aside from its declaration.
+ This warning is enabled by @option{-Wall}.
+ 
+ To suppress this warning use the @samp{unused} attribute
 @@ -4319,7 +4318,7 @@
  and possibly the ability to debug the program.
  
@@ -344,7 +364,26 @@ exit 0
  @strong{Warning:} if you use the @option{-malign-double} switch,
  structures containing the above types will be aligned differently than
  the published application binary interface specifications for the 386
-@@ -10952,7 +10953,7 @@
+@@ -9283,15 +9284,13 @@
+ @opindex mpreferred-stack-boundary
+ Attempt to keep the stack boundary aligned to a 2 raised to @var{num}
+ byte boundary.  If @option{-mpreferred-stack-boundary} is not specified,
+-the default is 4 (16 bytes or 128 bits), except when optimizing for code
+-size (@option{-Os}), in which case the default is the minimum correct
+-alignment (4 bytes for x86, and 8 bytes for x86-64).
++the default is 4 (16 bytes or 128 bits).
+ 
+ On Pentium and PentiumPro, @code{double} and @code{long double} values
+ should be aligned to an 8 byte boundary (see @option{-malign-double}) or
+ suffer significant run time performance penalties.  On Pentium III, the
+-Streaming SIMD Extension (SSE) data type @code{__m128} suffers similar
+-penalties if it is not 16 byte aligned.
++Streaming SIMD Extension (SSE) data type @code{__m128} may not work
++properly if it is not 16 byte aligned.
+ 
+ To ensure proper alignment of this values on the stack, the stack boundary
+ must be as aligned as that required by any value stored on the stack.
+@@ -10952,7 +10951,7 @@
  @samp{7450}, @samp{750}, @samp{801}, @samp{821}, @samp{823},
  @samp{860}, @samp{970}, @samp{8540}, @samp{ec603e}, @samp{G3},
  @samp{G4}, @samp{G5}, @samp{power}, @samp{power2}, @samp{power3},
@@ -353,7 +392,7 @@ exit 0
  @samp{common}, @samp{powerpc}, @samp{powerpc64},
  @samp{rios}, @samp{rios1}, @samp{rios2}, @samp{rsc}, and @samp{rs64}.
  
-@@ -12721,7 +12722,7 @@
+@@ -12721,7 +12720,7 @@
  @opindex fbounds-check
  For front-ends that support it, generate additional code to check that
  indices used to access arrays are within the declared range.  This is
@@ -362,8 +401,8 @@ exit 0
  this option defaults to true and false respectively.
  
  @item -ftrapv
---- doc/gcov.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ doc/gcov.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- doc/gcov.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/gcov.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -428,7 +428,7 @@
  For a call, if it was executed at least once, then a percentage
  indicating the number of times the call returned divided by the number
@@ -373,8 +412,8 @@ exit 0
  and thus may not return every time they are called.
  
  The execution counts are cumulative.  If the example program were
---- doc/install.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ doc/install.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- doc/install.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ doc/install.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -3463,6 +3463,11 @@
  its maximum of 262144 bytes.  If you have root access, you can use the
  @command{systune} command to do this.
@@ -400,8 +439,8 @@ exit 0
  
  @smallexample
  ./configure --build=sparc-sun-solaris2.7 --prefix=xxx --enable-mpfr
---- fortran/invoke.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ fortran/invoke.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- fortran/invoke.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ fortran/invoke.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -122,7 +122,7 @@
  -ffixed-line-length-@var{n}  -ffixed-line-length-none @gol
  -ffree-line-length-@var{n}  -ffree-line-length-none @gol
@@ -427,8 +466,8 @@ exit 0
  @cindex -std=@var{std} option
  @cindex option, -std=@var{std}
  @item -std=@var{std}
---- fortran/intrinsic.texi	(.../tags/gcc_4_1_1_release)	(revision 116558)
-+++ fortran/intrinsic.texi	(.../branches/gcc-4_1-branch)	(revision 116558)
+--- fortran/intrinsic.texi	(.../tags/gcc_4_1_1_release)	(revision 117213)
++++ fortran/intrinsic.texi	(.../branches/gcc-4_1-branch)	(revision 117213)
 @@ -59,7 +59,7 @@
  * @code{BIT_SIZE}:      BIT_SIZE,  Bit size inquiry function
  * @code{BTEST}:         BTEST,     Bit test function
