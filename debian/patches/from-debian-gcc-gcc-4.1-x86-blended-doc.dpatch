@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
-# DP: This patch was converted from gcc-4.1-x86-blended.dpatch
+# DP: This patch was converted from gcc-4.1-x86-blended-doc.dpatch
 # DP: Original comment:
 # DP:
-# DP: Backport x86 "generic" patches from the trunk
+# DP: Backport x86 "generic" patches from the trunk (documentation part)
 
 dir=
 if [ $# -eq 3 -a "$2" = '-d' ]; then
@@ -26,9 +26,9 @@ case "$1" in
 esac
 exit 0
 
---- doc/invoke.texi	2005-12-17 16:38:57.000000000 -0800
-+++ doc/invoke.texi	2006-01-19 10:07:57.000000000 -0800
-@@ -8993,6 +8993,23 @@ Tune to @var{cpu-type} everything applic
+--- doc/invoke.texi	2006-10-25 18:27:35.000000000 +0200
++++ doc/invoke.texi	2006-10-25 18:27:49.000000000 +0200
+@@ -8999,6 +8999,23 @@
  for the ABI and the set of available instructions.  The choices for
  @var{cpu-type} are:
  @table @emph
@@ -52,7 +52,7 @@ exit 0
  @item i386
  Original Intel's i386 CPU@.
  @item i486
-@@ -9001,8 +9018,11 @@ Intel's i486 CPU@.  (No scheduling is im
+@@ -9007,8 +9024,11 @@
  Intel Pentium CPU with no MMX support.
  @item pentium-mmx
  Intel PentiumMMX CPU based on Pentium core with MMX instruction set support.

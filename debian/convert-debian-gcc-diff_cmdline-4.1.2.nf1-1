@@ -1,0 +1,1 @@
+perl debian/convert-debian-gcc-diff ../gcc-4.1-4.1.2-12/debian/patches svn-doc-updates.dpatch rename-info-files.dpatch gcc-long-double-doc.dpatch pr25524-doc.dpatch pr26885-doc.dpatch gcc-4.1-x86-blended-doc.dpatch alpha-ieee-doc.dpatch sparc-niagara-doc.dpatch

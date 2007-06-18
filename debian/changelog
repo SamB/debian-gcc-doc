@@ -1,3 +1,15 @@
+gcc-4.1-doc-non-dfsg (4.1.2.nf1-1) unstable; urgency=low
+
+  * Resynced against upstream gcc 4.1.2 and debian gcc 4.1.2-12
+    (but excluded libjava-backport-doc-updates2.dpatch that does not apply).
+  * Fixed typo in gcc-doc-base package description. Closes: #404308.
+  * Added ada documentation package. Closes: #418635. Thanks to
+    Michael Bode <michael_bode@gmx.net> for the patch.
+  * Still no java documentation, sorry. Patches welcome :).
+  * Register treelang documentation in doc-base.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Tue, 19 Jun 2007 00:48:09 +0400
+
 gcc-4.1-doc-non-dfsg (4.1.1.nf3-1) unstable; urgency=high
 
   * Rebiuld .orig.tar.gz, to include gpl.7, gfdl.7, and fsf-funding.7
