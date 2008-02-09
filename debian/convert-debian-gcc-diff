@@ -85,7 +85,7 @@ if (! -d $dir) {
 }
 my @patches;
 if (! -d "debian/" || ! -e "debian/convert-debian-gcc-diff") {
-	die "Please run trhis script from top-level directory of gcc-*-doc-non-dfsg package.";
+	die "Please run this script from top-level directory of gcc-*-doc-non-dfsg package.";
 }
 system("rm -f debian/patches/from-debian-gcc-*");
 for my $file (@ARGV) {
@@ -97,6 +97,7 @@ for my $file (@ARGV) {
 	print F $converted;
 	close F;
 	chmod 0755, $full_converted_name;
+	$converted_name =~ s/[.]dpatch$//;
 	push @patches, $converted_name;
 }
 open F, "debian/patches/00list" or die "failed to open debian/patches/00list";

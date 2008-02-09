@@ -1,0 +1,1 @@
+perl debian/convert-debian-gcc-diff ../gcc-4.2-4.2.3-1/debian/patches rename-info-files.dpatch gcc-directives-only-doc.dpatch gcc-ssp-default.dpatch i386-biarch-doc.dpatch alpha-ieee-doc.dpatch sparc-niagara2-doc.dpatch

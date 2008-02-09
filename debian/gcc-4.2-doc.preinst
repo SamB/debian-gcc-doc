@@ -1,0 +1,10 @@
+#! /bin/sh -e
+
+if [ -L /usr/share/doc/gcc-4.2-doc ]; then
+    echo "Removing old /usr/share/doc/gcc-4.2-doc symlink."
+    rm -f /usr/share/doc/gcc-4.2-doc
+fi
+
+#DEBHELPER#
+
+exit 0

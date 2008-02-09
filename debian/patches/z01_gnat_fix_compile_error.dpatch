@@ -4,9 +4,9 @@
 ## DP: fix compilation of ada documentation.
 
 @DPATCH@
-diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_rm.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_rm.texi
---- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_rm.texi	2005-11-16 12:06:33.000000000 +0300
-+++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_rm.texi	2007-06-19 00:02:51.166722719 +0400
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_rm.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_rm.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_rm.texi	2005-11-16 12:06:33.000000000 +0300
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_rm.texi	2007-06-19 00:02:51.166722719 +0400
 @@ -2938,7 +2938,7 @@
  declared in units to which the pragma applies. For a detailed
  description of the strict aliasing optimization, and the situations
@@ -16,9 +16,9 @@ diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_rm.texi gcc-4.1-doc-non-dfs
  
  @node Pragma Normalize_Scalars
  @unnumberedsec Pragma Normalize_Scalars
-diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_ugn.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_ugn.texi
---- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_ugn.texi	2005-11-16 12:04:50.000000000 +0300
-+++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_ugn.texi	2007-06-18 23:58:21.197955775 +0400
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_ugn.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_ugn.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_ugn.texi	2005-11-16 12:04:50.000000000 +0300
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_ugn.texi	2007-06-18 23:58:21.197955775 +0400
 @@ -77,6 +77,8 @@
  @c
  @c oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo

@@ -1,10 +1,9 @@
-from-debian-gcc-svn-doc-updates.dpatch
-from-debian-gcc-rename-info-files.dpatch
-from-debian-gcc-gcc-long-double-doc.dpatch
-from-debian-gcc-pr25524-doc.dpatch
-from-debian-gcc-pr26885-doc.dpatch
-from-debian-gcc-gcc-4.1-x86-blended-doc.dpatch
-from-debian-gcc-alpha-ieee-doc.dpatch
-from-debian-gcc-sparc-niagara-doc.dpatch
+from-debian-gcc-rename-info-files
+from-debian-gcc-gcc-directives-only-doc
+from-debian-gcc-gcc-ssp-default
+from-debian-gcc-i386-biarch-doc
+from-debian-gcc-alpha-ieee-doc
+from-debian-gcc-sparc-niagara2-doc
 z01_gnat_fix_compile_error
 z02_gnat_fix_info_directory
+z03_fix-rename-info-files

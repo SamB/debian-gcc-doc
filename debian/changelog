@@ -1,3 +1,14 @@
+gcc-4.2-doc-non-dfsg (4.2.3.nf1-1) unstable; urgency=low
+
+  * Packaged documentation files for gcc and gnat version 4.2.3.
+  * Added gccinstall info document, since it is referenced by
+    other info documents.
+  * Use debian/compat instead of DH_COMPAT in debian/rules.
+  * Removed Build-Depends: conent from Build-Depends-Indep.
+  * Bumped Standards-Version to 3.7.3.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sat,  9 Feb 2008 23:36:50 +0300
+
 gcc-4.1-doc-non-dfsg (4.1.2.nf1-1) unstable; urgency=low
 
   * Resynced against upstream gcc 4.1.2 and debian gcc 4.1.2-12
@@ -16,7 +27,7 @@ gcc-4.1-doc-non-dfsg (4.1.1.nf3-1) unstable; urgency=high
     man pages.
   * New binary package gcc-doc-base that provides these manpages.
     Closes: #389075.
-  * Resync debian gcc patches, using gcc-4.1 4.1.1sd1-15.
+  * Resync debian gcc patches, using gcc-4.1 4.1.1ds1-15.
     Closes: #389076.
     However, documentation will eventially become out of sync, so
     resync should be done after each gcc-4.1 package upload.

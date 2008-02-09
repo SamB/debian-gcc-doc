@@ -4,39 +4,39 @@
 ## DP: Better entries for info directory.
 
 @DPATCH@
-diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat-style.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat-style.texi
---- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat-style.texi	2005-11-15 17:05:45.000000000 +0300
-+++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat-style.texi	2007-06-19 01:16:55.533798268 +0400
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat-style.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat-style.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat-style.texi	2005-11-15 17:05:45.000000000 +0300
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat-style.texi	2007-06-19 01:16:55.533798268 +0400
 @@ -30,7 +30,7 @@
  
  @dircategory Programming
  @direntry
 -* gnat-style: (gnat-style).      GNAT Coding Style
-+* gnat-style: (gnat-style-4.1).      GNAT Coding Style
++* gnat-style: (gnat-style-4.2).      GNAT Coding Style
  @end direntry
  
  @macro syntax{element}
-diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_rm.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_rm.texi
---- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_rm.texi	2007-06-19 01:16:08.551753131 +0400
-+++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_rm.texi	2007-06-19 01:16:26.918988893 +0400
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_rm.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_rm.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_rm.texi	2007-06-19 01:16:08.551753131 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_rm.texi	2007-06-19 01:16:26.918988893 +0400
 @@ -28,7 +28,7 @@
  
  @dircategory GNU Ada tools
  @direntry
 -* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
-+* GNAT Reference Manual: (gnat_rm-4.1).  Reference Manual for GNAT and it's library.
++* GNAT Reference Manual: (gnat_rm-4.2).  Reference Manual for GNAT and it's library.
  @end direntry
  
  @copying
-diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_ugn.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_ugn.texi
---- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/ada/gnat_ugn.texi	2007-06-19 01:16:08.563752631 +0400
-+++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/ada/gnat_ugn.texi	2007-06-19 01:16:43.834285069 +0400
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_ugn.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_ugn.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/gcc/ada/gnat_ugn.texi	2007-06-19 01:16:08.563752631 +0400
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/gcc/ada/gnat_ugn.texi	2007-06-19 01:16:43.834285069 +0400
 @@ -103,7 +103,7 @@
  @settitle @value{EDITION} User's Guide @value{PLATFORM}
  @dircategory GNU Ada tools
  @direntry
 -* @value{EDITION} User's Guide (@value{FILE}) @value{PLATFORM}
-+* @value{EDITION} User's Guide: (gnat_ugn-4.1).  User's Guide for GNAT.
++* @value{EDITION} User's Guide: (gnat_ugn-4.2).  User's Guide for GNAT.
  @end direntry
  
  @include gcc-common.texi
