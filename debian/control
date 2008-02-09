@@ -4,18 +4,9 @@ Priority: optional
 Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
 Uploaders:
  Nikita V. Youshchenko <yoush@debian.org>
-Build-Depends-Indep: debhelper (>> 5), texinfo, perl, dpatch
 Build-Depends: debhelper (>> 5), dpatch
-Standards-Version: 3.7.2
-
-Package: gcc-doc-base
-Architecture: all
-Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Replaces: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Description: several GNU manual pages
- This package provides gfdl.7, gpl.7, and fsf-funding.7 manual pages,
- which should be available together with gcc man pages to fit
- GNU Free Documentation License requirements.
+Build-Depends-Indep: texinfo, perl
+Standards-Version: 3.7.3
 
 Package: gcc-4.1-doc
 Architecture: all

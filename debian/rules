@@ -1,7 +1,5 @@
 #!/usr/bin/make -f
 
-export DH_COMPAT=5
-
 build: build-stamp
 build-stamp: patch-stamp
 	dh_testdir
@@ -18,10 +16,9 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
-	-$(MAKE) clean
+	$(MAKE) clean
 	debian/rules unpatch
 	dh_clean
-
 
 binary-indep: build install
 	dh_testdir
@@ -31,6 +28,9 @@ binary-indep: build install
 	dh_installman -i
 	dh_installinfo -i
 	dh_link -i
+	mkdir -p debian/cpp-4.1-doc/usr/share/lintian/overrides
+	cp debian/cpp-4.1-doc.lintian-overrides \
+		debian/cpp-4.1-doc/usr/share/lintian/overrides/cpp-4.1-doc
 	dh_compress -i
 	dh_fixperms -i
 	dh_installdeb -i

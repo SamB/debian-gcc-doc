@@ -1,0 +1,18 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## z02_gccinstall-fix-name.dpatch by  <yoush@debian.org>
+##
+## DP: rename gccinstall info file.
+
+@DPATCH@
+diff -urNad gcc-4.1-doc-non-dfsg-4.1.2.nf1~/doc/install.texi gcc-4.1-doc-non-dfsg-4.1.2.nf1/doc/install.texi
+--- gcc-4.1-doc-non-dfsg-4.1.2.nf1~/doc/install.texi	2008-02-09 19:52:31.841985035 +0300
++++ gcc-4.1-doc-non-dfsg-4.1.2.nf1/doc/install.texi	2008-02-09 19:53:14.135149494 +0300
+@@ -89,7 +89,7 @@
+ @end ifinfo
+ @dircategory Programming
+ @direntry
+-* gccinstall: (gccinstall).    Installing the GNU Compiler Collection.
++* @value{fngccinstall}: (@value{fngccinstall}).    Installing the GNU Compiler Collection.
+ @end direntry
+ 
+ @c Part 3 Titlepage and Copyright

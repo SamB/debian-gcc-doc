@@ -5,6 +5,11 @@ if [ -L /usr/share/doc/cpp-4.1-doc ]; then
     rm -f /usr/share/doc/cpp-4.1-doc
 fi
 
+if grep -q cppint-4.1 /usr/share/info/dir; then
+    echo "Removing broken cppint-4.1 info entry."
+    install-info --quiet --remove-exactly cppint-4.1
+fi
+
 #DEBHELPER#
 
 exit 0

@@ -1,3 +1,23 @@
+gcc-4.1-doc-non-dfsg (4.1.2.nf2-1) unstable; urgency=low
+
+  * Really upload! Somehow 4.1.2.nf1-1 got lost?..
+  * Resynced against debian gcc 4.1.2-19.
+  * No longer build gcc-doc-base package - it should be built from
+    gcc-4.2-doc-non-dfsg source.
+    - Rebuilt .orig.tar.gz to remove content of gcc-doc-base.
+  * Added gccinstall info document, since it is referenced by
+    other info documents.
+  * Fixed info dir entry for cppinternals document.
+    - Added cleanup code to cpp-4.1-doc preinst that removes broken entry
+      from info dir.
+    - Added lintian overrides to stop lintian error caused by that code.
+    code that removes broken entry on package upgrade.
+  * Use debian/compat instead of DH_COMPAT in debian/rules.
+  * Removed Build-Depends: conent from Build-Depends-Indep.
+  * Bumped Standards-Version to 3.7.3.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sat,  9 Feb 2008 23:38:37 +0300
+
 gcc-4.1-doc-non-dfsg (4.1.2.nf1-1) unstable; urgency=low
 
   * Resynced against upstream gcc 4.1.2 and debian gcc 4.1.2-12
