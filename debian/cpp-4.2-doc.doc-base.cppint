@@ -6,7 +6,7 @@ Abstract: This brief manual documents the internals of cpplib, and
  the comments in the source code, a reasonably competent C programmer
  should be able to figure out what the code is doing, and why things
  have been implemented the way they have.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/cpp-4.2-doc/cppinternals.html

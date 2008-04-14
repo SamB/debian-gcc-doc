@@ -1,3 +1,15 @@
+gcc-4.2-doc-non-dfsg (4.2.3.nf2-1) unstable; urgency=low
+
+  * No longer build gcc-doc-base package - it should be built from
+    gcc-4.3-doc-non-dfsg source.
+    - Rebuilt .orig.tar.gz to remove content of gcc-doc-base.
+  * Resynced against debian gcc 4.2.3-3.
+    - Manually fixed failed rename-info-files patch.
+    - Resynced debian/z*.dpatch
+  * Fixed doc-base sections to match doc-base policy. Thanks lintian.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Tue, 15 Apr 2008 00:03:22 +0400
+
 gcc-4.2-doc-non-dfsg (4.2.3.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc and gnat version 4.2.3.

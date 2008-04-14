@@ -4,7 +4,7 @@ Author: Various
 Abstract: Most of GNAT is written in Ada using a consistent style
  to ensure readability of the code. This document has been written
  to help maintain this consistent style.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/gnat-4.2-doc/gnat-style.html

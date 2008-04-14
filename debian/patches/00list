@@ -1,3 +1,4 @@
+from-debian-gcc-svn-doc-updates
 from-debian-gcc-rename-info-files
 from-debian-gcc-gcc-directives-only-doc
 from-debian-gcc-gcc-ssp-default
@@ -6,4 +7,3 @@ from-debian-gcc-alpha-ieee-doc
 from-debian-gcc-sparc-niagara2-doc
 z01_gnat_fix_compile_error
 z02_gnat_fix_info_directory
-z03_fix-rename-info-files

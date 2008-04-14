@@ -3,7 +3,7 @@ Title: The GNU Fortran Compiler, version 4.2
 Author: Various
 Abstract: This manual documents how to run, install and port `gfortran',
  as well as its new features and incompatibilities, and how to report bugs.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/gfortran-4.2-doc/gfortran.html

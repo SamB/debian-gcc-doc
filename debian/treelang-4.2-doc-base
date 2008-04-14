@@ -4,7 +4,7 @@ Author: Tim Josling
 Abstract: This file documents the use and the internals of the GNU Treelang
  compiler. At the moment this manual is not incorporated into the main
  GCC manual as it is too incomplete.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/treelang-4.2-doc/treelang.html

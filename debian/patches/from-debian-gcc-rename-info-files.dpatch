@@ -1,34 +1,49 @@
-#!/bin/sh -e
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## from-debian-gcc-rename-info-files.dpatch by  <yoush@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description.
 
-# DP: This patch was converted from rename-info-files.dpatch
-# DP: Original comment:
-# DP:
-# DP: Allow transformations on info file names. Reference the
-# DP: transformed info file names in the texinfo files.
-
-dir=
-if [ $# -eq 3 -a "$2" = '-d' ]; then
-    pdir="-d $3"
-    dir="$3/"
-elif [ $# -ne 1 ]; then
-    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-    exit 1
-fi
-case "$1" in
-    -patch)
-        patch $pdir -f --no-backup-if-mismatch -p0 < $0
-        ;;
-    -unpatch)
-        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
-        ;;
-    *)
-        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-        exit 1
-esac
-exit 0
-
---- gcc/doc/cpp.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/cpp.texi	2007-03-22 14:32:35.000000000 +0100
+@DPATCH@
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat-style.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat-style.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat-style.texi	2008-02-09 20:36:35.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat-style.texi	2008-04-14 23:47:43.525839059 +0400
+@@ -31,7 +31,7 @@
+ 
+ @dircategory Software development
+ @direntry
+-* gnat-style: (gnat-style).      GNAT Coding Style
++* gnat-style: (gnat-style-4.2).      GNAT Coding Style
+ @end direntry
+ 
+ @macro syntax{element}
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_rm.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_rm.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_rm.texi	2008-04-14 23:47:43.317852382 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_rm.texi	2008-04-14 23:47:43.533838546 +0400
+@@ -28,7 +28,7 @@
+ 
+ @dircategory GNU Ada tools
+ @direntry
+-* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
++* GNAT Reference Manual: (gnat_rm-4.2).  Reference Manual for GNU Ada tools.
+ @end direntry
+ 
+ @copying
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_ugn.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_ugn.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_ugn.texi	2008-04-14 23:47:43.329851613 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_ugn.texi	2008-04-14 23:47:43.549837521 +0400
+@@ -90,7 +90,7 @@
+ 
+ @ifset unw
+ @set PLATFORM
+-@set FILE gnat_ugn_unw
++@set FILE gnat_ugn_unw-4.2
+ @end ifset
+ 
+ @ifset vms
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cpp.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cpp.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cpp.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cpp.texi	2008-04-14 23:47:43.505840340 +0400
 @@ -52,7 +52,7 @@
  @ifinfo
  @dircategory Software development
@@ -38,8 +53,9 @@ exit 0
  @end direntry
  @end ifinfo
  
---- gcc/doc/cppinternals.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/cppinternals.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cppinternals.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cppinternals.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cppinternals.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cppinternals.texi	2008-04-14 23:47:43.505840340 +0400
 @@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development
@@ -49,9 +65,10 @@ exit 0
  @end direntry
  @end ifinfo
  
---- gcc/doc/extend.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/extend.texi	2007-03-22 14:32:35.000000000 +0100
-@@ -10384,7 +10384,7 @@
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/extend.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/extend.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/extend.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/extend.texi	2008-04-14 23:47:43.513839827 +0400
+@@ -10392,7 +10392,7 @@
  test for the GNU compiler the same way as for C programs: check for a
  predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
  test specifically for GNU C++ (@pxref{Common Predefined Macros,,
@@ -60,8 +77,9 @@ exit 0
  
  @menu
  * Volatiles::		What constitutes an access to a volatile object.
---- gcc/doc/gcc.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/gcc.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gcc.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gcc.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gcc.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gcc.texi	2008-04-14 23:47:43.513839827 +0400
 @@ -64,7 +64,7 @@
  @ifnottex
  @dircategory Software development
@@ -80,8 +98,9 @@ exit 0
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
---- gcc/doc/gccint.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/gccint.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gccint.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gccint.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gccint.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gccint.texi	2008-04-14 23:47:43.513839827 +0400
 @@ -50,7 +50,7 @@
  @ifnottex
  @dircategory Software development
@@ -100,9 +119,22 @@ exit 0
  Compiler Collection (GCC)}.
  
  This manual is mainly a reference manual rather than a tutorial.  It
---- gcc/doc/invoke.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/invoke.texi	2007-03-22 14:32:35.000000000 +0100
-@@ -6574,7 +6574,7 @@
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/install.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/install.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/install.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/install.texi	2008-04-14 23:47:43.525839059 +0400
+@@ -96,7 +96,7 @@
+ @end ifinfo
+ @dircategory Software development
+ @direntry
+-* gccinstall: (gccinstall).    Installing the GNU Compiler Collection.
++* @value{fngccinstall}: (@value{fngccinstall}).    Installing the GNU Compiler Collection.
+ @end direntry
+ 
+ @c Part 3 Titlepage and Copyright
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/invoke.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi	2008-04-14 23:47:43.305853150 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/invoke.texi	2008-04-14 23:47:43.521839315 +0400
+@@ -6616,7 +6616,7 @@
  @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
  that GCC uses to overcome shortcomings of particular machines, or special
  needs for some languages.
@@ -111,7 +143,7 @@ exit 0
  Collection (GCC) Internals},
  for more discussion of @file{libgcc.a}.)
  In most cases, you need @file{libgcc.a} even when you want to avoid
-@@ -6582,7 +6582,7 @@
+@@ -6624,7 +6624,7 @@
  or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
  This ensures that you have no unresolved references to internal GCC
  library subroutines.  (For example, @samp{__main}, used to ensure C++
@@ -120,7 +152,7 @@ exit 0
  GNU Compiler Collection (GCC) Internals}.)
  
  @item -pie
-@@ -13714,7 +13714,7 @@
+@@ -13775,7 +13775,7 @@
  @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
  take precedence over places specified using environment variables, which
  in turn take precedence over those specified by the configuration of GCC@.
@@ -129,7 +161,7 @@ exit 0
  GNU Compiler Collection (GCC) Internals}.
  
  @table @env
-@@ -13866,7 +13866,7 @@
+@@ -13927,7 +13927,7 @@
  
  A precompiled header file will be searched for when @code{#include} is
  seen in the compilation.  As it searches for the included file
@@ -138,8 +170,9 @@ exit 0
  compiler looks for a precompiled header in each directory just before it
  looks for the include file in that directory.  The name searched for is
  the name specified in the @code{#include} with @samp{.gch} appended.  If
---- gcc/doc/libgcc.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/libgcc.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/libgcc.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/libgcc.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/libgcc.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/libgcc.texi	2008-04-14 23:47:43.521839315 +0400
 @@ -24,7 +24,7 @@
  GCC will also generate calls to C library routines, such as
  @code{memcpy} and @code{memset}, in some cases.  The set of routines
@@ -149,8 +182,9 @@ exit 0
  
  These routines take arguments and return values of a specific machine
  mode, not a specific C type.  @xref{Machine Modes}, for an explanation
---- gcc/doc/makefile.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/makefile.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/makefile.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/makefile.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/makefile.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/makefile.texi	2008-04-14 23:47:43.521839315 +0400
 @@ -139,7 +139,7 @@
  @item profiledbootstrap
  Builds a compiler with profiling feedback information.  For more
@@ -160,8 +194,9 @@ exit 0
  
  @item restrap
  Restart a bootstrap, so that everything that was not built with
---- gcc/doc/passes.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/passes.texi	2007-03-22 14:33:29.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/passes.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/passes.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/passes.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/passes.texi	2008-04-14 23:47:43.521839315 +0400
 @@ -191,7 +191,7 @@
  @item Mudflap declaration registration
  
@@ -171,30 +206,73 @@ exit 0
  enabled, we generate code to register some variable declarations with
  the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
  those variable declarations that have their addresses taken, or whose
---- gcc/doc/standards.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/doc/standards.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/standards.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/standards.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/standards.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/standards.texi	2008-04-14 23:47:43.521839315 +0400
 @@ -188,8 +188,8 @@
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
  
 -@xref{Standards,,Standards, gfortran, The GNU Fortran Compiler}, for details
-+@xref{Standards,,Standards, @value{gfortran}, The GNU Fortran Compiler}, for details
++@xref{Standards,,Standards, @value{fngfortran}, The GNU Fortran Compiler}, for details
  of standards supported by GNU Fortran.
  
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
-+@xref{Compatibility,,Compatibility with the Java Platform, @value{gcj}, GNU gcj},
++@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
---- gcc/java/gcj.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/java/gcj.texi	2007-03-22 14:32:35.000000000 +0100
-@@ -59,7 +59,7 @@
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/fortran/gfortran.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/fortran/gfortran.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/fortran/gfortran.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/fortran/gfortran.texi	2008-04-14 23:47:43.549837521 +0400
+@@ -102,7 +102,7 @@
+ @ifinfo
+ @dircategory Software development
+ @direntry
+-* gfortran: (gfortran).                  The GNU Fortran Compiler.
++* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
+ @end direntry
+ This file documents the use and the internals of
+ the GNU Fortran compiler, (@command{gfortran}).
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/java/gcj.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/java/gcj.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/java/gcj.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/java/gcj.texi	2008-04-14 23:50:19.331851982 +0400
+@@ -59,27 +59,27 @@
  @format
  @dircategory Software development
  @direntry
 -* Gcj: (gcj).               Ahead-of-time compiler for the Java language
-+* @value{fngcj}: (@value{fngcj}).               Ahead-of-time compiler for the Java language
++* Gcj: (@value{fngcj}).               Ahead-of-time compiler for the Java language
  @end direntry
  
  @dircategory Individual utilities
+ @direntry
+-* gcjh: (gcj)Invoking gcjh.
++* gcjh: (@value{fngcj})Invoking gcjh.
+                             Generate header files from Java class files
+-* gjnih: (gcj)Invoking gjnih.
++* gjnih: (@value{fngcj})Invoking gjnih.
+                             Generate JNI header files from Java class files
+-* jv-scan: (gcj)Invoking jv-scan.
++* jv-scan: (@value{fngcj})Invoking jv-scan.
+                             Print information about Java source files
+-* jcf-dump: (gcj)Invoking jcf-dump.
++* jcf-dump: (@value{fngcj})Invoking jcf-dump.
+                             Print information about Java class files
+-* gij: (gcj)Invoking gij.   GNU interpreter for Java bytecode
+-* gcj-dbtool: (gcj)Invoking gcj-dbtool.
++* gij: (@value{fngcj})Invoking gij.   GNU interpreter for Java bytecode
++* gcj-dbtool: (@value{fngcj})Invoking gcj-dbtool.
+                             Tool for manipulating class file databases.
+-* jv-convert: (gcj)Invoking jv-convert.
++* jv-convert: (@value{fngcj})Invoking jv-convert.
+                             Convert file from one encoding to another
+-* grmic: (gcj)Invoking grmic.
++* grmic: (@value{fngcj})Invoking grmic.
+                             Generate stubs for Remote Method Invocation.
+-* grmiregistry: (gcj)Invoking grmiregistry.
++* grmiregistry: (@value{fngcj})Invoking grmiregistry.
+                             The remote object registry.
+ @end direntry
+ @end format
 @@ -164,7 +164,7 @@
  
  As @command{gcj} is just another front end to @command{gcc}, it supports many
@@ -204,18 +282,9 @@ exit 0
  options specific to @command{gcj}.
  
  @c man end
---- gcc/fortran/gfortran.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/fortran/gfortran.texi	2007-03-22 14:32:35.000000000 +0100
-@@ -103,6 +103,7 @@
- @dircategory Software development
- @direntry
- * gfortran: (gfortran).                  The GNU Fortran Compiler.
-+* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
- @end direntry
- This file documents the use and the internals of
- the GNU Fortran compiler, (@command{gfortran}).
---- gcc/treelang/treelang.texi	2007-03-22 14:32:10.000000000 +0100
-+++ gcc/treelang/treelang.texi	2007-03-22 14:32:35.000000000 +0100
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/treelang/treelang.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/treelang/treelang.texi
+--- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/treelang/treelang.texi	2008-02-09 20:36:36.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/treelang/treelang.texi	2008-04-14 23:47:43.553837265 +0400
 @@ -102,7 +102,7 @@
  @ifnottex
  @dircategory Software development
