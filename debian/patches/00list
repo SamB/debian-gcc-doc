@@ -4,7 +4,6 @@ from-debian-gcc-alpha-ieee-doc
 from-debian-gcc-gcc-4.1-x86-blended-doc
 from-debian-gcc-gcc-directives-only-doc
 from-debian-gcc-gcc-long-double-doc
-from-debian-gcc-gcc-ssp-default
 from-debian-gcc-gcc-ssp-on
 from-debian-gcc-gcc-vis-r116505-doc
 from-debian-gcc-gcc-vis-r116507-doc

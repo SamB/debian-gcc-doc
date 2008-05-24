@@ -5,7 +5,7 @@ Abstract: This manual contains useful information in writing programs using
  the GNAT compiler. It includes information on implementation dependent
  characteristics of GNAT, including all the information required by Annex M
  of the standard.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/gnat-4.1-doc/gnat_rm.html

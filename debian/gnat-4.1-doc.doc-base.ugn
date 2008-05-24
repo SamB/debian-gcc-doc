@@ -5,7 +5,7 @@ Abstract: This guide describes the use of GNAT, a compiler and
  software development toolset for the full Ada 95 programming
  language. It describes the features of the compiler and tools,
  and details how to use them to build Ada 95 applications.
-Section: Apps/Programming
+Section: Programming
 
 Format: html
 Index: /usr/share/doc/gnat-4.1-doc/gnat_ugn.html

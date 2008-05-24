@@ -2,11 +2,13 @@ I_DOC = gcc gccint cpp cppinternals
 I_FORTRAN = gfortran
 I_TREELANG = treelang
 I_ADA = gnat-style gnat_rm gnat_ugn
-I = $(I_DOC) $(I_FORTRAN) $(I_TREELANG) $(I_ADA)
+I_GCJ = gcj
+I = $(I_DOC) $(I_FORTRAN) $(I_TREELANG) $(I_ADA) $(I_GCJ)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
 HTMLDOCS = $(I:%=%.html)
 
-M1 = gcc gcov cpp gfortran
+GCJ_M1 = gcj gij jcf-dump jv-convert grmic gcj-dbtool gc-analyse
+M1 = gcc gcov cpp gfortran $(GCJ_M1)
 M = $(M1)
 MANS = $(M:%=%-$(VER).1)
 PODS = $(M:%=%.pod)
@@ -56,6 +58,12 @@ $(I_ADA:%=%-$(VER).info) : %-$(VER).info : ada/%.texi gcc-vers.texi
 $(I_ADA:%=%.html) : %.html : ada/%.texi gcc-vers.texi
 	$(MKINFO) -D unw --html --no-split -Idoc -Idoc/include -o $@ $<
 
+$(I_GCJ:%=%-$(VER).info) : %-$(VER).info : java/%.texi gcc-vers.texi
+	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
+
+$(I_GCJ:%=%.html) : %.html : java/%.texi gcc-vers.texi
+	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
+
 %-$(VER).1 : %.pod
 	pod2man --center="GNU" --release="gcc-$(FULLVER)" --section=1 $< > $@
 
@@ -70,6 +78,9 @@ cpp.pod : doc/cpp.texi gcc-vers.texi
 
 gfortran.pod: fortran/invoke.texi gcc-vers.texi
 	(cd fortran && perl ../texi2pod.pl) < $< > $@
+
+$(GCJ_M1:%=%.pod) : %.pod : java/gcj.texi gcc-vers.texi
+	(cd java && perl ../texi2pod.pl -D$(@:%.pod=%)) < $< > $@
 
 gcc-vers.texi :
 	(echo @set version-GCC $(FULLVER); echo @clear DEVELOPMENT) > $@

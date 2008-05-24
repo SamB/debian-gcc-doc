@@ -13,7 +13,7 @@ Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
 Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Replaces: gcc (<=2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
+Replaces: gcc (<= 2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
 Description: documentation for the GNU compilers (gcc, gobjc, g++)
  This package contains manual pages and documentation in info and
  html format, for the GNU compilers.
@@ -79,6 +79,22 @@ Replaces: gnat-4.1 (<< 4.1.1-11)
 Description: documentation for the GNU Ada 95 Compiler (gnat)
  This package contains documentation in info and html format, for
  the GNU Ada 95 compiler.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.
+
+Package: gcj-4.1-doc
+Architecture: all
+Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Suggests: doc-base
+Conflicts: gcj-4.1 (<< 4.1.1-11), gij-4.1 (<< 4.1.1-11)
+Replaces: gcj-4.1 (<< 4.1.1-11), gij-4.1 (<< 4.1.1-11)
+Provides: gij-4.1-doc
+Description: documentation for the GNU Java tools (gcj, gij)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU Java Compiler, the GNU interpreter for Java
+ bytecode, and related tools.
  .
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be

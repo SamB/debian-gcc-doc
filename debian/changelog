@@ -1,3 +1,12 @@
+gcc-4.1-doc-non-dfsg (4.1.2.nf2-2) unstable; urgency=low
+
+  * Resynced against  debian gcc 4.1.2-22.
+    - Had to resolve failed hunks in svn-doc-updates.dpatch.
+  * Fixed doc-base sections to match doc-base policy. Thanks lintian.
+  * Added java documentation package. Closes: #394175, #405701.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sat, 24 May 2008 23:20:18 +0400
+
 gcc-4.1-doc-non-dfsg (4.1.2.nf2-1) unstable; urgency=low
 
   * Really upload! Somehow 4.1.2.nf1-1 got lost?..
