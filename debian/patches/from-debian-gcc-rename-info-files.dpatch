@@ -5,9 +5,9 @@
 ## DP: No description.
 
 @DPATCH@
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat-style.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat-style.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat-style.texi	2008-02-09 20:36:35.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat-style.texi	2008-04-14 23:47:43.525839059 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat-style.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat-style.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat-style.texi	2007-02-27 09:10:34.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat-style.texi	2008-05-24 22:05:34.570435103 +0400
 @@ -31,7 +31,7 @@
  
  @dircategory Software development
@@ -17,9 +17,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat-style.texi gcc-4.2-doc-
  @end direntry
  
  @macro syntax{element}
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_rm.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_rm.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_rm.texi	2008-04-14 23:47:43.317852382 +0400
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_rm.texi	2008-04-14 23:47:43.533838546 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat_rm.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat_rm.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat_rm.texi	2008-02-20 22:48:55.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat_rm.texi	2008-05-24 22:05:34.578434571 +0400
 @@ -28,7 +28,7 @@
  
  @dircategory GNU Ada tools
@@ -29,9 +29,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_rm.texi gcc-4.2-doc-non
  @end direntry
  
  @copying
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_ugn.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_ugn.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_ugn.texi	2008-04-14 23:47:43.329851613 +0400
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/ada/gnat_ugn.texi	2008-04-14 23:47:43.549837521 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat_ugn.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat_ugn.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/ada/gnat_ugn.texi	2008-02-20 22:48:55.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/ada/gnat_ugn.texi	2008-05-24 22:05:34.594433508 +0400
 @@ -90,7 +90,7 @@
  
  @ifset unw
@@ -41,9 +41,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/ada/gnat_ugn.texi gcc-4.2-doc-no
  @end ifset
  
  @ifset vms
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cpp.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cpp.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cpp.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cpp.texi	2008-04-14 23:47:43.505840340 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/cpp.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/cpp.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/cpp.texi	2007-03-12 21:50:38.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/cpp.texi	2008-05-24 22:05:34.550436431 +0400
 @@ -52,7 +52,7 @@
  @ifinfo
  @dircategory Software development
@@ -53,9 +53,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cpp.texi gcc-4.2-doc-non-dfs
  @end direntry
  @end ifinfo
  
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cppinternals.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cppinternals.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cppinternals.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/cppinternals.texi	2008-04-14 23:47:43.505840340 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/cppinternals.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/cppinternals.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/cppinternals.texi	2007-02-27 09:10:34.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/cppinternals.texi	2008-05-24 22:05:34.550436431 +0400
 @@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development
@@ -65,9 +65,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/cppinternals.texi gcc-4.2-do
  @end direntry
  @end ifinfo
  
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/extend.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/extend.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/extend.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/extend.texi	2008-04-14 23:47:43.513839827 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/extend.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/extend.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/extend.texi	2008-02-01 04:40:49.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/extend.texi	2008-05-24 22:05:34.554436166 +0400
 @@ -10392,7 +10392,7 @@
  test for the GNU compiler the same way as for C programs: check for a
  predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
@@ -77,9 +77,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/extend.texi gcc-4.2-doc-non-
  
  @menu
  * Volatiles::		What constitutes an access to a volatile object.
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gcc.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gcc.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gcc.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gcc.texi	2008-04-14 23:47:43.513839827 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/gcc.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/gcc.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/gcc.texi	2008-04-02 01:26:19.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/gcc.texi	2008-05-24 22:05:34.558435900 +0400
 @@ -64,7 +64,7 @@
  @ifnottex
  @dircategory Software development
@@ -98,9 +98,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gcc.texi gcc-4.2-doc-non-dfs
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gccint.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gccint.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gccint.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/gccint.texi	2008-04-14 23:47:43.513839827 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/gccint.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/gccint.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/gccint.texi	2008-04-02 01:26:19.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/gccint.texi	2008-05-24 22:05:34.558435900 +0400
 @@ -50,7 +50,7 @@
  @ifnottex
  @dircategory Software development
@@ -119,9 +119,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/gccint.texi gcc-4.2-doc-non-
  Compiler Collection (GCC)}.
  
  This manual is mainly a reference manual rather than a tutorial.  It
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/install.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/install.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/install.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/install.texi	2008-04-14 23:47:43.525839059 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/install.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/install.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/install.texi	2007-03-07 08:04:26.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/install.texi	2008-05-24 22:05:34.570435103 +0400
 @@ -96,7 +96,7 @@
  @end ifinfo
  @dircategory Software development
@@ -131,10 +131,10 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/install.texi gcc-4.2-doc-non
  @end direntry
  
  @c Part 3 Titlepage and Copyright
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/invoke.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi	2008-04-14 23:47:43.305853150 +0400
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/invoke.texi	2008-04-14 23:47:43.521839315 +0400
-@@ -6616,7 +6616,7 @@
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/invoke.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/invoke.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/invoke.texi	2008-05-12 22:04:51.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/invoke.texi	2008-05-24 22:05:34.566435368 +0400
+@@ -6625,7 +6625,7 @@
  @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
  that GCC uses to overcome shortcomings of particular machines, or special
  needs for some languages.
@@ -143,7 +143,7 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-
  Collection (GCC) Internals},
  for more discussion of @file{libgcc.a}.)
  In most cases, you need @file{libgcc.a} even when you want to avoid
-@@ -6624,7 +6624,7 @@
+@@ -6633,7 +6633,7 @@
  or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
  This ensures that you have no unresolved references to internal GCC
  library subroutines.  (For example, @samp{__main}, used to ensure C++
@@ -152,7 +152,7 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-
  GNU Compiler Collection (GCC) Internals}.)
  
  @item -pie
-@@ -13775,7 +13775,7 @@
+@@ -13784,7 +13784,7 @@
  @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
  take precedence over places specified using environment variables, which
  in turn take precedence over those specified by the configuration of GCC@.
@@ -161,7 +161,7 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-
  GNU Compiler Collection (GCC) Internals}.
  
  @table @env
-@@ -13927,7 +13927,7 @@
+@@ -13936,7 +13936,7 @@
  
  A precompiled header file will be searched for when @code{#include} is
  seen in the compilation.  As it searches for the included file
@@ -170,9 +170,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/invoke.texi gcc-4.2-doc-non-
  compiler looks for a precompiled header in each directory just before it
  looks for the include file in that directory.  The name searched for is
  the name specified in the @code{#include} with @samp{.gch} appended.  If
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/libgcc.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/libgcc.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/libgcc.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/libgcc.texi	2008-04-14 23:47:43.521839315 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/libgcc.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/libgcc.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/libgcc.texi	2006-01-18 03:39:23.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/libgcc.texi	2008-05-24 22:05:34.566435368 +0400
 @@ -24,7 +24,7 @@
  GCC will also generate calls to C library routines, such as
  @code{memcpy} and @code{memset}, in some cases.  The set of routines
@@ -182,9 +182,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/libgcc.texi gcc-4.2-doc-non-
  
  These routines take arguments and return values of a specific machine
  mode, not a specific C type.  @xref{Machine Modes}, for an explanation
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/makefile.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/makefile.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/makefile.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/makefile.texi	2008-04-14 23:47:43.521839315 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/makefile.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/makefile.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/makefile.texi	2006-10-16 23:51:55.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/makefile.texi	2008-05-24 22:05:34.566435368 +0400
 @@ -139,7 +139,7 @@
  @item profiledbootstrap
  Builds a compiler with profiling feedback information.  For more
@@ -194,9 +194,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/makefile.texi gcc-4.2-doc-no
  
  @item restrap
  Restart a bootstrap, so that everything that was not built with
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/passes.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/passes.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/passes.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/passes.texi	2008-04-14 23:47:43.521839315 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/passes.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/passes.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/passes.texi	2007-03-13 01:02:00.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/passes.texi	2008-05-24 22:05:34.566435368 +0400
 @@ -191,7 +191,7 @@
  @item Mudflap declaration registration
  
@@ -206,9 +206,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/passes.texi gcc-4.2-doc-non-
  enabled, we generate code to register some variable declarations with
  the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
  those variable declarations that have their addresses taken, or whose
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/standards.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/standards.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/standards.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/doc/standards.texi	2008-04-14 23:47:43.521839315 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/standards.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/standards.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/doc/standards.texi	2007-02-14 02:55:19.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/doc/standards.texi	2008-05-24 22:05:34.570435103 +0400
 @@ -188,8 +188,8 @@
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
@@ -220,9 +220,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/doc/standards.texi gcc-4.2-doc-n
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
 +@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/fortran/gfortran.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/fortran/gfortran.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/fortran/gfortran.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/fortran/gfortran.texi	2008-04-14 23:47:43.549837521 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/fortran/gfortran.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/fortran/gfortran.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/fortran/gfortran.texi	2008-04-02 01:26:19.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/fortran/gfortran.texi	2008-05-24 22:05:34.594433508 +0400
 @@ -102,7 +102,7 @@
  @ifinfo
  @dircategory Software development
@@ -232,15 +232,15 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/fortran/gfortran.texi gcc-4.2-do
  @end direntry
  This file documents the use and the internals of
  the GNU Fortran compiler, (@command{gfortran}).
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/java/gcj.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/java/gcj.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/java/gcj.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/java/gcj.texi	2008-04-14 23:50:19.331851982 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/java/gcj.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/java/gcj.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/java/gcj.texi	2008-04-02 01:26:19.000000000 +0400
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/java/gcj.texi	2008-05-24 22:08:02.124202811 +0400
 @@ -59,27 +59,27 @@
  @format
  @dircategory Software development
  @direntry
 -* Gcj: (gcj).               Ahead-of-time compiler for the Java language
-+* Gcj: (@value{fngcj}).               Ahead-of-time compiler for the Java language
++* @value{fngcj}: (@value{fngcj}).               Ahead-of-time compiler for the Java language
  @end direntry
  
  @dircategory Individual utilities
@@ -282,9 +282,9 @@ diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/java/gcj.texi gcc-4.2-doc-non-df
  options specific to @command{gcj}.
  
  @c man end
-diff -urNad gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/treelang/treelang.texi gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/treelang/treelang.texi
---- gcc-4.2-doc-non-dfsg-4.2.3.nf2~/gcc/treelang/treelang.texi	2008-02-09 20:36:36.000000000 +0300
-+++ gcc-4.2-doc-non-dfsg-4.2.3.nf2/gcc/treelang/treelang.texi	2008-04-14 23:47:43.553837265 +0400
+diff -urNad gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/treelang/treelang.texi gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/treelang/treelang.texi
+--- gcc-4.2-doc-non-dfsg-4.2.4.nf1~/gcc/treelang/treelang.texi	2007-02-27 09:10:34.000000000 +0300
++++ gcc-4.2-doc-non-dfsg-4.2.4.nf1/gcc/treelang/treelang.texi	2008-05-24 22:05:34.594433508 +0400
 @@ -102,7 +102,7 @@
  @ifnottex
  @dircategory Software development
