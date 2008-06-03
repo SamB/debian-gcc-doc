@@ -1,18 +1,19 @@
 I_GCC = gcc gccint cpp cppinternals
 I_FORTRAN = gfortran
-I_TREELANG = treelang
 I_ADA = gnat-style gnat_rm gnat_ugn
-I = $(I_GCC) $(I_FORTRAN) $(I_TREELANG) $(I_ADA)
+I_GCJ = gcj
+I = $(I_GCC) $(I_FORTRAN) $(I_ADA) $(I_GCJ)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
 HTMLDOCS = $(I:%=%.html)
 
-M1 = gcc gcov cpp gfortran
+GCJ_M1 = gcj gij jcf-dump jv-convert grmic gcj-dbtool gc-analyse
+M1 = gcc gcov cpp gfortran $(GCJ_M1)
 M = $(M1)
 MANS = $(M:%=%-$(VER).1)
 PODS = $(M:%=%.pod)
 
-VER = 4.2
-FULLVER = 4.2.3
+VER = 4.3
+FULLVER = 4.3.0
 
 GCCVERS = gcc/doc/gcc-vers.texi
 
@@ -22,13 +23,18 @@ GENFILES = $(TARGETS) $(PODS) $(GCCVERS)
 MKINFO_DEFINES := -D "fncpp cpp-$(VER)" \
 		  -D "fncppint cppinternals-$(VER)" \
 		  -D "fngcc gcc-$(VER)" \
+		  -D "fngxx g++-$(VER)" \
 		  -D "fngccint gccint-$(VER)" \
 		  -D "fngccinstall gccinstall-$(VER)" \
 		  -D "fngcj gcj-$(VER)" \
 		  -D "fngfortran gfortran-$(VER)" \
-		  -D "fntreelang treelang-$(VER)"
+		  -D "fntreelang treelang-$(VER)" \
+		  -D "BUGURL http://bugs.debian.org/"
 MKINFO_FLAGS := --no-split -Igcc/doc -Igcc/doc/include
 MKINFO = makeinfo $(MKINFO_DEFINES) $(MKINFO_FLAGS)
+
+TEXI2POD_DEFINES := -Dfngccint=gccint-$(VER) -DBUGURL=http://bugs.debian.org/
+TEXI2POD = perl ../../texi2pod.pl $(TEXI2POD_DEFINES)
 
 all : $(TARGETS)
 
@@ -47,32 +53,35 @@ $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : gcc/fortran/%.texi $(GCCVERS)
 $(I_FORTRAN:%=%.html) : %.html : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
 
-$(I_TREELANG:%=%-$(VER).info) : %-$(VER).info : gcc/treelang/%.texi $(GCCVERS)
-	$(MKINFO) -o $@ $<
-
-$(I_TREELANG:%=%.html) : %.html : gcc/treelang/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
-
 $(I_ADA:%=%-$(VER).info) : %-$(VER).info : gcc/ada/%.texi $(GCCVERS)
 	$(MKINFO) -D unw -o $@ $<
 
 $(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
 	$(MKINFO) -D unw --html -o $@ $<
 
+$(I_GCJ:%=%-$(VER).info) : %-$(VER).info : gcc/java/%.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
+
+$(I_GCJ:%=%.html) : %.html : gcc/java/%.texi $(GCCVERS)
+	$(MKINFO) --html -o $@ $<
+
 %-$(VER).1 : %.pod
 	pod2man --center="GNU" --release="gcc-$(FULLVER)" --section=1 $< > $@
 
 gcc.pod : gcc/doc/invoke.texi $(GCCVERS)
-	(cd gcc/doc && perl ../../texi2pod.pl -Dfngccint=gccint-$(VER)) < $< > $@
+	(cd gcc/doc && $(TEXI2POD)) < $< > $@
 
 gcov.pod : gcc/doc/gcov.texi $(GCCVERS)
-	(cd gcc/doc && perl ../../texi2pod.pl) < $< > $@
+	(cd gcc/doc && $(TEXI2POD)) < $< > $@
 
 cpp.pod : gcc/doc/cpp.texi $(GCCVERS)
-	(cd gcc/doc && perl ../../texi2pod.pl) < $< > $@
+	(cd gcc/doc && $(TEXI2POD)) < $< > $@
+
+$(GCJ_M1:%=%.pod) : %.pod : gcc/java/gcj.texi
+	(cd gcc/java && $(TEXI2POD) -D$(@:%.pod=%)) < $< > $@
 
 gfortran.pod: gcc/fortran/invoke.texi $(GCCVERS)
-	(cd gcc/fortran && perl ../../texi2pod.pl) < $< > $@
+	(cd gcc/fortran && $(TEXI2POD)) < $< > $@
 
 $(GCCVERS) :
 	(echo @set version-GCC $(FULLVER); \

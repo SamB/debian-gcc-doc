@@ -1,3 +1,12 @@
+gcc-4.3-doc-non-dfsg (4.3.0.nf1-1) unstable; urgency=low
+
+  * Packaged documentation files for gcc, gnat and gcj version 4.3.0.
+  * Removed treelang documentation package since treelang is no longer
+    in Debian.
+  * Mentioned AdaCore copyright on Ada documentation in debian/copyright.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Tue,  3 Jun 2008 23:37:00 +0400
+
 gcc-4.2-doc-non-dfsg (4.2.3.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc and gnat version 4.2.3.

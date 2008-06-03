@@ -1,4 +1,4 @@
-Source: gcc-4.2-doc-non-dfsg
+Source: gcc-4.3-doc-non-dfsg
 Section: non-free/doc
 Priority: optional
 Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
@@ -17,12 +17,12 @@ Description: several GNU manual pages
  which should be available together with gcc man pages to fit
  GNU Free Documentation License requirements.
 
-Package: gcc-4.2-doc
+Package: gcc-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
-Conflicts: gcc-docs (<< 2.95.2), gcc-4.2 (<< 4.2.3-1)
-Replaces: gcc (<=2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.2 (<< 4.2.3-1)
+Conflicts: gcc-docs (<< 2.95.2), gcc-4.3 (<< 4.3.0-1)
+Replaces: gcc (<= 2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.3 (<< 4.3.0-1)
 Description: documentation for the GNU compilers (gcc, gobjc, g++)
  This package contains manual pages and documentation in info and
  html format, for the GNU compilers.
@@ -31,12 +31,12 @@ Description: documentation for the GNU compilers (gcc, gobjc, g++)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: cpp-4.2-doc
+Package: cpp-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
-Conflicts: cpp-4.2 (<< 4.2.3-1)
-Replaces: cpp-4.2 (<< 4.2.3-1)
+Conflicts: cpp-4.3 (<< 4.3.0-1)
+Replaces: cpp-4.3 (<< 4.3.0-1)
 Description: documentation for the GNU C preprocessor (cpp)
  This package contains manual pages and documentation in info and
  html format, for the GNU C prerocessor.
@@ -45,12 +45,12 @@ Description: documentation for the GNU C preprocessor (cpp)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: gfortran-4.2-doc
+Package: gfortran-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
-Conflicts: gfortran-4.2 (<< 4.2.3-1)
-Replaces: gfortran-4.2 (<< 4.2.3-1)
+Conflicts: gfortran-4.3 (<< 4.3.0-1)
+Replaces: gfortran-4.3 (<< 4.3.0-1)
 Description: documentation for the GNU Fortran Compiler (gfortran)
  This package contains manual pages and documentation in info and
  html format, for the GNU Fortran 95 compiler.
@@ -59,35 +59,31 @@ Description: documentation for the GNU Fortran Compiler (gfortran)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: treelang-4.2-doc
+Package: gnat-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
-Conflicts: treelang-4.2 (<< 4.2.3-1)
-Replaces: treelang-4.2 (<< 4.2.3-1)
-Description: documentation for the GNU Treelang
+Conflicts: gnat-4.3 (<< 4.3.0-1)
+Replaces: gnat-4.3 (<< 4.3.0-1)
+Description: documentation for the GNU Ada 95 Compiler (gnat)
  This package contains documentation in info and html format, for
- the GNU Treelang.
- .
- Treelang is a sample language, useful only to help people understand how
- to implement a new language front end to GCC. It is not a useful
- language in itself other than as an example or basis for building a new
- language. Therefore only language developers are likely to have an
- interest in it.
+ the GNU Ada 95 compiler.
  .
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: gnat-4.2-doc
+Package: gcj-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
 Suggests: doc-base
-Conflicts: gnat-4.2 (<< 4.2.3-1)
-Replaces: gnat-4.2 (<< 4.2.3-1)
-Description: documentation for the GNU Ada 95 Compiler (gnat)
- This package contains documentation in info and html format, for
- the GNU Ada 95 compiler.
+Conflicts: gcj-4.3 (<< 4.3.0-1), gij-4.3 (<< 4.3.0-1)
+Replaces: gcj-4.3 (<< 4.3.0-1), gij-4.3 (<< 4.3.0-1)
+Provides: gij-4.3-doc
+Description: documentation for the GNU Java tools (gcj, gij)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU Java Compiler, the GNU interpreter for Java
+ bytecode, and related tools.
  .
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be
