@@ -50,26 +50,6 @@ Description: documentation for the GNU Fortran Compiler (gfortran)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: treelang-4.1-doc
-Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
-Suggests: doc-base
-Conflicts: treelang-4.1 (<< 4.1.1-11)
-Replaces: treelang-4.1 (<< 4.1.1-11)
-Description: documentation for the GNU Treelang
- This package contains documentation in info and html format, for
- the GNU Treelang.
- .
- Treelang is a sample language, useful only to help people understand how
- to implement a new language front end to GCC. It is not a useful
- language in itself other than as an example or basis for building a new
- language. Therefore only language developers are likely to have an
- interest in it.
- .
- This documentation is licensed under the terms of the GNU Free
- Documentation License, and contains invariant sections, so it can't be
- part of Debian main.
-
 Package: gnat-4.1-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)

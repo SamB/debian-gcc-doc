@@ -1,9 +1,8 @@
 I_DOC = gcc gccint cpp cppinternals
 I_FORTRAN = gfortran
-I_TREELANG = treelang
 I_ADA = gnat-style gnat_rm gnat_ugn
 I_GCJ = gcj
-I = $(I_DOC) $(I_FORTRAN) $(I_TREELANG) $(I_ADA) $(I_GCJ)
+I = $(I_DOC) $(I_FORTRAN) $(I_ADA) $(I_GCJ)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
 HTMLDOCS = $(I:%=%.html)
 
@@ -44,12 +43,6 @@ $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : fortran/%.texi gcc-vers.texi
 	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
 
 $(I_FORTRAN:%=%.html) : %.html : fortran/%.texi gcc-vers.texi
-	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
-
-$(I_TREELANG:%=%-$(VER).info) : %-$(VER).info : treelang/%.texi gcc-vers.texi
-	$(MKINFO) --no-split -Idoc -Idoc/include -o $@ $<
-
-$(I_TREELANG:%=%.html) : %.html : treelang/%.texi gcc-vers.texi
 	$(MKINFO) --html --no-split -Idoc -Idoc/include -o $@ $<
 
 $(I_ADA:%=%-$(VER).info) : %-$(VER).info : ada/%.texi gcc-vers.texi

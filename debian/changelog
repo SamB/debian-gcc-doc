@@ -1,3 +1,12 @@
+gcc-4.1-doc-non-dfsg (4.1.2.nf2-3) unstable; urgency=low
+
+  * Removed treelang documentation package (since treelang is no longer in
+    Debian).
+  * Mentioned AdaCore copyright on Ada documentation in debian/copyright.
+    Closes: #484340.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Tue,  3 Jun 2008 23:27:43 +0400
+
 gcc-4.1-doc-non-dfsg (4.1.2.nf2-2) unstable; urgency=low
 
   * Resynced against  debian gcc 4.1.2-22.
