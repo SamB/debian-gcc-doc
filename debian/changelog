@@ -1,3 +1,12 @@
+gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) UNRELEASED; urgency=low
+
+  * Rebuilt .orig.tar.gz using files from gcc-4.3.2 release.
+    + Removed treelang documentation from .orig.tar.gz - it is no longer
+      needed.
+  * Resynced debian patches against version 4.3.2-1 of gcc-4.3 package.
+
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sun, 28 Sep 2008 18:37:16 +0400
+
 gcc-4.3-doc-non-dfsg (4.3.0.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc, gnat and gcj version 4.3.0.

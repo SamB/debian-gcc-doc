@@ -237,35 +237,6 @@ exit 0
  @end direntry
  This file documents the use and the internals of
  the GNU Fortran compiler, (@command{gfortran}).
---- gcc/treelang/treelang.texi	2007-10-29 14:33:20.000000000 +0100
-+++ gcc/treelang/treelang.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -107,7 +107,7 @@ texts being (a) (see below), and with th
- @ifnottex
- @dircategory Software development
- @direntry
--* treelang: (treelang).                  The GNU Treelang compiler.
-+* @value{fntreelang}: (@value{fntreelang}).                  The GNU Treelang compiler.
- @end direntry
- @ifset INTERNALS
- @ifset USING
-@@ -260,7 +260,7 @@ James A. Morrison.
- @item
- The packaging and compiler portions of GNU Treelang are based largely
- on the GCC compiler.
--@xref{Contributors,,Contributors to GCC,GCC,Using and Maintaining GCC},
-+@xref{Contributors,,Contributors to GCC,@value{fngcc},Using and Maintaining GCC},
- for more information.
- 
- @item
-@@ -880,7 +880,7 @@ files and accepts Treelang-specific comm
- command-line options that are designed to cater to Treelang users
- but apply to other languages as well.
- 
--@xref{G++ and GCC,,Programming Languages Supported by GCC,GCC,Using
-+@xref{G++ and GCC,,Programming Languages Supported by GCC,@value{fngcc},Using
- the GNU Compiler Collection (GCC)},
- for information on the way different languages are handled
- by the GCC compiler (@code{gcc}).
 --- gcc/doc/install.texi	2008-01-30 11:21:55.000000000 +0100
 +++ gcc/doc/install.texi	2008-02-08 16:29:13.000000000 +0100
 @@ -96,7 +96,7 @@ Free Documentation License}''.
