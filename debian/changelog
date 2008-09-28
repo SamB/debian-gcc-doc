@@ -1,9 +1,9 @@
-gcc-4.4-doc-non-dfsg (4.4.4.nf1-1) UNRELEASED; urgency=low
+gcc-4.4-doc-non-dfsg (4.4.4.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc, gnat and gcj version 4.4.4.
   * Updated Standards-Version to 3.8.4.
 
- -- Nikita V. Youshchenko <yoush@debian.org>  Mon, 03 May 2010 10:29:04 +0400
+ -- Nikita V. Youshchenko <yoush@debian.org>  Mon, 03 May 2010 10:29:56 +0400
 
 gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) unstable; urgency=low
 
