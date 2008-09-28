@@ -7,8 +7,10 @@ gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) UNRELEASED; urgency=low
   * Resynced debian patches against version 4.3.2-1 of gcc-4.3 package.
   * Added debian/README.source with some packaging documentation. 
   * Added support for 'parallel=n' in DEB_BUILD_OPTIONS.
+  * Added a note to debian/copyright explaining why this package
+    is not part of debian main.
 
- -- Nikita V. Youshchenko <yoush@debian.org>  Sun, 28 Sep 2008 19:45:28 +0400
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sun, 28 Sep 2008 19:49:46 +0400
 
 gcc-4.3-doc-non-dfsg (4.3.0.nf1-1) unstable; urgency=low
 
