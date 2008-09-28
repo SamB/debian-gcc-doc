@@ -1,0 +1,65 @@
+This package provides documentation for debian GNU Compiler Collenction
+packages.
+
+Problem is the documentation is GFDL-licensed, and does contain invariant
+sections. This makes the documentation files undistributable by Debian.
+
+These files have beed extracted from gcc upstream tarball by hand, and packed
+together into gcc-X.Y-doc-non-dfsg .orig.tar.gz file. This work has to be
+redone for every new upstream release.
+
+Policy is to have only unmodified upstream files in .orig.tar.gz file.
+Everything else is added in the debian source package files.
+
+The debian gcc-X.Y-doc-non-dfsg debian package adds a Makefile and debian
+packaging files to that 'upstream' archive. Also, it applies several patches
+on the 'upstream' files, for two reasons:
+- since debian gcc differs from upstream gcc, some changes into documentation
+  are needed as well,
+- sometimes additional patching is required to make documentation build from
+  source.
+
+When moving to new 'upstream' version, don't forget to update VER and FULLVER
+Makefile variables.
+
+Patches are managed by 'dpatch' system.
+See /usr/share/doc/dpatch/README.source.gz (provided by dpatchpackage since
+version 2.0.30) for more information on how to work with dpatch-using debian
+source packages.
+
+Debian gcc maintainers kindly provide required documentation patches under
+debin/gcc/patches/ directory in the debian gcc source package. This
+information may be converted to patches for gcc-X.Y-doc-non-dfsg using
+debian/convert-debian-gcc-diff perl script. For reference, each released
+version of gcc-X.Y-doc-non-dfsg contains saved convert-debian-gcc-diff
+command-line in convert-debian-gcc-diff_cmdline-{version} file.
+
+If adding a new patch, better to name it starting from aNN (if it should
+be applied before from-debian-gcc-* patches), or zNN (if it should be applied
+after from-debian-gcc-* patches). Also better not to touch from-debian-gcc-*
+patches by hand and use debian/convert-debian-gcc-diff script instead.
+
+Updating .orig.tar.gz to new upstream release includes the following steps:
+- update existing .texi files from gcc/doc/, gcc/ada/, gcc/fortran/,
+  gcc/java/, and libiberty/,
+- update *.7 manual pages from gcc/doc (those go unmodified to gcc-doc-base
+  package to match licensing requirements),
+- update contrib/texi2pod.pl script (it is used by documentation build)
+- try to build and add any possible new referenced .texi files.
+
+Syncing against new debian package release includes the following steps:
+- check what texi files are modified by patches from debian gcc source
+  package; don't forget that:
+  - if .texi modification is in the same patch file as other modifications,
+    it will be commented out (because .texi files are not there in debian
+    version of gcc source) - however uncommenting will be handled by
+    debian/convert-debian-gcc-diff script
+  - not all patches from debian/patches/ are applied to debian packages,
+    have to check build scripts to find out what is applied and what is not
+    (also this information is included in
+    /usr/share/doc/gcc-X.Y-base/README.Debian.gz file provided by gcc-X.Y-base
+    package),
+- construct new debian/convert-debian-gcc-diff command line and execute it,
+- replace saved debian/convert-debian-gcc-diff command line with a new one,
+- check that package builds without any warnings! if not, find out what's
+  wrong and fix it.
