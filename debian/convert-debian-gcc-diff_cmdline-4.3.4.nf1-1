@@ -1,0 +1,1 @@
+perl debian/convert-debian-gcc-diff /home/nikita/debian/gcc-doc/gcc-4.3-4.3.4-10/debian/patches rename-info-files.dpatch alpha-ieee-doc.dpatch cell-branch-doc.dpatch

@@ -1,4 +1,5 @@
 from-debian-gcc-rename-info-files
 from-debian-gcc-alpha-ieee-doc
+from-debian-gcc-cell-branch-doc
 z01_gnat_fix_compile_error
 z02_gnat_fix_info_directory

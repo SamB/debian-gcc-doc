@@ -1,0 +1,237 @@
+#!/bin/sh -e
+
+# DP: This patch was converted from cell-branch-doc.dpatch
+# DP: Original comment:
+# DP:
+# DP: Updates from the cell-4_3-branch (documentation) up to 20100216
+
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+--- gcc/doc/extend.texi	(.../gcc-4_3-branch)	(revision 156795)
++++ gcc/doc/extend.texi	(.../cell-4_3-branch)	(revision 156810)
+@@ -37,6 +37,7 @@
+ * Decimal Float::       Decimal Floating Types. 
+ * Hex Floats::          Hexadecimal floating-point constants.
+ * Fixed-Point::         Fixed-Point Types.
++* Named Address Spaces::Named address spaces.
+ * Zero Length::         Zero-length arrays.
+ * Variable Length::     Arrays whose length is computed at run time.
+ * Empty Structures::    Structures with no members.
+@@ -1119,6 +1120,31 @@
+ 
+ Fixed-point types are supported by the DWARF2 debug information format.
+ 
++@node Named Address Spaces
++@section Named address spaces
++@cindex named address spaces
++
++As an extension, the GNU C compiler supports named address spaces as
++defined in the N1169 draft of ISO/IEC DTR 18037.  Support for named
++address spaces in GCC will evolve as the draft technical report changes.
++Calling conventions for any target might also change.  At present, only
++the SPU target supports other address spaces.  On the SPU target, for
++example, variables may be declared as belonging to another address space
++by qualifying the type with the @var{__ea} address space identifier:
++
++@smallexample
++extern int __ea i;
++@end smallexample
++
++When the variable @var{i} is accessed, the compiler will generate
++special code to access this variable.  It may use runtime library
++support, or generate special machine instructions to access that address
++space.
++
++The @var{__ea} identifier may be used exactly like any other C type
++qualifier (e.g. const or volatile).  See the N1169 document for more
++details.
++
+ @node Zero Length
+ @section Arrays of Length Zero
+ @cindex arrays of length zero
+@@ -8876,9 +8902,10 @@
+ 
+ @item
+ Compiling with @option{-maltivec} adds keywords @code{__vector},
+-@code{__pixel}, and @code{__bool}.  Macros @option{vector},
+-@code{pixel}, and @code{bool} are defined in @code{<altivec.h>} and can
+-be undefined.
++@code{vector}, @code{__pixel}, @code{pixel}, @code{__bool} and
++@code{bool}.  When compiling ISO C, the context-sensitive substitution
++of the keywords @code{vector}, @code{pixel} and @code{bool} is
++disabled.  To use them, you must include @code{<altivec.h>} instead.
+ 
+ @item
+ GCC allows using a @code{typedef} name as the type specifier for a
+--- gcc/doc/tm.texi	(.../gcc-4_3-branch)	(revision 156795)
++++ gcc/doc/tm.texi	(.../cell-4_3-branch)	(revision 156810)
+@@ -4174,10 +4174,9 @@
+ @end deftypefn
+ 
+ @deftypefn {Target Hook} bool TARGET_SCALAR_MODE_SUPPORTED_P (enum machine_mode @var{mode})
+-Define this to return nonzero if the port is prepared to handle
+-insns involving scalar mode @var{mode}.  For a scalar mode to be
+-considered supported, all the basic arithmetic and comparisons
+-must work.
++Define this to return nonzero if the port is prepared to handle insns
++involving scalar mode @var{mode}.  For a scalar mode to be considered
++supported, all the basic arithmetic and comparisons must work.
+ 
+ The default version of this hook returns true for any mode
+ required to handle the basic C types (as defined by the port).
+@@ -10372,3 +10371,55 @@
+ call stack unwinding.  It is used in declarations in @file{unwind-generic.h}
+ and the associated definitions of those functions.
+ @end defmac
++
++@deftypefn {Target Hook} {enum machine_mode} TARGET_ADDR_SPACE_POINTER_MODE (int @var{address_space})
++Define this to return a pointer mode for a given @var{address_space} if
++the target supports named address spaces.  The default version of this
++hook returns @code{ptr_mode} for the generic address space only.
++@end deftypefn
++
++@deftypefn {Target Hook} {const char *} TARGET_ADDR_SPACE_NAME (int @var{address_space})
++Define this to return a string that describes the @var{address_space}.
++As this hook should never be called for targets that do not support
++named address spaces, the default version of this hook will cause the
++compiler to abort.
++@end deftypefn
++
++@deftypefn {Target Hook} {unsigned char} TARGET_ADDR_SPACE_NUMBER (tree @var{address_space})
++Define this to return a target-defined address space number for the
++given @var{address_space}.  As this hook should never be called for
++targets that do not support named address spaces, the default version
++of this hook will cause the compiler to abort.
++@end deftypefn
++
++@deftypefn {Target Hook} {rtx (*int, int)} TARGET_ADDR_SPACE_CONVERSION_RTL (int @var{from}, int @var{to})
++Define this to return a pointer to a function that generates the RTL for
++a pointer conversion from the @var{from} address space to the @var{to}
++address space.  As this hook should never be called for targets that do
++not support named address spaces, the default version of this hook will
++cause the compiler to abort.
++@end deftypefn
++
++@deftypefn {Target Hook} bool TARGET_VALID_ADDR_SPACE (tree @var{address_space})
++Define this to return true if the @var{address_space} is recognized
++for the target.  The default version of this hook unconditionally
++returns false.
++@end deftypefn
++
++@defmac SPLIT_BEFORE_CSE2
++This macro determines whether to use an additional split pass before the
++second CSE pass.  @code{split0_completed} will be set after this pass is
++completed. 
++
++For example, the Cell SPU target uses this for better optimization of
++the multiple instructions required to do simple loads and stores.  The
++optimizations before this pass work better on simple memory
++instructions, and the optimizations right after this pass (e.g., CSE and
++combine) are be able to optimize the split instructions.
++@end defmac
++
++@defmac ADDRESSES_NEVER_TRAP
++Define this macro if memory accesses will never cause a trap.
++This is the case for example on the Cell SPU processor.
++@end defmac
++ 
+--- gcc/doc/invoke.texi	(.../gcc-4_3-branch)	(revision 156795)
++++ gcc/doc/invoke.texi	(.../cell-4_3-branch)	(revision 156810)
+@@ -767,7 +767,10 @@
+ -msafe-dma -munsafe-dma @gol
+ -mbranch-hints @gol
+ -msmall-mem -mlarge-mem -mstdmain @gol
+--mfixed-range=@var{register-range}}
++-mfixed-range=@var{register-range} @gol
++-mea32 -mea64 @gol
++-mcache-size=@var{cache-size} @gol
++-matomic-updates -mno-atomic-updates}
+ 
+ @emph{System V Options}
+ @gccoptlist{-Qy  -Qn  -YP,@var{paths}  -Ym,@var{dir}}
+@@ -14606,6 +14609,34 @@
+ v850e and v850e1 flavors of the v850 architecture.  The default is
+ @option{-mno-disable-callt} which allows the CALLT instruction to be used.
+ 
++@item -mea32
++@itemx -mea64
++@opindex mea32
++@opindex mea64
++
++Compile code assuming that pointers to the __ea address space are either
++32 or 64 bits wide. The default is 32 bits.  As this is an ABI changing
++option, all object code in an executable must be compiled with the same
++option.
++
++@item -mcache-size=@var{cache-size}
++@opindex mcache-size
++
++This option controls the version of libgcc that the compiler links to an
++executable and selects software cache support with a particular software
++cache size.  Possible options for @var{cache-size} are @samp{8},
++@samp{16}, @samp{32}, @samp{64} and @samp{128}.  The default cache size
++is 64KB.
++
++@item -matomic-updates
++@itemx -mno-atomic-updates
++@opindex matomic-updates
++@opindex mno-atomic-updates
++
++This option controls the version of libgcc that the compiler links to an
++executable and selects whether atomic updates to the software cache are
++used.  The default behavior is to use atomic updates.
++
+ @end table
+ 
+ @node VAX Options
+--- gcc/doc/md.texi	(.../gcc-4_3-branch)	(revision 156795)
++++ gcc/doc/md.texi	(.../cell-4_3-branch)	(revision 156810)
+@@ -5114,6 +5114,15 @@
+ If this pattern is not defined, a call to the library function
+ @code{__clear_cache} is used.
+ 
++@cindex @code{builtin_expect} instruction pattern
++@item @samp{builtin_expect}
++
++This pattern, if defined, handles a call to @code{__builtin_expect} with
++a non-constant second argument.  Operand 0 is the target register of
++@code{__builtin_expect} and can be compared against operands of the
++following compare or branch to determine when it applies.  Operand 1 is
++the expanded value of the second argument.  
++
+ @end table
+ 
+ @end ifset
+--- gcc/doc/rtl.texi	(.../gcc-4_3-branch)	(revision 156795)
++++ gcc/doc/rtl.texi	(.../cell-4_3-branch)	(revision 156810)
+@@ -420,6 +420,11 @@
+ @findex MEM_ALIGN
+ @item MEM_ALIGN (@var{x})
+ The known alignment in bits of the memory reference.
++
++@findex MEM_ADDR_SPACE
++@item MEM_ADDR_SPACE (@var{x})
++The address space of the memory reference.  This will commonly be zero
++for the generic address space.
+ @end table
+ 
+ @item REG
