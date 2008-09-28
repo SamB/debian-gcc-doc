@@ -6,7 +6,7 @@ Uploaders:
  Nikita V. Youshchenko <yoush@debian.org>
 Build-Depends: debhelper (>> 5), dpatch
 Build-Depends-Indep: texinfo, perl
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 
 Package: gcc-doc-base
 Architecture: all
