@@ -13,7 +13,7 @@ MANS = $(M:%=%-$(VER).1)
 PODS = $(M:%=%.pod)
 
 VER = 4.3
-FULLVER = 4.3.0
+FULLVER = 4.3.2
 
 GCCVERS = gcc/doc/gcc-vers.texi
 
