@@ -1,4 +1,4 @@
-gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) UNRELEASED; urgency=low
+gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) unstable; urgency=low
 
   * Rebuilt .orig.tar.gz using files from gcc-4.3.2 release.
     + Removed treelang documentation from .orig.tar.gz - it is no longer
@@ -11,7 +11,7 @@ gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) UNRELEASED; urgency=low
     + Added a note to debian/copyright explaining why this package
       is not part of debian main.
 
- -- Nikita V. Youshchenko <yoush@debian.org>  Sun, 28 Sep 2008 19:54:24 +0400
+ -- Nikita V. Youshchenko <yoush@debian.org>  Sun, 28 Sep 2008 20:00:54 +0400
 
 gcc-4.3-doc-non-dfsg (4.3.0.nf1-1) unstable; urgency=low
 
