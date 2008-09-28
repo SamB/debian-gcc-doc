@@ -1,5 +1,10 @@
 #!/usr/bin/make -f
 
+ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+	MAKEFLAGS += -j$(NUMJOBS)
+endif
+
 build: build-stamp
 build-stamp: patch-stamp
 	dh_testdir
