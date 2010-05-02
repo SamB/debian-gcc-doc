@@ -1,0 +1,53 @@
+#!/bin/sh -e
+
+# DP: This patch was converted from gcc-atom-doc.diff
+# DP: Original comment:
+# DP:
+
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+--- gcc/doc/invoke.texi	(revision 146514)
++++ gcc/doc/invoke.texi	(working copy)
+@@ -10959,6 +10959,9 @@
+ @item core2
+ Intel Core2 CPU with 64-bit extensions, MMX, SSE, SSE2, SSE3 and SSSE3
+ instruction set support.
++@item atom
++Intel Atom CPU with 64-bit extensions, MMX, SSE, SSE2, SSE3 and SSSE3
++instruction set support.
+ @item k6
+ AMD K6 CPU with MMX instruction set support.
+ @item k6-2, k6-3
+--- gcc/doc/md.texi	(revision 146514)
++++ gcc/doc/md.texi	(working copy)
+@@ -7506,6 +7506,11 @@
+ recognize complicated bypasses, e.g.@: when the consumer is only an address
+ of insn @samp{store} (not a stored value).
+ 
++If there are more one bypass with the same output and input insns, the
++chosen bypass is the first bypass with a guard in description whose
++guard function returns nonzero.  If there is no such bypass, then
++bypass without the guard function is chosen.
++
+ @findex exclusion_set
+ @findex presence_set
+ @findex final_presence_set

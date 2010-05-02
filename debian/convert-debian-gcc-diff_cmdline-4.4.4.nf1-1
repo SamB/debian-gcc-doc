@@ -1,0 +1,1 @@
+perl debian/convert-debian-gcc-diff /home/nikita/debian/gcc-doc/gcc-4.4-4.4.4-1/debian/patches rename-info-files.diff alpha-ieee-doc.diff cell-branch-doc.diff gcc-atom-doc.diff pr25509-doc.diff gcj-use-atomic-builtins-doc.diff

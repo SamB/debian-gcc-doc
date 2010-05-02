@@ -1,0 +1,44 @@
+#!/bin/sh -e
+
+# DP: This patch was converted from gcj-use-atomic-builtins-doc.diff
+# DP: Original comment:
+# DP:
+# DP: gcj: add option -fuse-atomic-builtins (documentation)
+
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+--- gcc/java/gcj.texi	(revision 155104)
++++ gcc/java/gcj.texi	(working copy)
+@@ -607,6 +607,13 @@
+ accessing an object via a reference.  On other systems you won't need
+ this because null pointer accesses are caught automatically by the
+ processor.
++
++@item -fuse-atomic-builtins
++On some systems, gcc can generate code for built-in atomic operations.
++Use this option to force gcj to use these builtins when compiling Java
++code.  Where this capability is present it should be automatically
++detected, so you won't usually need to use this option.
++
+ @end table
+ 
+ @c man end

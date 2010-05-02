@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-# DP: This patch was converted from rename-info-files.dpatch
+# DP: This patch was converted from rename-info-files.diff
 # DP: Original comment:
 # DP:
 # DP: Allow transformations on info file names. Reference the
@@ -27,19 +27,41 @@ case "$1" in
 esac
 exit 0
 
---- gcc/doc/cpp.texi	2008-02-04 11:28:51.000000000 +0100
-+++ gcc/doc/cpp.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -52,7 +52,7 @@ This manual contains no Invariant Sectio
+--- gcc/ada/gnat-style.texi
++++ gcc/ada/gnat-style.texi
+@@ -31,7 +31,7 @@ Texts.  A copy of the license is included in the section entitled
+ 
+ @dircategory Software development
+ @direntry
+-* gnat-style: (gnat-style).      GNAT Coding Style
++* gnat-style: (gnat-style-4.3).      GNAT Coding Style
+ @end direntry
+ 
+ @macro syntax{element}
+--- gcc/ada/gnat_rm.texi
++++ gcc/ada/gnat_rm.texi
+@@ -38,7 +38,7 @@ included in the section entitled ``GNU Free Documentation License''.
+ 
+ @dircategory GNU Ada tools
+ @direntry
+-* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
++* GNAT Reference Manual: (gnat_rm-4.3).  Reference Manual for GNU Ada tools.
+ @end direntry
+ 
+ @titlepage
+--- gcc/doc/cpp.texi
++++ gcc/doc/cpp.texi
+@@ -52,7 +52,7 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
  @ifinfo
  @dircategory Software development
  @direntry
--* Cpp: (cpp).		       The GNU C preprocessor.
-+* @value{fncpp}: (@value{fncpp}).		       The GNU C preprocessor.
+-* Cpp: (cpp).                  The GNU C preprocessor.
++* @value{fncpp}: (@value{fncpp}).                  The GNU C preprocessor.
  @end direntry
  @end ifinfo
  
---- gcc/doc/cppinternals.texi	2007-03-11 13:17:34.000000000 +0100
-+++ gcc/doc/cppinternals.texi	2008-02-08 16:27:44.000000000 +0100
+--- gcc/doc/cppinternals.texi
++++ gcc/doc/cppinternals.texi
 @@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development
@@ -49,9 +71,9 @@ exit 0
  @end direntry
  @end ifinfo
  
---- gcc/doc/extend.texi	2008-02-04 11:28:51.000000000 +0100
-+++ gcc/doc/extend.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -11497,7 +11497,7 @@ want to write code that checks whether t
+--- gcc/doc/extend.texi
++++ gcc/doc/extend.texi
+@@ -12339,7 +12339,7 @@ want to write code that checks whether these features are available, you can
  test for the GNU compiler the same way as for C programs: check for a
  predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
  test specifically for GNU C++ (@pxref{Common Predefined Macros,,
@@ -59,10 +81,10 @@ exit 0
 +Predefined Macros,@value{fncpp},The GNU C Preprocessor}).
  
  @menu
- * Volatiles::		What constitutes an access to a volatile object.
---- gcc/doc/gcc.texi	2008-01-24 17:57:55.000000000 +0100
-+++ gcc/doc/gcc.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -65,8 +65,8 @@ included in the section entitled ``GNU F
+ * Volatiles::           What constitutes an access to a volatile object.
+--- gcc/doc/gcc.texi
++++ gcc/doc/gcc.texi
+@@ -65,8 +65,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
  @ifnottex
  @dircategory Software development
  @direntry
@@ -82,9 +104,9 @@ exit 0
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
---- gcc/doc/gccint.texi	2007-10-29 14:31:38.000000000 +0100
-+++ gcc/doc/gccint.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -51,7 +51,7 @@ included in the section entitled ``GNU F
+--- gcc/doc/gccint.texi
++++ gcc/doc/gccint.texi
+@@ -51,7 +51,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
  @ifnottex
  @dircategory Software development
  @direntry
@@ -93,7 +115,7 @@ exit 0
  @end direntry
  This file documents the internals of the GNU compilers.
  @sp 1
-@@ -83,7 +83,7 @@ write front ends for new languages.  It 
+@@ -83,7 +83,7 @@ write front ends for new languages.  It corresponds to the compilers
  @value{VERSION_PACKAGE}
  @end ifset
  version @value{version-GCC}.  The use of the GNU compilers is documented in a
@@ -102,9 +124,20 @@ exit 0
  Compiler Collection (GCC)}.
  
  This manual is mainly a reference manual rather than a tutorial.  It
---- gcc/doc/invoke.texi	2008-02-07 12:10:09.000000000 +0100
-+++ gcc/doc/invoke.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -7456,7 +7456,7 @@ One of the standard libraries bypassed b
+--- gcc/doc/install.texi
++++ gcc/doc/install.texi
+@@ -97,7 +97,7 @@ Free Documentation License}''.
+ @end ifinfo
+ @dircategory Software development
+ @direntry
+-* gccinstall: (gccinstall).    Installing the GNU Compiler Collection.
++* @value{fngccinstall}: (@value{fngccinstall}).    Installing the GNU Compiler Collection.
+ @end direntry
+ 
+ @c Part 3 Titlepage and Copyright
+--- gcc/doc/invoke.texi
++++ gcc/doc/invoke.texi
+@@ -7939,7 +7939,7 @@ One of the standard libraries bypassed by @option{-nostdlib} and
  @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
  that GCC uses to overcome shortcomings of particular machines, or special
  needs for some languages.
@@ -113,7 +146,7 @@ exit 0
  Collection (GCC) Internals},
  for more discussion of @file{libgcc.a}.)
  In most cases, you need @file{libgcc.a} even when you want to avoid
-@@ -7464,7 +7464,7 @@ other standard libraries.  In other word
+@@ -7947,7 +7947,7 @@ other standard libraries.  In other words, when you specify @option{-nostdlib}
  or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
  This ensures that you have no unresolved references to internal GCC
  library subroutines.  (For example, @samp{__main}, used to ensure C++
@@ -122,7 +155,7 @@ exit 0
  GNU Compiler Collection (GCC) Internals}.)
  
  @item -pie
-@@ -15215,7 +15215,7 @@ Note that you can also specify places to
+@@ -16121,7 +16121,7 @@ Note that you can also specify places to search using options such as
  @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
  take precedence over places specified using environment variables, which
  in turn take precedence over those specified by the configuration of GCC@.
@@ -131,7 +164,7 @@ exit 0
  GNU Compiler Collection (GCC) Internals}.
  
  @table @env
-@@ -15370,7 +15370,7 @@ the headers it contains change.
+@@ -16276,7 +16276,7 @@ the headers it contains change.
  
  A precompiled header file will be searched for when @code{#include} is
  seen in the compilation.  As it searches for the included file
@@ -140,8 +173,8 @@ exit 0
  compiler looks for a precompiled header in each directory just before it
  looks for the include file in that directory.  The name searched for is
  the name specified in the @code{#include} with @samp{.gch} appended.  If
---- gcc/doc/libgcc.texi	2007-10-29 14:31:38.000000000 +0100
-+++ gcc/doc/libgcc.texi	2008-02-08 16:27:44.000000000 +0100
+--- gcc/doc/libgcc.texi
++++ gcc/doc/libgcc.texi
 @@ -24,7 +24,7 @@ that needs them.
  GCC will also generate calls to C library routines, such as
  @code{memcpy} and @code{memset}, in some cases.  The set of routines
@@ -151,9 +184,9 @@ exit 0
  
  These routines take arguments and return values of a specific machine
  mode, not a specific C type.  @xref{Machine Modes}, for an explanation
---- gcc/doc/makefile.texi	2008-02-04 11:28:51.000000000 +0100
-+++ gcc/doc/makefile.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -139,7 +139,7 @@ regardless of how it itself was compiled
+--- gcc/doc/makefile.texi
++++ gcc/doc/makefile.texi
+@@ -140,7 +140,7 @@ regardless of how it itself was compiled.
  @item profiledbootstrap
  Builds a compiler with profiling feedback information.  For more
  information, see
@@ -162,9 +195,9 @@ exit 0
  
  @item restrap
  Restart a bootstrap, so that everything that was not built with
---- gcc/doc/passes.texi	2008-02-04 11:28:51.000000000 +0100
-+++ gcc/doc/passes.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -191,7 +191,7 @@ rid of it.  This pass is located in @fil
+--- gcc/doc/passes.texi
++++ gcc/doc/passes.texi
+@@ -196,7 +196,7 @@ rid of it.  This pass is located in @file{tree-cfg.c} and described by
  @item Mudflap declaration registration
  
  If mudflap (@pxref{Optimize Options,,-fmudflap -fmudflapth
@@ -173,9 +206,9 @@ exit 0
  enabled, we generate code to register some variable declarations with
  the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
  those variable declarations that have their addresses taken, or whose
---- gcc/doc/standards.texi	2007-12-12 12:01:27.000000000 +0100
-+++ gcc/doc/standards.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -230,8 +230,8 @@ HTML format.
+--- gcc/doc/standards.texi
++++ gcc/doc/standards.texi
+@@ -223,8 +223,8 @@ have additional useful information.
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
  
@@ -186,9 +219,20 @@ exit 0
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
 +@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
---- gcc/java/gcj.texi	2007-12-12 12:01:27.000000000 +0100
-+++ gcc/java/gcj.texi	2008-02-08 17:19:48.000000000 +0100
-@@ -56,21 +56,21 @@ man page gfdl(7).
+--- gcc/fortran/gfortran.texi
++++ gcc/fortran/gfortran.texi
+@@ -101,7 +101,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
+ @ifinfo
+ @dircategory Software development
+ @direntry
+-* gfortran: (gfortran).                  The GNU Fortran Compiler.
++* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
+ @end direntry
+ This file documents the use and the internals of
+ the GNU Fortran compiler, (@command{gfortran}).
+--- gcc/java/gcj.texi
++++ gcc/java/gcj.texi
+@@ -55,25 +55,25 @@ man page gfdl(7).
  @format
  @dircategory Software development
  @direntry
@@ -215,9 +259,15 @@ exit 0
 -* gc-analyze: (gcj)Invoking gc-analyze.
 +* gc-analyze: (@value{fngcj}) Invoking gc-analyze.
                              Analyze Garbage Collector (GC) memory dumps.
+-* aot-compile: (gcj)Invoking aot-compile.
++* aot-compile: (@value{fngcj})Invoking aot-compile.
+                             Compile bytecode to native and generate databases.
+-* rebuild-gcj-db: (gcj)Invoking rebuild-gcj-db.
++* rebuild-gcj-db: (@value{fngcj})Invoking rebuild-gcj-db.
+                             Merge the per-solib databases made by aot-compile
+                             into one system-wide database.
  @end direntry
- @end format
-@@ -152,7 +152,7 @@ and the Info entries for @file{gcj} and 
+@@ -159,7 +159,7 @@ and the Info entries for @file{gcj} and @file{gcc}.
  
  As @command{gcj} is just another front end to @command{gcc}, it supports many
  of the same options as gcc.  @xref{Option Summary, , Option Summary,
@@ -226,58 +276,3 @@ exit 0
  options specific to @command{gcj}.
  
  @c man end
---- gcc/fortran/gfortran.texi	2008-01-25 16:49:43.000000000 +0100
-+++ gcc/fortran/gfortran.texi	2008-02-08 16:27:44.000000000 +0100
-@@ -102,7 +102,7 @@ texts being (a) (see below), and with th
- @ifinfo
- @dircategory Software development
- @direntry
--* gfortran: (gfortran).                  The GNU Fortran Compiler.
-+* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
- @end direntry
- This file documents the use and the internals of
- the GNU Fortran compiler, (@command{gfortran}).
---- gcc/doc/install.texi	2008-01-30 11:21:55.000000000 +0100
-+++ gcc/doc/install.texi	2008-02-08 16:29:13.000000000 +0100
-@@ -96,7 +96,7 @@ Free Documentation License}''.
- @end ifinfo
- @dircategory Software development
- @direntry
--* gccinstall: (gccinstall).    Installing the GNU Compiler Collection.
-+* @value{fngccinstall}: (@value{fngccinstall}).    Installing the GNU Compiler Collection.
- @end direntry
- 
- @c Part 3 Titlepage and Copyright
---- gcc/ada/gnat-style.texi	2007-10-29 12:59:35.000000000 +0100
-+++ gcc/ada/gnat-style.texi	2008-02-08 17:15:59.000000000 +0100
-@@ -31,7 +31,7 @@
- 
- @dircategory Software development
- @direntry
--* gnat-style: (gnat-style).      GNAT Coding Style
-+* gnat-style: (gnat-style-4.3).      GNAT Coding Style
- @end direntry
- 
- @macro syntax{element}
---- gcc/ada/gnat_rm.texi	2008-01-02 11:19:07.000000000 +0100
-+++ gcc/ada/gnat_rm.texi	2008-02-08 17:15:12.000000000 +0100
-@@ -30,7 +30,7 @@
- 
- @dircategory GNU Ada tools
- @direntry
--* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
-+* GNAT Reference Manual: (gnat_rm-4.3).  Reference Manual for GNU Ada tools.
- @end direntry
- 
- @copying
---- gcc/ada/gnat_ugn.texi	2008-01-02 11:19:08.000000000 +0100
-+++ gcc/ada/gnat_ugn.texi	2008-02-08 17:15:37.000000000 +0100
-@@ -96,7 +96,7 @@
- 
- @ifset unw
- @set PLATFORM
--@set FILE gnat_ugn_unw
-+@set FILE gnat_ugn_unw-4.3
- @end ifset
- 
- @ifset vms

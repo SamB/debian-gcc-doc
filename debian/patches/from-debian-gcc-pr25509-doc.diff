@@ -1,0 +1,53 @@
+#!/bin/sh -e
+
+# DP: This patch was converted from pr25509-doc.diff
+# DP: Original comment:
+# DP:
+# DP: Backport of PR c/25509, new option -Wno-unused-result (documentation)
+
+dir=
+if [ $# -eq 3 -a "$2" = '-d' ]; then
+    pdir="-d $3"
+    dir="$3/"
+elif [ $# -ne 1 ]; then
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1
+fi
+case "$1" in
+    -patch)
+        patch $pdir -f --no-backup-if-mismatch -p0 < $0
+        ;;
+    -unpatch)
+        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
+        ;;
+    *)
+        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+        exit 1
+esac
+exit 0
+
+--- gcc/doc/invoke.texi	(revision 149591)
++++ gcc/doc/invoke.texi	(working copy)
+@@ -260,7 +260,7 @@
+ -Wsystem-headers  -Wtrigraphs  -Wtype-limits  -Wundef  -Wuninitialized @gol
+ -Wunknown-pragmas  -Wno-pragmas -Wunreachable-code @gol
+ -Wunused  -Wunused-function  -Wunused-label  -Wunused-parameter @gol
+--Wunused-value  -Wunused-variable @gol
++-Wno-unused-result -Wunused-value  -Wunused-variable @gol
+ -Wvariadic-macros -Wvla @gol
+ -Wvolatile-register-var  -Wwrite-strings}
+ 
+@@ -3193,6 +3193,13 @@
+ To suppress this warning use the @samp{unused} attribute
+ (@pxref{Variable Attributes}).
+ 
++@item -Wno-unused-result
++@opindex Wunused-result
++@opindex Wno-unused-result
++Do not warn if a caller of a function marked with attribute
++@code{warn_unused_result} (@pxref{Variable Attributes}) does not use
++its return value. The default is @option{-Wunused-result}.
++
+ @item -Wunused-variable
+ @opindex Wunused-variable
+ @opindex Wno-unused-variable

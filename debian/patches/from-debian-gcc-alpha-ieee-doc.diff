@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-# DP: This patch was converted from alpha-ieee-doc.dpatch
+# DP: This patch was converted from alpha-ieee-doc.diff
 # DP: Original comment:
 # DP:
 # DP: #212912
@@ -28,9 +28,9 @@ case "$1" in
 esac
 exit 0
 
---- gcc/doc/invoke.texi	2005-09-29 20:00:57.638380128 +0200
-+++ gcc/doc/invoke.texi	2005-09-30 22:23:22.922502992 +0200
-@@ -7670,6 +7670,13 @@
+--- gcc/doc/invoke.texi
++++ gcc/doc/invoke.texi
+@@ -9980,6 +9980,13 @@ able to correctly support denormalized numbers and exceptional IEEE
  values such as not-a-number and plus/minus infinity.  Other Alpha
  compilers call this option @option{-ieee_with_no_inexact}.
  
