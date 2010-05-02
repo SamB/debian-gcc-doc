@@ -1,5 +1,5 @@
-Document: cpp-4.3
-Title: The GNU C preprocessor, version 4.3
+Document: cpp-4.4
+Title: The GNU C preprocessor, version 4.4
 Author: Various
 Abstract: The C preprocessor is a "macro processor" that is used automatically
  by the C compiler to transform your program before actual compilation.
@@ -8,9 +8,9 @@ Abstract: The C preprocessor is a "macro processor" that is used automatically
 Section: Programming
 
 Format: html
-Index: /usr/share/doc/cpp-4.3-doc/cpp.html
-Files: /usr/share/doc/cpp-4.3-doc/cpp.html
+Index: /usr/share/doc/cpp-4.4-doc/cpp.html
+Files: /usr/share/doc/cpp-4.4-doc/cpp.html
 
 Format: info
-Index: /usr/share/info/cpp-4.3.info.gz
-Files: /usr/share/info/cpp-4.3*
+Index: /usr/share/info/cpp-4.4.info.gz
+Files: /usr/share/info/cpp-4.4*

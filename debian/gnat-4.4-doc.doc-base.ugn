@@ -1,5 +1,5 @@
-Document: gnat-ugn-4.3
-Title: GNAT User's Guide, version 4.3
+Document: gnat-ugn-4.4
+Title: GNAT User's Guide, version 4.4
 Author: Various
 Abstract: This guide describes the use of GNAT, a compiler and
  software development toolset for the full Ada 95 programming
@@ -8,9 +8,9 @@ Abstract: This guide describes the use of GNAT, a compiler and
 Section: Programming
 
 Format: html
-Index: /usr/share/doc/gnat-4.3-doc/gnat_ugn.html
-Files: /usr/share/doc/gnat-4.3-doc/gnat_ugn.html
+Index: /usr/share/doc/gnat-4.4-doc/gnat_ugn.html
+Files: /usr/share/doc/gnat-4.4-doc/gnat_ugn.html
 
 Format: info
-Index: /usr/share/info/gnat_ugn-4.3.info.gz
-Files: /usr/share/info/gnat_ugn-4.3.info.gz
+Index: /usr/share/info/gnat_ugn-4.4.info.gz
+Files: /usr/share/info/gnat_ugn-4.4.info.gz
