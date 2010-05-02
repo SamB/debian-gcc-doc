@@ -8,7 +8,7 @@ endif
 build: build-stamp
 build-stamp: patch-stamp
 	dh_testdir
-	$(MAKE)
+	$(MAKE) -f debian/Makefile
 	touch build-stamp
 
 install: build
@@ -21,7 +21,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
-	$(MAKE) clean
+	$(MAKE) -f debian/Makefile clean
 	debian/rules unpatch
 	dh_clean
 
