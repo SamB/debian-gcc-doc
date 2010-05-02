@@ -8,15 +8,6 @@ Build-Depends: debhelper (>> 5), dpatch
 Build-Depends-Indep: texinfo, perl
 Standards-Version: 3.8.0
 
-Package: gcc-doc-base
-Architecture: all
-Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Replaces: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Description: several GNU manual pages
- This package provides gfdl.7, gpl.7, and fsf-funding.7 manual pages,
- which should be available together with gcc man pages to fit
- GNU Free Documentation License requirements.
-
 Package: gcc-4.3-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1)
