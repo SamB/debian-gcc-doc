@@ -2,8 +2,9 @@ gcc-4.3-doc-non-dfsg (4.3.4.nf1-1) UNRELEASED; urgency=low
 
   * Rebuilt .orig.tar.gz using files from gcc-4.3.4 release.
   * No longer build gcc-doc-base package from gcc-4.3-doc-non-dfsg source.
+  * Updated Standards-Version to 3.8.4.
 
- -- Nikita V. Youshchenko <yoush@debian.org>  Mon, 03 May 2010 00:10:32 +0400
+ -- Nikita V. Youshchenko <yoush@debian.org>  Mon, 03 May 2010 00:15:09 +0400
 
 gcc-4.3-doc-non-dfsg (4.3.2.nf1-1) unstable; urgency=low
 
