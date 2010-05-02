@@ -4,5 +4,3 @@ from-debian-gcc-cell-branch-doc.diff
 from-debian-gcc-gcc-atom-doc.diff
 from-debian-gcc-pr25509-doc.diff
 from-debian-gcc-gcj-use-atomic-builtins-doc.diff
-z01_gnat_fix_compile_error
-z02_gnat_fix_info_directory
