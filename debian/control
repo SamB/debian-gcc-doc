@@ -10,7 +10,7 @@ Standards-Version: 3.8.0
 
 Package: gcc-4.3-doc
 Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
 Conflicts: gcc-docs (<< 2.95.2), gcc-4.3 (<< 4.3.0-1)
 Replaces: gcc (<= 2.7.2.3-4.3), gcc-docs (<< 2.95.2), gcc-4.3 (<< 4.3.0-1)
@@ -24,7 +24,7 @@ Description: documentation for the GNU compilers (gcc, gobjc, g++)
 
 Package: cpp-4.3-doc
 Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
 Conflicts: cpp-4.3 (<< 4.3.0-1)
 Replaces: cpp-4.3 (<< 4.3.0-1)
@@ -38,7 +38,7 @@ Description: documentation for the GNU C preprocessor (cpp)
 
 Package: gfortran-4.3-doc
 Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
 Conflicts: gfortran-4.3 (<< 4.3.0-1)
 Replaces: gfortran-4.3 (<< 4.3.0-1)
@@ -52,7 +52,7 @@ Description: documentation for the GNU Fortran Compiler (gfortran)
 
 Package: gnat-4.3-doc
 Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
 Conflicts: gnat-4.3 (<< 4.3.0-1)
 Replaces: gnat-4.3 (<< 4.3.0-1)
@@ -66,7 +66,7 @@ Description: documentation for the GNU Ada 95 Compiler (gnat)
 
 Package: gcj-4.3-doc
 Architecture: all
-Depends: gcc-doc-base (>= 4.1.1.nf3-1)
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
 Conflicts: gcj-4.3 (<< 4.3.0-1), gij-4.3 (<< 4.3.0-1)
 Replaces: gcj-4.3 (<< 4.3.0-1), gij-4.3 (<< 4.3.0-1)
