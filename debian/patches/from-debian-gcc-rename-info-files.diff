@@ -27,64 +27,9 @@ case "$1" in
 esac
 exit 0
 
---- gcc/ada/gnat-style.texi
-+++ gcc/ada/gnat-style.texi
-@@ -31,7 +31,7 @@ Texts.  A copy of the license is included in the section entitled
- 
- @dircategory Software development
- @direntry
--* gnat-style: (gnat-style).      GNAT Coding Style
-+* gnat-style: (gnat-style-4.3).      GNAT Coding Style
- @end direntry
- 
- @macro syntax{element}
---- gcc/ada/gnat_rm.texi
-+++ gcc/ada/gnat_rm.texi
-@@ -38,7 +38,7 @@ included in the section entitled ``GNU Free Documentation License''.
- 
- @dircategory GNU Ada tools
- @direntry
--* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
-+* GNAT Reference Manual: (gnat_rm-4.3).  Reference Manual for GNU Ada tools.
- @end direntry
- 
- @titlepage
---- gcc/doc/cpp.texi
-+++ gcc/doc/cpp.texi
-@@ -52,7 +52,7 @@ This manual contains no Invariant Sections.  The Front-Cover Texts are
- @ifinfo
- @dircategory Software development
- @direntry
--* Cpp: (cpp).                  The GNU C preprocessor.
-+* @value{fncpp}: (@value{fncpp}).                  The GNU C preprocessor.
- @end direntry
- @end ifinfo
- 
---- gcc/doc/cppinternals.texi
-+++ gcc/doc/cppinternals.texi
-@@ -7,7 +7,7 @@
- @ifinfo
- @dircategory Software development
- @direntry
--* Cpplib: (cppinternals).      Cpplib internals.
-+* @value{fncppint}: (@value{fncppint}).      Cpplib internals.
- @end direntry
- @end ifinfo
- 
---- gcc/doc/extend.texi
-+++ gcc/doc/extend.texi
-@@ -12339,7 +12339,7 @@ want to write code that checks whether these features are available, you can
- test for the GNU compiler the same way as for C programs: check for a
- predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
- test specifically for GNU C++ (@pxref{Common Predefined Macros,,
--Predefined Macros,cpp,The GNU C Preprocessor}).
-+Predefined Macros,@value{fncpp},The GNU C Preprocessor}).
- 
- @menu
- * Volatiles::           What constitutes an access to a volatile object.
---- gcc/doc/gcc.texi
-+++ gcc/doc/gcc.texi
-@@ -65,8 +65,8 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
+--- gcc/doc/gcc.texi	2009-07-18
++++ gcc/doc/gcc.texi	2009-12-20
+@@ -65,8 +65,8 @@
  @ifnottex
  @dircategory Software development
  @direntry
@@ -95,7 +40,7 @@ exit 0
  @end direntry
  This file documents the use of the GNU compilers.
  @sp 1
-@@ -126,7 +126,7 @@ version @value{version-GCC}.
+@@ -126,7 +126,7 @@
  The internals of the GNU compilers, including how to port them to new
  targets and some information about how to write front ends for new
  languages, are documented in a separate manual.  @xref{Top,,
@@ -104,29 +49,9 @@ exit 0
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
---- gcc/doc/gccint.texi
-+++ gcc/doc/gccint.texi
-@@ -51,7 +51,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
- @ifnottex
- @dircategory Software development
- @direntry
--* gccint: (gccint).            Internals of the GNU Compiler Collection.
-+* @value{fngccint}: (@value{fngccint}).            Internals of the GNU Compiler Collection.
- @end direntry
- This file documents the internals of the GNU compilers.
- @sp 1
-@@ -83,7 +83,7 @@ write front ends for new languages.  It corresponds to the compilers
- @value{VERSION_PACKAGE}
- @end ifset
- version @value{version-GCC}.  The use of the GNU compilers is documented in a
--separate manual.  @xref{Top,, Introduction, gcc, Using the GNU
-+separate manual.  @xref{Top,, Introduction, @value{fngcc}, Using the GNU
- Compiler Collection (GCC)}.
- 
- This manual is mainly a reference manual rather than a tutorial.  It
---- gcc/doc/install.texi
-+++ gcc/doc/install.texi
-@@ -97,7 +97,7 @@ Free Documentation License}''.
+--- gcc/doc/install.texi	2009-12-16
++++ gcc/doc/install.texi	2009-12-20
+@@ -97,7 +97,7 @@
  @end ifinfo
  @dircategory Software development
  @direntry
@@ -135,80 +60,51 @@ exit 0
  @end direntry
  
  @c Part 3 Titlepage and Copyright
---- gcc/doc/invoke.texi
-+++ gcc/doc/invoke.texi
-@@ -7939,7 +7939,7 @@ One of the standard libraries bypassed by @option{-nostdlib} and
- @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
- that GCC uses to overcome shortcomings of particular machines, or special
- needs for some languages.
--(@xref{Interface,,Interfacing to GCC Output,gccint,GNU Compiler
-+(@xref{Interface,,Interfacing to GCC Output,@value{fngccint},GNU Compiler
- Collection (GCC) Internals},
- for more discussion of @file{libgcc.a}.)
- In most cases, you need @file{libgcc.a} even when you want to avoid
-@@ -7947,7 +7947,7 @@ other standard libraries.  In other words, when you specify @option{-nostdlib}
- or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
- This ensures that you have no unresolved references to internal GCC
- library subroutines.  (For example, @samp{__main}, used to ensure C++
--constructors will be called; @pxref{Collect2,,@code{collect2}, gccint,
-+constructors will be called; @pxref{Collect2,,@code{collect2}, @value{fngccint},
- GNU Compiler Collection (GCC) Internals}.)
+--- gcc/doc/gccint.texi	2009-05-23
++++ gcc/doc/gccint.texi	2009-12-20
+@@ -51,7 +51,7 @@
+ @ifnottex
+ @dircategory Software development
+ @direntry
+-* gccint: (gccint).            Internals of the GNU Compiler Collection.
++* @value{fngccint}: (@value{fngccint}).            Internals of the GNU Compiler Collection.
+ @end direntry
+ This file documents the internals of the GNU compilers.
+ @sp 1
+@@ -83,7 +83,7 @@
+ @value{VERSION_PACKAGE}
+ @end ifset
+ version @value{version-GCC}.  The use of the GNU compilers is documented in a
+-separate manual.  @xref{Top,, Introduction, gcc, Using the GNU
++separate manual.  @xref{Top,, Introduction, @value{fngcc}, Using the GNU
+ Compiler Collection (GCC)}.
  
- @item -pie
-@@ -16121,7 +16121,7 @@ Note that you can also specify places to search using options such as
- @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
- take precedence over places specified using environment variables, which
- in turn take precedence over those specified by the configuration of GCC@.
--@xref{Driver,, Controlling the Compilation Driver @file{gcc}, gccint,
-+@xref{Driver,, Controlling the Compilation Driver @file{gcc}, @value{fngccint},
- GNU Compiler Collection (GCC) Internals}.
+ This manual is mainly a reference manual rather than a tutorial.  It
+--- gcc/doc/cpp.texi	2009-11-16
++++ gcc/doc/cpp.texi	2009-12-20
+@@ -53,7 +53,7 @@
+ @ifinfo
+ @dircategory Software development
+ @direntry
+-* Cpp: (cpp).                  The GNU C preprocessor.
++* @value{fncpp}: (@value{fncpp}).                  The GNU C preprocessor.
+ @end direntry
+ @end ifinfo
  
- @table @env
-@@ -16276,7 +16276,7 @@ the headers it contains change.
+--- gcc/doc/extend.texi	2009-12-16
++++ gcc/doc/extend.texi	2009-12-20
+@@ -13048,7 +13048,7 @@
+ test for the GNU compiler the same way as for C programs: check for a
+ predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
+ test specifically for GNU C++ (@pxref{Common Predefined Macros,,
+-Predefined Macros,cpp,The GNU C Preprocessor}).
++Predefined Macros,@value{fncpp},The GNU C Preprocessor}).
  
- A precompiled header file will be searched for when @code{#include} is
- seen in the compilation.  As it searches for the included file
--(@pxref{Search Path,,Search Path,cpp,The C Preprocessor}) the
-+(@pxref{Search Path,,Search Path,@value{fncpp},The C Preprocessor}) the
- compiler looks for a precompiled header in each directory just before it
- looks for the include file in that directory.  The name searched for is
- the name specified in the @code{#include} with @samp{.gch} appended.  If
---- gcc/doc/libgcc.texi
-+++ gcc/doc/libgcc.texi
-@@ -24,7 +24,7 @@ that needs them.
- GCC will also generate calls to C library routines, such as
- @code{memcpy} and @code{memset}, in some cases.  The set of routines
- that GCC may possibly use is documented in @ref{Other
--Builtins,,,gcc, Using the GNU Compiler Collection (GCC)}.
-+Builtins,,,@value{fngcc}, Using the GNU Compiler Collection (GCC)}.
- 
- These routines take arguments and return values of a specific machine
- mode, not a specific C type.  @xref{Machine Modes}, for an explanation
---- gcc/doc/makefile.texi
-+++ gcc/doc/makefile.texi
-@@ -140,7 +140,7 @@ regardless of how it itself was compiled.
- @item profiledbootstrap
- Builds a compiler with profiling feedback information.  For more
- information, see
--@ref{Building,,Building with profile feedback,gccinstall,Installing GCC}.
-+@ref{Building,,Building with profile feedback,@value{fngccinstall},Installing GCC}.
- 
- @item restrap
- Restart a bootstrap, so that everything that was not built with
---- gcc/doc/passes.texi
-+++ gcc/doc/passes.texi
-@@ -196,7 +196,7 @@ rid of it.  This pass is located in @file{tree-cfg.c} and described by
- @item Mudflap declaration registration
- 
- If mudflap (@pxref{Optimize Options,,-fmudflap -fmudflapth
---fmudflapir,gcc,Using the GNU Compiler Collection (GCC)}) is
-+-fmudflapir,@value{fngcc},Using the GNU Compiler Collection (GCC)}) is
- enabled, we generate code to register some variable declarations with
- the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
- those variable declarations that have their addresses taken, or whose
---- gcc/doc/standards.texi
-+++ gcc/doc/standards.texi
-@@ -223,8 +223,8 @@ have additional useful information.
+ @menu
+ * Volatiles::           What constitutes an access to a volatile object.
+--- gcc/doc/standards.texi	2009-09-22
++++ gcc/doc/standards.texi	2009-12-20
+@@ -223,8 +223,8 @@
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
  
@@ -219,20 +115,113 @@ exit 0
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
 +@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
---- gcc/fortran/gfortran.texi
-+++ gcc/fortran/gfortran.texi
-@@ -101,7 +101,7 @@ Texts being (a) (see below), and with the Back-Cover Texts being (b)
+--- gcc/doc/cppinternals.texi	2008-07-21
++++ gcc/doc/cppinternals.texi	2009-12-20
+@@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development
  @direntry
--* gfortran: (gfortran).                  The GNU Fortran Compiler.
-+* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
+-* Cpplib: (cppinternals).      Cpplib internals.
++* @value{fncppint}: (@value{fncppint}).      Cpplib internals.
  @end direntry
- This file documents the use and the internals of
- the GNU Fortran compiler, (@command{gfortran}).
---- gcc/java/gcj.texi
-+++ gcc/java/gcj.texi
-@@ -55,25 +55,25 @@ man page gfdl(7).
+ @end ifinfo
+ 
+--- gcc/doc/makefile.texi	2009-02-21
++++ gcc/doc/makefile.texi	2009-12-20
+@@ -140,7 +140,7 @@
+ @item profiledbootstrap
+ Builds a compiler with profiling feedback information.  For more
+ information, see
+-@ref{Building,,Building with profile feedback,gccinstall,Installing GCC}.
++@ref{Building,,Building with profile feedback,@value{fngccinstall},Installing GCC}.
+ 
+ @item restrap
+ Restart a bootstrap, so that everything that was not built with
+--- gcc/doc/libgcc.texi	2008-07-21
++++ gcc/doc/libgcc.texi	2009-12-20
+@@ -24,7 +24,7 @@
+ GCC will also generate calls to C library routines, such as
+ @code{memcpy} and @code{memset}, in some cases.  The set of routines
+ that GCC may possibly use is documented in @ref{Other
+-Builtins,,,gcc, Using the GNU Compiler Collection (GCC)}.
++Builtins,,,@value{fngcc}, Using the GNU Compiler Collection (GCC)}.
+ 
+ These routines take arguments and return values of a specific machine
+ mode, not a specific C type.  @xref{Machine Modes}, for an explanation
+--- gcc/doc/invoke.texi	2009-12-17
++++ gcc/doc/invoke.texi	2009-12-20
+@@ -8644,7 +8644,7 @@
+ @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
+ that GCC uses to overcome shortcomings of particular machines, or special
+ needs for some languages.
+-(@xref{Interface,,Interfacing to GCC Output,gccint,GNU Compiler
++(@xref{Interface,,Interfacing to GCC Output,@value{fngccint},GNU Compiler
+ Collection (GCC) Internals},
+ for more discussion of @file{libgcc.a}.)
+ In most cases, you need @file{libgcc.a} even when you want to avoid
+@@ -8652,7 +8652,7 @@
+ or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
+ This ensures that you have no unresolved references to internal GCC
+ library subroutines.  (For example, @samp{__main}, used to ensure C++
+-constructors will be called; @pxref{Collect2,,@code{collect2}, gccint,
++constructors will be called; @pxref{Collect2,,@code{collect2}, @value{fngccint},
+ GNU Compiler Collection (GCC) Internals}.)
+ 
+ @item -pie
+@@ -17524,7 +17524,7 @@
+ @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
+ take precedence over places specified using environment variables, which
+ in turn take precedence over those specified by the configuration of GCC@.
+-@xref{Driver,, Controlling the Compilation Driver @file{gcc}, gccint,
++@xref{Driver,, Controlling the Compilation Driver @file{gcc}, @value{fngccint},
+ GNU Compiler Collection (GCC) Internals}.
+ 
+ @table @env
+@@ -17679,7 +17679,7 @@
+ 
+ A precompiled header file will be searched for when @code{#include} is
+ seen in the compilation.  As it searches for the included file
+-(@pxref{Search Path,,Search Path,cpp,The C Preprocessor}) the
++(@pxref{Search Path,,Search Path,@value{fncpp},The C Preprocessor}) the
+ compiler looks for a precompiled header in each directory just before it
+ looks for the include file in that directory.  The name searched for is
+ the name specified in the @code{#include} with @samp{.gch} appended.  If
+--- gcc/doc/passes.texi	2009-11-30
++++ gcc/doc/passes.texi	2009-12-20
+@@ -201,7 +201,7 @@
+ @item Mudflap declaration registration
+ 
+ If mudflap (@pxref{Optimize Options,,-fmudflap -fmudflapth
+--fmudflapir,gcc,Using the GNU Compiler Collection (GCC)}) is
++-fmudflapir,@value{fngcc},Using the GNU Compiler Collection (GCC)}) is
+ enabled, we generate code to register some variable declarations with
+ the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
+ those variable declarations that have their addresses taken, or whose
+--- gcc/ada/gnat_rm.texi	2009-11-30
++++ gcc/ada/gnat_rm.texi	2009-12-20
+@@ -38,7 +38,7 @@
+ 
+ @dircategory GNU Ada tools
+ @direntry
+-* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
++* GNAT Reference Manual: (gnat_rm-4.5).  Reference Manual for GNU Ada tools.
+ @end direntry
+ 
+ @titlepage
+--- gcc/ada/gnat-style.texi	2009-02-21
++++ gcc/ada/gnat-style.texi	2009-12-20
+@@ -31,7 +31,7 @@
+ 
+ @dircategory Software development
+ @direntry
+-* gnat-style: (gnat-style).      GNAT Coding Style
++* gnat-style: (gnat-style-4.5).      GNAT Coding Style
+ @end direntry
+ 
+ @macro syntax{element}
+--- gcc/java/gcj.texi	2009-08-13
++++ gcc/java/gcj.texi	2009-12-20
+@@ -55,25 +55,25 @@
  @format
  @dircategory Software development
  @direntry
@@ -267,7 +256,7 @@ exit 0
                              Merge the per-solib databases made by aot-compile
                              into one system-wide database.
  @end direntry
-@@ -159,7 +159,7 @@ and the Info entries for @file{gcj} and @file{gcc}.
+@@ -159,7 +159,7 @@
  
  As @command{gcj} is just another front end to @command{gcc}, it supports many
  of the same options as gcc.  @xref{Option Summary, , Option Summary,
@@ -276,3 +265,14 @@ exit 0
  options specific to @command{gcj}.
  
  @c man end
+--- gcc/fortran/gfortran.texi	2009-12-17
++++ gcc/fortran/gfortran.texi	2009-12-20
+@@ -101,7 +101,7 @@
+ @ifinfo
+ @dircategory Software development
+ @direntry
+-* gfortran: (gfortran).                  The GNU Fortran Compiler.
++* @value{fngfortran}: (@value{fngfortran}).                  The GNU Fortran Compiler.
+ @end direntry
+ This file documents the use and the internals of
+ the GNU Fortran compiler, (@command{gfortran}).

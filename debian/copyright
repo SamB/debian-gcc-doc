@@ -1,4 +1,5 @@
-This package was put together by Nikita V. Youshchenko <yoush@debian.org>.
+This package was thrown together by Samuel J. J. Bronson <naesten@gmail.com>,
+based on gcc-4.4-doc-non-dfsg by Nikita V. Youshchenko <yoush@debian.org>.
 
 Package contains documentation files from gcc upstream distribution,
 that was downloaded from ftp://ftp.gnu.org/gnu/gcc/.

@@ -12,8 +12,8 @@ M = $(M1)
 MANS = $(M:%=%-$(VER).1)
 PODS = $(M:%=%.pod)
 
-VER = 4.4
-FULLVER = 4.4.4
+VER = 4.5
+FULLVER = 4.5.3
 
 GCCVERS = gcc/doc/gcc-vers.texi
 
@@ -34,7 +34,7 @@ MKINFO_FLAGS := --no-split -Igcc/doc -Igcc/doc/include
 MKINFO = makeinfo $(MKINFO_DEFINES) $(MKINFO_FLAGS)
 
 TEXI2POD_DEFINES := -Dfngccint=gccint-$(VER) -DBUGURL=http://bugs.debian.org/
-TEXI2POD = perl ../../texi2pod.pl $(TEXI2POD_DEFINES)
+TEXI2POD = perl ../../contrib/texi2pod.pl $(TEXI2POD_DEFINES)
 
 all : $(TARGETS)
 

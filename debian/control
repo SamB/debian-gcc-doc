@@ -1,4 +1,4 @@
-Source: gcc-4.4-doc-non-dfsg
+Source: gcc-4.5-doc-non-dfsg
 Section: non-free/doc
 Priority: optional
 Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
@@ -18,7 +18,7 @@ Description: several GNU manual pages
  which should be available together with gcc man pages to fit
  GNU Free Documentation License requirements.
 
-Package: gcc-4.4-doc
+Package: gcc-4.5-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
@@ -32,7 +32,7 @@ Description: documentation for the GNU compilers (gcc, gobjc, g++)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: cpp-4.4-doc
+Package: cpp-4.5-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
@@ -44,7 +44,7 @@ Description: documentation for the GNU C preprocessor (cpp)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: gfortran-4.4-doc
+Package: gfortran-4.5-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
@@ -56,7 +56,7 @@ Description: documentation for the GNU Fortran Compiler (gfortran)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: gnat-4.4-doc
+Package: gnat-4.5-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
@@ -68,11 +68,11 @@ Description: documentation for the GNU Ada 95 Compiler (gnat)
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
 
-Package: gcj-4.4-doc
+Package: gcj-4.5-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
-Provides: gij-4.4-doc
+Provides: gij-4.5-doc
 Description: documentation for the GNU Java tools (gcj, gij)
  This package contains manual pages and documentation in info and
  html format, for the GNU Java Compiler, the GNU interpreter for Java

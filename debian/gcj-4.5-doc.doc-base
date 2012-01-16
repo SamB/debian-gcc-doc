@@ -1,5 +1,5 @@
-Document: gcj-4.4
-Title: Guide to GNU gcj, version 4.4
+Document: gcj-4.5
+Title: Guide to GNU gcj, version 4.5
 Author: Various
 Abstract: This manual describes how to use gcj, the GNU compiler for the Java
  programming language. gcj can generate both .class files and object files,
@@ -7,9 +7,9 @@ Abstract: This manual describes how to use gcj, the GNU compiler for the Java
 Section: Programming
 
 Format: html
-Index: /usr/share/doc/gcj-4.4-doc/gcj.html
-Files: /usr/share/doc/gcj-4.4-doc/gcj.html
+Index: /usr/share/doc/gcj-4.5-doc/gcj.html
+Files: /usr/share/doc/gcj-4.5-doc/gcj.html
 
 Format: info
-Index: /usr/share/info/gcj-4.4.info.gz
-Files: /usr/share/info/gcj-4.4*
+Index: /usr/share/info/gcj-4.5.info.gz
+Files: /usr/share/info/gcj-4.5*

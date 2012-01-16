@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+
+# Copyright (c) 2012 Samuel Bronson
+#
+# Made available under the "expat" license, which follows:
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+# IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+# CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+# TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+import sys, tarfile, re, posixpath
+from pprint import pprint
+
+try:
+    infn, pkg, ver = sys.argv[1:]
+except ValueError:
+    print "usage: %s gcc-X.Y.Z.tar.(gz|bz2) gcc-X.Y-doc-non-dfsg X.Y.Z[.mumble]" % sys.argv[0]
+    exit(1)
+
+outfn = '%s_%s.orig.tar.gz' % (pkg, ver)
+
+# directory that output tarball would extract to
+outdir = '%s-%s' % (pkg, ver)
+
+intar = tarfile.open(infn, 'r|*', format=tarfile.PAX_FORMAT)
+outtar = tarfile.open(outfn, 'w:gz')
+
+pat = re.compile(r"^gcc/.*\.(7|texi)$ | ^libiberty/at-file.texi$ | ^contrib/texi2pod\.pl$",
+                 re.VERBOSE)
+
+for member in intar:
+    if not member.isreg():
+        continue
+
+    _, path = member.name.split('/', 1)
+
+    mo = pat.search(path)
+    if not mo:
+        continue
+
+    outpath = posixpath.join(outdir, path)
+    print outpath
+
+    mf = intar.extractfile(member)
+    member.name = outpath
+    outtar.addfile(member, mf)

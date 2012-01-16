@@ -1,3 +1,13 @@
+gcc-4.5-doc-non-dfsg (4.5.3-1~naesten1) unstable; urgency=low
+
+  * Packaged documentation for gcc, gnat, and gcj version 4.5.3.
+  * Use new script debian/extract-doc-tarball-from-upstream to generate
+    .orig.tar.gz file.
+    + Move texi2pod.pl to contrib/texi2pod.pl, where it appears upstream,
+      to avoid having to special-case it.
+
+ -- Samuel Bronson <naesten@gmail.com>  Mon, 16 Jan 2012 16:54:25 -0500
+
 gcc-4.4-doc-non-dfsg (4.4.4.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc, gnat and gcj version 4.4.4.
