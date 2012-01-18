@@ -1,50 +1,78 @@
 #!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export DH_OPTIONS=-v
 
 ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
 	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
 	MAKEFLAGS += -j$(NUMJOBS)
 endif
 
-build: build-stamp
-build-stamp: patch-stamp
-	dh_testdir
+%:
+	dh $@
+
+override_dh_auto_build-indep:
 	$(MAKE) -f debian/Makefile
-	touch build-stamp
 
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs -i
-
-clean:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
+override_dh_auto_clean:
 	$(MAKE) -f debian/Makefile clean
-	debian/rules unpatch
-	dh_clean
 
-
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_installdocs -i
-	dh_installchangelogs -i
-	dh_installman -i
-	dh_installinfo -i
-	dh_link -i
-	dh_compress -i
-	dh_fixperms -i
-	dh_installdeb -i
-	dh_gencontrol -i
-	dh_md5sums -i
-	dh_builddeb -i
-
-binary-arch: build install
-
-binary: binary-indep binary-arch
-
-.PHONY: build install clean binary-indep binary-arch binary
-
-include /usr/share/dpatch/dpatch.make
+# Use override_dh_* targets to customize this.
+# ---------------------------------------------------
+# Followings are the old debian/rules
+#
+# #!/usr/bin/make -f
+# 
+# ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+# 	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
+# 	MAKEFLAGS += -j$(NUMJOBS)
+# endif
+# 
+# build: build-indep
+# 
+# build-arch:
+# 
+# build-indep: build-stamp
+# 
+# build-stamp: patch-stamp
+# 	dh_testdir
+# 	$(MAKE) -f debian/Makefile
+# 	touch build-stamp
+# 
+# install-indep: build-indep
+# 	dh_testdir
+# 	dh_testroot
+# 	dh_clean -k
+# 	dh_installdirs -i
+# 
+# clean:
+# 	dh_testdir
+# 	dh_testroot
+# 	rm -f build-stamp
+# 	$(MAKE) -f debian/Makefile clean
+# 	debian/rules unpatch
+# 	dh_clean
+# 
+# 
+# binary-indep: build-indep install-indep
+# 	dh_testdir
+# 	dh_testroot
+# 	dh_installdocs -i
+# 	dh_installchangelogs -i
+# 	dh_installman -i
+# 	dh_installinfo -i
+# 	dh_link -i
+# 	dh_compress -i
+# 	dh_fixperms -i
+# 	dh_installdeb -i
+# 	dh_gencontrol -i
+# 	dh_md5sums -i
+# 	dh_builddeb -i
+# 
+# binary-arch: build-arch
+# 
+# binary: binary-indep binary-arch
+# 
+# .PHONY: build build-arch build-indep install clean binary-indep binary-arch binary
+# 
+# include /usr/share/dpatch/dpatch.make

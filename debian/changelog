@@ -1,3 +1,12 @@
+gcc-4.5-doc-non-dfsg (4.5.3-1~naesten2) unstable; urgency=low
+
+  * Converted to "3.0 (quilt)" format.
+    + Updated debian/convert-debian-gcc-diff script accordingly.
+  * Switched to dh(1) based build.
+  * Bumped Standards-Version to 3.9.2.
+
+ -- Samuel Bronson <naesten@gmail.com>  Wed, 18 Jan 2012 18:04:12 -0500
+
 gcc-4.5-doc-non-dfsg (4.5.3-1~naesten1) unstable; urgency=low
 
   * Packaged documentation for gcc, gnat, and gcj version 4.5.3.

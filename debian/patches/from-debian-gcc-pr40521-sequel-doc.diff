@@ -1,33 +1,10 @@
-#!/bin/sh -e
-
 # DP: This patch was converted from pr40521-sequel-doc.diff
 # DP: Original comment:
 # DP:
 # DP: Sequel to PR40521 -- -g causes GCC to generate .eh_frame (documentation)
 
-dir=
-if [ $# -eq 3 -a "$2" = '-d' ]; then
-    pdir="-d $3"
-    dir="$3/"
-elif [ $# -ne 1 ]; then
-    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-    exit 1
-fi
-case "$1" in
-    -patch)
-        patch $pdir -f --no-backup-if-mismatch -p0 < $0
-        ;;
-    -unpatch)
-        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
-        ;;
-    *)
-        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-        exit 1
-esac
-exit 0
-
---- gcc/doc/tm.texi	2010-03-27 11:27:39.000000000 +0100
-+++ gcc/doc/tm.texi	2010-04-18 15:25:47.471085014 +0200
+--- a/gcc/doc/tm.texi	2010-03-27 11:27:39.000000000 +0100
++++ b/gcc/doc/tm.texi	2010-04-18 15:25:47.471085014 +0200
 @@ -8663,12 +8663,11 @@
  Define this macro to 0 if your target supports DWARF 2 frame unwind
  information, but it does not yet work with exception handling.

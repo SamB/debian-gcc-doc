@@ -1,34 +1,11 @@
-#!/bin/sh -e
-
 # DP: This patch was converted from rename-info-files.diff
 # DP: Original comment:
 # DP:
 # DP: Allow transformations on info file names. Reference the
 # DP: transformed info file names in the texinfo files.
 
-dir=
-if [ $# -eq 3 -a "$2" = '-d' ]; then
-    pdir="-d $3"
-    dir="$3/"
-elif [ $# -ne 1 ]; then
-    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-    exit 1
-fi
-case "$1" in
-    -patch)
-        patch $pdir -f --no-backup-if-mismatch -p0 < $0
-        ;;
-    -unpatch)
-        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
-        ;;
-    *)
-        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-        exit 1
-esac
-exit 0
-
---- gcc/doc/gcc.texi	2009-07-18
-+++ gcc/doc/gcc.texi	2009-12-20
+--- a/gcc/doc/gcc.texi	2009-07-18
++++ b/gcc/doc/gcc.texi	2009-12-20
 @@ -65,8 +65,8 @@
  @ifnottex
  @dircategory Software development
@@ -49,8 +26,8 @@ exit 0
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
---- gcc/doc/install.texi	2009-12-16
-+++ gcc/doc/install.texi	2009-12-20
+--- a/gcc/doc/install.texi	2009-12-16
++++ b/gcc/doc/install.texi	2009-12-20
 @@ -97,7 +97,7 @@
  @end ifinfo
  @dircategory Software development
@@ -60,8 +37,8 @@ exit 0
  @end direntry
  
  @c Part 3 Titlepage and Copyright
---- gcc/doc/gccint.texi	2009-05-23
-+++ gcc/doc/gccint.texi	2009-12-20
+--- a/gcc/doc/gccint.texi	2009-05-23
++++ b/gcc/doc/gccint.texi	2009-12-20
 @@ -51,7 +51,7 @@
  @ifnottex
  @dircategory Software development
@@ -80,8 +57,8 @@ exit 0
  Compiler Collection (GCC)}.
  
  This manual is mainly a reference manual rather than a tutorial.  It
---- gcc/doc/cpp.texi	2009-11-16
-+++ gcc/doc/cpp.texi	2009-12-20
+--- a/gcc/doc/cpp.texi	2009-11-16
++++ b/gcc/doc/cpp.texi	2009-12-20
 @@ -53,7 +53,7 @@
  @ifinfo
  @dircategory Software development
@@ -91,8 +68,8 @@ exit 0
  @end direntry
  @end ifinfo
  
---- gcc/doc/extend.texi	2009-12-16
-+++ gcc/doc/extend.texi	2009-12-20
+--- a/gcc/doc/extend.texi	2009-12-16
++++ b/gcc/doc/extend.texi	2009-12-20
 @@ -13048,7 +13048,7 @@
  test for the GNU compiler the same way as for C programs: check for a
  predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
@@ -102,8 +79,8 @@ exit 0
  
  @menu
  * Volatiles::           What constitutes an access to a volatile object.
---- gcc/doc/standards.texi	2009-09-22
-+++ gcc/doc/standards.texi	2009-12-20
+--- a/gcc/doc/standards.texi	2009-09-22
++++ b/gcc/doc/standards.texi	2009-12-20
 @@ -223,8 +223,8 @@
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
@@ -115,8 +92,8 @@ exit 0
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
 +@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
---- gcc/doc/cppinternals.texi	2008-07-21
-+++ gcc/doc/cppinternals.texi	2009-12-20
+--- a/gcc/doc/cppinternals.texi	2008-07-21
++++ b/gcc/doc/cppinternals.texi	2009-12-20
 @@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development
@@ -126,8 +103,8 @@ exit 0
  @end direntry
  @end ifinfo
  
---- gcc/doc/makefile.texi	2009-02-21
-+++ gcc/doc/makefile.texi	2009-12-20
+--- a/gcc/doc/makefile.texi	2009-02-21
++++ b/gcc/doc/makefile.texi	2009-12-20
 @@ -140,7 +140,7 @@
  @item profiledbootstrap
  Builds a compiler with profiling feedback information.  For more
@@ -137,8 +114,8 @@ exit 0
  
  @item restrap
  Restart a bootstrap, so that everything that was not built with
---- gcc/doc/libgcc.texi	2008-07-21
-+++ gcc/doc/libgcc.texi	2009-12-20
+--- a/gcc/doc/libgcc.texi	2008-07-21
++++ b/gcc/doc/libgcc.texi	2009-12-20
 @@ -24,7 +24,7 @@
  GCC will also generate calls to C library routines, such as
  @code{memcpy} and @code{memset}, in some cases.  The set of routines
@@ -148,8 +125,8 @@ exit 0
  
  These routines take arguments and return values of a specific machine
  mode, not a specific C type.  @xref{Machine Modes}, for an explanation
---- gcc/doc/invoke.texi	2009-12-17
-+++ gcc/doc/invoke.texi	2009-12-20
+--- a/gcc/doc/invoke.texi	2009-12-17
++++ b/gcc/doc/invoke.texi	2009-12-20
 @@ -8644,7 +8644,7 @@
  @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
  that GCC uses to overcome shortcomings of particular machines, or special
@@ -186,8 +163,8 @@ exit 0
  compiler looks for a precompiled header in each directory just before it
  looks for the include file in that directory.  The name searched for is
  the name specified in the @code{#include} with @samp{.gch} appended.  If
---- gcc/doc/passes.texi	2009-11-30
-+++ gcc/doc/passes.texi	2009-12-20
+--- a/gcc/doc/passes.texi	2009-11-30
++++ b/gcc/doc/passes.texi	2009-12-20
 @@ -201,7 +201,7 @@
  @item Mudflap declaration registration
  
@@ -197,8 +174,8 @@ exit 0
  enabled, we generate code to register some variable declarations with
  the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
  those variable declarations that have their addresses taken, or whose
---- gcc/ada/gnat_rm.texi	2009-11-30
-+++ gcc/ada/gnat_rm.texi	2009-12-20
+--- a/gcc/ada/gnat_rm.texi	2009-11-30
++++ b/gcc/ada/gnat_rm.texi	2009-12-20
 @@ -38,7 +38,7 @@
  
  @dircategory GNU Ada tools
@@ -208,8 +185,8 @@ exit 0
  @end direntry
  
  @titlepage
---- gcc/ada/gnat-style.texi	2009-02-21
-+++ gcc/ada/gnat-style.texi	2009-12-20
+--- a/gcc/ada/gnat-style.texi	2009-02-21
++++ b/gcc/ada/gnat-style.texi	2009-12-20
 @@ -31,7 +31,7 @@
  
  @dircategory Software development
@@ -219,8 +196,8 @@ exit 0
  @end direntry
  
  @macro syntax{element}
---- gcc/java/gcj.texi	2009-08-13
-+++ gcc/java/gcj.texi	2009-12-20
+--- a/gcc/java/gcj.texi	2009-08-13
++++ b/gcc/java/gcj.texi	2009-12-20
 @@ -55,25 +55,25 @@
  @format
  @dircategory Software development
@@ -265,8 +242,8 @@ exit 0
  options specific to @command{gcj}.
  
  @c man end
---- gcc/fortran/gfortran.texi	2009-12-17
-+++ gcc/fortran/gfortran.texi	2009-12-20
+--- a/gcc/fortran/gfortran.texi	2009-12-17
++++ b/gcc/fortran/gfortran.texi	2009-12-20
 @@ -101,7 +101,7 @@
  @ifinfo
  @dircategory Software development

@@ -3,10 +3,12 @@ Section: non-free/doc
 Priority: optional
 Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
 Uploaders:
- Nikita V. Youshchenko <yoush@debian.org>
-Build-Depends: debhelper (>> 5), dpatch
+ Nikita V. Youshchenko <yoush@debian.org>,
+ Samuel Bronson <naesten@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: texinfo, perl
-Standards-Version: 3.8.4
+Standards-Version: 3.9.2
+Homepage: http://gcc.gnu.org/
 
 Package: gcc-doc-base
 Architecture: all

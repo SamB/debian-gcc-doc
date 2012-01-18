@@ -1,33 +1,10 @@
-#!/bin/sh -e
-
 # DP: This patch was converted from gcc-plugindir-doc.diff
 # DP: Original comment:
 # DP:
 # DP: Search for plugins in a default plugin dir, backport from the trunk (docs).
 
-dir=
-if [ $# -eq 3 -a "$2" = '-d' ]; then
-    pdir="-d $3"
-    dir="$3/"
-elif [ $# -ne 1 ]; then
-    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-    exit 1
-fi
-case "$1" in
-    -patch)
-        patch $pdir -f --no-backup-if-mismatch -p0 < $0
-        ;;
-    -unpatch)
-        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
-        ;;
-    *)
-        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-        exit 1
-esac
-exit 0
-
---- gcc/doc/plugins.texi	2010-04-02 21:54:46.000000000 +0200
-+++ gcc/doc/plugins.texi	2010-05-01 17:46:54.101086672 +0200
+--- a/gcc/doc/plugins.texi	2010-04-02 21:54:46.000000000 +0200
++++ b/gcc/doc/plugins.texi	2010-05-01 17:46:54.101086672 +0200
 @@ -22,6 +22,11 @@
  plugins as key-value pairs. Multiple plugins can be invoked by
  specifying multiple @option{-fplugin} arguments.
@@ -50,8 +27,8 @@ exit 0
  The following GNU Makefile excerpt shows how to build a simple plugin:
  
  @smallexample
---- gcc/doc/invoke.texi	2010-05-01 17:43:03.372338550 +0200
-+++ gcc/doc/invoke.texi	2010-05-01 17:46:05.673586259 +0200
+--- a/gcc/doc/invoke.texi	2010-05-01 17:43:03.372338550 +0200
++++ b/gcc/doc/invoke.texi	2010-05-01 17:46:05.673586259 +0200
 @@ -425,7 +425,8 @@
  
  @item Directory Options

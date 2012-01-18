@@ -2,30 +2,6 @@
 
 use strict;
 
-my $code = << 'END';
-dir=
-if [ $# -eq 3 -a "$2" = '-d' ]; then
-    pdir="-d $3"
-    dir="$3/"
-elif [ $# -ne 1 ]; then
-    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-    exit 1
-fi
-case "$1" in
-    -patch)
-        patch $pdir -f --no-backup-if-mismatch -p0 < $0
-        ;;
-    -unpatch)
-        patch $pdir -f --no-backup-if-mismatch -R -p0 < $0
-        ;;
-    *)
-        echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
-        exit 1
-esac
-exit 0
-
-END
-
 sub conv_file($$) {
 	my $d = shift;
 	my $f = shift;
@@ -49,9 +25,9 @@ sub conv_file($$) {
 					$name =~ s/^[^\/]*\/?//;
 				}
 				if ($name) {
-					$line =~ s/^(---\s*)\S+(.*)$/$1$name$2/;
+					$line =~ s|^(---\s*)\S+(.*)$|$1a/$name$2|;
 					$res .= $line;
-					$nextline =~ s/^(\+\+\+\s*)\S+(.*)$/$1$name$2/;
+					$nextline =~ s|^(\+\+\+\s*)\S+(.*)$|$1b/$name$2|;
 					$res .= $nextline;
 					$in_diff = 1;
 					next;
@@ -69,11 +45,9 @@ sub conv_file($$) {
 	close F;
 
 	if ($res) {
-		$res = "#!/bin/sh -e\n" .
-		       "\n" .
-		       "# DP: This patch was converted from $f\n" .
+		$res = "# DP: This patch was converted from $f\n" .
 		       "# DP: Original comment:\n" .
-		       "# DP:\n" . join("", @dp) . "\n" . $code . $res;
+		       "# DP:\n" . join("", @dp) . "\n" . $res;
 	}
 
 	return $res;
@@ -96,17 +70,15 @@ for my $file (@ARGV) {
 	open F, ">$full_converted_name" or die "failed to open $full_converted_name";
 	print F $converted;
 	close F;
-	chmod 0755, $full_converted_name;
-	$converted_name =~ s/[.]dpatch$//;
 	push @patches, $converted_name;
 }
-open F, "debian/patches/00list" or die "failed to open debian/patches/00list";
+open F, "debian/patches/series" or die "failed to open debian/patches/series";
 while (<F>) {
 	chomp;
 	next if (/^from-debian-gcc-/);
 	push @patches, $_;
 }
 close F;
-open F, ">debian/patches/00list" or die "failed to open debian/patches/00list";
+open F, ">debian/patches/series" or die "failed to open debian/patches/series";
 print F $_ . "\n" for (@patches);
 close F;
