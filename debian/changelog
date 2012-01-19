@@ -1,3 +1,11 @@
+gcc-4.5-doc-non-dfsg (4.5.3-1~naesten4) unstable; urgency=low
+
+  * Add a debian/watch file.
+  * Update README.source for the new source format, and add "update the
+    watch file" to the "new X.Y" steps.
+
+ -- Samuel Bronson <naesten@gmail.com>  Thu, 19 Jan 2012 12:28:02 -0500
+
 gcc-4.5-doc-non-dfsg (4.5.3-1~naesten3) unstable; urgency=low
 
   * Don't try to use debian/compat of "9" yet, since apparently lintian

@@ -51,13 +51,13 @@ Updating to a new upstream release includes the following steps:
   (In fact, the script just grabs all .texi and .7 files in the gcc/
   subtree, along with the one .texi from libibirty/ and contrib/texi2pod.pl.)
 - Unpack the new .orig.tar.gz.
-- Copy the (cleaned) debian/ tree over from the previous package, or
-  apply the previous .diff.gz to the new tree.
+- `cd' into the resulting directory and extract the existing .debian.tar.gz.
 - Update debian/Makefile to build any newly-referenced documents,
   and the various <package>.{docs,doc-base.*,info,links,manpages}
   files to install and register them appropriately.
 - Update VER and FULLVER in debian/Makefile.
-- Also follow the instructions below for syncing with a new Debian package release.
+- Also follow the instructions below for syncing with a new Debian package
+  release.
 
 If updating to a new X.Y release, you must also:
 - rename all packages in debian/control whose names should contain X.Y,
@@ -66,6 +66,7 @@ If updating to a new X.Y release, you must also:
   in mind that:
   - the .manpages line for GCC's manpage should be gcc-X.Y.1, not
     X.Y.Z; the last number is the section number for the manpage,
+- update the debian/watch file,
 - add a new entry to debian/changelog with the new source package name
   before even *thinking* about building!
 
@@ -87,4 +88,4 @@ Syncing against a new Debian package release includes the following steps:
 - check that package builds without any warnings! if not, find out what's
   wrong and fix it.
 
- -- Samuel Bronson <naesten@gmail.com>, Tue, 17 Jan 2012 15:27:17 -0500
+ -- Samuel Bronson <naesten@gmail.com>, Thu, 19 Jan 2012 12:26:51 -0500
