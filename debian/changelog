@@ -1,3 +1,11 @@
+gcc-4.5-doc-non-dfsg (4.5.3-1) unstable; urgency=low
+
+  * Bump version to a normal Debian version number, on the theory that the
+    package is ready for upload.
+  * Closes: #656043 (my ITP for this package).
+
+ -- Samuel Bronson <naesten@gmail.com>  Sat, 21 Jan 2012 00:25:13 -0500
+
 gcc-4.5-doc-non-dfsg (4.5.3-1~naesten4) unstable; urgency=low
 
   * Add a debian/watch file.
