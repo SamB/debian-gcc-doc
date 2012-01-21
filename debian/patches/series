@@ -1,4 +1,3 @@
 from-debian-gcc-rename-info-files.diff
-from-debian-gcc-gcc-plugindir-doc.diff
-from-debian-gcc-pr40521-sequel-doc.diff
 from-debian-gcc-alpha-ieee-doc.diff
+from-debian-gcc-gcc-multiarch-doc.diff
