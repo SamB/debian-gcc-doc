@@ -25,23 +25,26 @@ override_dh_auto_clean:
 # This behaviour is shared by all of the example implementations on
 # <https://wiki.ubuntu.com/PackagingGuide/Basic#Changing_the_Original_Tarball>,
 # though, so I (SamB) can't bring myself to feel very bad about it.
-#
-# Policy also says this rule should work from any directory, but
-# doesn't give any hints on how to figure out where the package is,
-# so it only works from the root of the package source for now.
 
-DEB_UPSTREAM_VERSION=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([^-]+).*,\1,p')
-DEB_UPSTREAM_MAJOR=$(shell dpkg-parsechangelog | sed -rne 's,^Version: ([0-9]+\.[0-9]+).*,\1,p')
+DEB_DEBIAN_DIR=$(dir $(firstword $(MAKEFILE_LIST)))
+DEB_UPSTREAM_VERSION = $(shell dpkg-parsechangelog -l$(DEB_DEBIAN_DIR)/changelog \
+		                 | sed -rne 's,^Version: ([^-]+).*,\1,p')
+DEB_UPSTREAM_MAJOR   = $(shell dpkg-parsechangelog -l$(DEB_DEBIAN_DIR)/changelog \
+                                 | sed -rne 's,^Version: ([0-9]+\.[0-9]+).*,\1,p')
 get-orig-source:
-        # Uscan can grab upstream source zip
-	uscan --noconf --force-download --download-current-version --destdir=.
+        # Have uscan grab upstream tarball
+	uscan --noconf --force-download --download-current-version \
+	  --no-symlink --destdir=$(CURDIR) \
+	  --check-dirname-regex='(PACKAGE|gcc-doc)(-.+)?' \
+	  $(DEB_DEBIAN_DIR)/..
 
         # Distill the tarball to just the docs (and texi2pod)
-	python debian/extract-doc-tarball-from-upstream \
-		gcc-$(DEB_UPSTREAM_VERSION).tar.gz \
-		gcc-$(DEB_UPSTREAM_MAJOR)-non-dfsg \
-		$(DEB_UPSTREAM_VERSION)
+	python $(DEB_DEBIAN_DIR)/extract-doc-tarball-from-upstream \
+	  gcc-$(DEB_UPSTREAM_VERSION).tar.gz \
+	  gcc-$(DEB_UPSTREAM_MAJOR)-doc-non-dfsg \
+	  $(DEB_UPSTREAM_VERSION)
 
+        # Delete the upstream tarball
 	rm -f gcc-$(DEB_UPSTREAM_VERSION).tar.gz
 
 
