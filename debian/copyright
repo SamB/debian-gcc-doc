@@ -1,30 +1,149 @@
-This package was thrown together by Samuel J. J. Bronson <naesten@gmail.com>,
-based on gcc-4.4-doc-non-dfsg by Nikita V. Youshchenko <yoush@debian.org>.
+Format: http://dep.debian.net/deps/dep5/
+Upstream-Name: GCC
+Upstream-Contact: 
+Source: <http://gcc.gnu.org/>; most free parts removed to save disk
+ space for the package's maintainers, since they are already included
+ in the main gcc packages.
+Comment:
+ This package is not part of the Debian distribution due to the use of
+ GFDL "invariant sections" and "cover texts". See the explanation at
+ <http://www.debian.org/vote/2006/vote_001#amendmenttexta>.
 
-Package contains documentation files from gcc upstream distribution,
-that was downloaded from ftp://ftp.gnu.org/gnu/gcc/.
+Files: gcc/ada/gnat-style.texi gcc/ada/gnat_ugn.texi gcc/ada/projects.texi
+Copyright: Copyright (c) 1992-2009 Free Software Foundation, Inc.
+	   Copyright (c) 1995-2008 AdaCore
+License: GFDL-NIV-1.3+
 
-Several Debian-related files have been taken from previous versions
-of gcc-4.1 package, mainained by Matthias Klose <doko@debian.org>.
+Files: gcc/ada/gnat_rm.texi
+Copyright: Copyright (c) 1995-2008 Free Software Foundation, Inc.
+License: GFDL-1.3+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.3 or
+ any later version published by the Free Software Foundation; with no
+ Invariant Sections, with the Front-Cover Texts being "GNAT Reference
+ Manual", and with no Back-Cover Texts.  A copy of the license is
+ included in the section entitled "GNU Free Documentation License".
+ .
+ On Debian systems, the full text of the GNU Free Documentation
+ License version 1.3 can be found in the file
+ `/usr/share/common-licenses/GFDL-1.3'.
 
+Files: gcc/doc/*.texi gcc/fortran/*.texi
+Copyright: Copyright (c) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
+1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+2010 Free Software Foundation, Inc.
+License: GFDL-1.3+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.3 or
+ any later version published by the Free Software Foundation; with the
+ Invariant Sections being "Funding Free Software", the Front-Cover
+ Texts being (a) (see below), and with the Back-Cover Texts being (b)
+ (see below).  A copy of the license is included in the section entitled
+ "GNU Free Documentation License".
+ .
+ (a) The FSF's Front-Cover Text is:
+ .
+      A GNU Manual
+ .
+ (b) The FSF's Back-Cover Text is:
+ .
+      You have freedom to copy and modify this GNU Manual, like GNU
+      software.  Copies published by the Free Software Foundation raise
+      funds for GNU development.
 
-GCC is Copyright (C) 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994,
-1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
-2007, 2008 Free Software Foundation, Inc.
+Files: gcc/doc/cpp.texi gcc/doc/install.texi gcc/doc/install-old.texi
+ gcc/java/gcj.texi gcc/go/gccgo.texi
+Copyright:
+ Copyright (c) 1987, 1989, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
+ 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008,
+ 2009, 2010, 2011 Free Software Foundation, Inc.
+License: GFDL-1.3+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.3 or
+ any later version published by the Free Software Foundation; with no
+ Invariant Sections, the Front-Cover Texts being (a) (see below), and
+ with the Back-Cover Texts being (b) (see below).  A copy of the
+ license is included in the section entitled "GNU Free Documentation
+ License".
+ .
+ (a) The FSF's Front-Cover Text is:
+ .
+      A GNU Manual
+ .
+ (b) The FSF's Back-Cover Text is:
+ .
+      You have freedom to copy and modify this GNU Manual, like GNU
+      software.  Copies published by the Free Software Foundation raise
+      funds for GNU development.
 
-Ada documentation is Copyright (C) 1992-2005, AdaCore.
+Files: libiberty/at-file.texi
+Copyright: Copyright (c) 2005 Free Software Foundation, Inc.
+License: GFDL-NIV-1.3+
+ There is no actual copyright or license notice on this file;
+ see <http://gcc.gnu.org/bugzilla/show_bug.cgi?id=52204>.  However,
+ the libibirty ChangeLog reveals that it dates entirely from October
+ 2005. Libiberty's own manual was then under GFDL-NIV-1.2+, and
+ is now under GFDL-NIV-1.3+.
 
-Documentation files are distributed under the terms of
-GNU Free Documentation License, version 1.2.
+Files: gcc/doc/include/funding.texi gcc/doc/fsf-funding.7 
+Copyright: Copyright (c) 1994 Free Software Foundation, Inc.
+License:
+ Verbatim copying and redistribution of this section is permitted
+ without royalty; alteration is not permitted.
 
-Other files from this package are distributed under the terms of
-GNU General Public License.
+Files: gcc/doc/include/fdl.texi gcc/doc/gfdl.7
+Copyright: Copyright (c) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+	   http://fsf.org/
+License: GNU-meta-license
 
-On Debian GNU/Linux systems, the complete text of the GNU General
-Public License and the GNU Free Documentation License can be found in
-`/usr/share/common-licenses/' directory. 
+Files: gcc/doc/include/gpl.texi
+Copyright: Copyright (c) 1989, 1991 Free Software Foundation, Inc.
+License: GNU-meta-license
 
+Files: gcc/doc/include/gpl_v3.texi gcc/doc/gpl.7
+Copyright: Copyright (c) 2007 Free Software Foundation, Inc.
+License: GNU-meta-license
 
-This package is part of debian non-free archive because it contains gcc
-documentation files that are licenced under the terms of GFDL and do
-contain invariant sections. Distribution of such files is against DFSG.
+Files: contrib/texi2pod.pl
+Copyright: Copyright (C) 1999, 2000, 2001, 2003, 2010 Free Software Foundation, Inc.
+License: GPL-3+
+
+License: GNU-meta-license
+ Everyone is permitted to copy and distribute verbatim copies of this
+ license document, but changing it is not allowed.
+Comment:
+ GNU actually seems to offer more liberal terms for (parts of) these
+ documents elsewhere; see the FAQ about the GNU licenses,
+ <http://www.gnu.org/licenses/gpl-faq.html#ModifyGPL>.
+
+License: LGPL-NIV-1.3+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.3 or
+ any later version published by the Free Software Foundation; with no
+ Invariant Sections, with no Front-Cover Texts and with no Back-Cover
+ Texts. A copy of the license is included in the section entitled "GNU
+ Free Documentation License".
+ .
+ On Debian systems, the full text of the GNU Free Documentation
+ License version 1.3 can be found in the file
+ `/usr/share/common-licenses/GFDL-1.3'.
+Comment:
+ Oddly enough, this license is DFSG free.
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 3 can be found in the file
+ `/usr/share/common-licenses/GPL-3'.

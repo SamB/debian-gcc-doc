@@ -1,0 +1,30 @@
+This package was thrown together by Samuel J. J. Bronson <naesten@gmail.com>,
+based on gcc-4.4-doc-non-dfsg by Nikita V. Youshchenko <yoush@debian.org>.
+
+Package contains documentation files from gcc upstream distribution,
+that was downloaded from ftp://ftp.gnu.org/gnu/gcc/.
+
+Several Debian-related files have been taken from previous versions
+of gcc-4.1 package, mainained by Matthias Klose <doko@debian.org>.
+
+
+GCC is Copyright (C) 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994,
+1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
+2007, 2008 Free Software Foundation, Inc.
+
+Ada documentation is Copyright (C) 1992-2005, AdaCore.
+
+Documentation files are distributed under the terms of
+GNU Free Documentation License, version 1.2.
+
+Other files from this package are distributed under the terms of
+GNU General Public License.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License and the GNU Free Documentation License can be found in
+`/usr/share/common-licenses/' directory. 
+
+
+This package is part of debian non-free archive because it contains gcc
+documentation files that are licenced under the terms of GFDL and do
+contain invariant sections. Distribution of such files is against DFSG.
