@@ -1,3 +1,12 @@
+gcc-4.6-doc-non-dfsg (4.6.2-1~naesten2) unstable; urgency=low
+
+  * Update /debian/watch to check for 4.6 releases.
+  * Implement `debian/rules get-orig-source', more or less.
+  * Take a stab at converting debian/copyright to DEP5 format.
+  * New package "gccgo" for the Go compiler manual.
+
+ -- Samuel Bronson <naesten@gmail.com>  Mon, 13 Feb 2012 17:48:06 -0500
+
 gcc-4.6-doc-non-dfsg (4.6.2-1~naesten1) unstable; urgency=low
 
   * Packaged documentation files for gcc, gnat and gcj version 4.6.2.
