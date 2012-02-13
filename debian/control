@@ -83,3 +83,15 @@ Description: documentation for the GNU Java tools (gcj, gij)
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be
  part of Debian main.
+
+Package: gccgo-4.6-doc
+Architecture: all
+Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
+Suggests: doc-base
+Description: documentation for the GNU Go compiler (gccgo)
+ This package contains manual pages and documentation in info and
+ html format, for the GNU Go compiler.
+ .
+ This documentation is licensed under the terms of the GNU Free
+ Documentation License, and contains invariant sections, so it can't be
+ part of Debian main.

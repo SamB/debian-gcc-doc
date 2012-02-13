@@ -2,12 +2,13 @@ I_GCC = gcc gccint cpp cppinternals
 I_FORTRAN = gfortran
 I_ADA = gnat-style gnat_rm gnat_ugn
 I_GCJ = gcj
-I = $(I_GCC) $(I_FORTRAN) $(I_ADA) $(I_GCJ)
+I_GO = gccgo
+I = $(I_GCC) $(I_FORTRAN) $(I_ADA) $(I_GCJ) $(I_GO)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
 HTMLDOCS = $(I:%=%.html)
 
 GCJ_M1 = gcj gij jcf-dump jv-convert grmic gcj-dbtool gc-analyse
-M1 = gcc gcov cpp gfortran $(GCJ_M1)
+M1 = gcc gcov cpp gfortran $(GCJ_M1) gccgo
 M = $(M1)
 MANS = $(M:%=%-$(VER).1)
 PODS = $(M:%=%.pod)
@@ -65,6 +66,12 @@ $(I_GCJ:%=%-$(VER).info) : %-$(VER).info : gcc/java/%.texi $(GCCVERS)
 $(I_GCJ:%=%.html) : %.html : gcc/java/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
 
+$(I_GO:%=%-$(VER).info) : %-$(VER).info : gcc/go/%.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
+
+$(I_GO:%=%.html) : %.html : gcc/go/%.texi $(GCCVERS)
+	$(MKINFO) --html -o $@ $<
+
 %-$(VER).1 : %.pod
 	pod2man --center="GNU" --release="gcc-$(FULLVER)" --section=1 $< > $@
 
@@ -82,6 +89,9 @@ $(GCJ_M1:%=%.pod) : %.pod : gcc/java/gcj.texi
 
 gfortran.pod: gcc/fortran/invoke.texi $(GCCVERS)
 	(cd gcc/fortran && $(TEXI2POD)) < $< > $@
+
+gccgo.pod: gcc/go/gccgo.texi $(GCCVERS)
+	(cd gcc/go && $(TEXI2POD)) < $< > $@
 
 $(GCCVERS) :
 	(echo @set version-GCC $(FULLVER); \
