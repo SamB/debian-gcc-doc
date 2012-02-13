@@ -1,12 +1,12 @@
 Format: http://dep.debian.net/deps/dep5/
 Upstream-Name: GCC
-Upstream-Contact: 
+Upstream-Contact: http://gcc.gnu.org/bugzilla/
 Source: <http://gcc.gnu.org/>; most free parts removed to save disk
- space for the package's maintainers, since they are already included
- in the main gcc packages.
+ space for the Debian package maintainers, since they are already
+ included in the main gcc packages.
 Comment:
  This package is not part of the Debian distribution due to the use of
- GFDL "invariant sections" and "cover texts". See the explanation at
+ GFDL "Invariant Sections" and "Cover Texts". See the explanation at
  <http://www.debian.org/vote/2006/vote_001#amendmenttexta>.
 
 Files: gcc/ada/gnat-style.texi gcc/ada/gnat_ugn.texi gcc/ada/projects.texi
@@ -30,8 +30,8 @@ License: GFDL-1.3+
 
 Files: gcc/doc/*.texi gcc/fortran/*.texi
 Copyright: Copyright (c) 1988, 1989, 1992, 1993, 1994, 1995, 1996, 1997,
-1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-2010 Free Software Foundation, Inc.
+ 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+ 2010 Free Software Foundation, Inc.
 License: GFDL-1.3+
  Permission is granted to copy, distribute and/or modify this document
  under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -105,8 +105,28 @@ Copyright: Copyright (c) 2007 Free Software Foundation, Inc.
 License: GNU-meta-license
 
 Files: contrib/texi2pod.pl
-Copyright: Copyright (C) 1999, 2000, 2001, 2003, 2010 Free Software Foundation, Inc.
+Copyright: Copyright (c) 1999, 2000, 2001, 2003, 2010 Free Software Foundation, Inc.
 License: GPL-3+
+
+Files: debian/*
+Copyright:
+ Copyright (c) 2012 Samuel Bronson <naesten@gmail.com>
+ Copyright (c) 2006-2008, 2010 Nikita V. Youshchenko <yoush@debian.org>
+ Copyright (c) 1997-2006 Debian GCC Maintainers <debian-gcc@lists.debian.org>
+License: GPL-3+
+
+Files: debian/patches/from-debian-gcc-*
+Copyright:
+ These patches are automatically converted from the main GCC source
+ package (gcc-X.Y). They SHOULD (but probably do not yet) contain
+ copyright metadata in their headers.
+License: XXX
+ These patches need to declare their own copyright/licensing status
+ somehow, and there needs to be a way to say so in DEP5.
+
+Files: debian/extract-doc-tarball-from-upstream*
+Copyright: Copyright (c) 2012 Samuel J. J. Bronson <naesten@gmail.com>
+License: Expat
 
 License: GNU-meta-license
  Everyone is permitted to copy and distribute verbatim copies of this
@@ -116,7 +136,7 @@ Comment:
  documents elsewhere; see the FAQ about the GNU licenses,
  <http://www.gnu.org/licenses/gpl-faq.html#ModifyGPL>.
 
-License: LGPL-NIV-1.3+
+License: GFDL-NIV-1.3+
  Permission is granted to copy, distribute and/or modify this document
  under the terms of the GNU Free Documentation License, Version 1.3 or
  any later version published by the Free Software Foundation; with no
@@ -147,3 +167,23 @@ License: GPL-3+
  On Debian systems, the full text of the GNU General Public
  License version 3 can be found in the file
  `/usr/share/common-licenses/GPL-3'.
+
+License: Expat
+ Permission is hereby granted, free of charge, to any person obtaining
+ a copy of this software and associated documentation files (the
+ "Software"), to deal in the Software without restriction, including
+ without limitation the rights to use, copy, modify, merge, publish,
+ distribute, sublicense, and/or sell copies of the Software, and to
+ permit persons to whom the Software is furnished to do so, subject to
+ the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included
+ in all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
