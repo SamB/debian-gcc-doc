@@ -1,3 +1,11 @@
+gcc-4.6-doc-non-dfsg (4.6.2-1~naesten3) unstable; urgency=low
+
+  * README.source: Replace the paragraph about dpatch with one about
+    "3.0 (quilt)".
+  * Simplify "new X.Y version" procedure.
+
+ -- Samuel Bronson <naesten@gmail.com>  Tue, 14 Feb 2012 20:47:38 -0500
+
 gcc-4.6-doc-non-dfsg (4.6.2-1~naesten2) unstable; urgency=low
 
   * Update /debian/watch to check for 4.6 releases.
@@ -33,7 +41,7 @@ gcc-4.5-doc-non-dfsg (4.5.3-1~naesten3) unstable; urgency=low
 
   * Don't try to use debian/compat of "9" yet, since apparently lintian
     won't be happy with that until debhelper >= 9 is out.
-  
+
  -- Samuel Bronson <naesten@gmail.com>  Wed, 18 Jan 2012 20:30:35 -0500
 
 gcc-4.5-doc-non-dfsg (4.5.3-1~naesten2) unstable; urgency=low
