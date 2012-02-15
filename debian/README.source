@@ -54,17 +54,11 @@ Updating to a new upstream release includes the following steps:
 - Update debian/Makefile to build any newly-referenced documents,
   and the various <package>.{docs,doc-base.*,info,links,manpages}
   files to install and register them appropriately.
-- Update VER and FULLVER in debian/Makefile.
 - Also follow the instructions below for syncing with a new Debian package
   release.
 
 If updating to a new X.Y release, you must also:
 - rename all packages in debian/control whose names should contain X.Y,
-- rename the <package>.<FOO> files to match,
-- edit the <package>.<FOO> files to use the new version number, keeping
-  in mind that:
-  - the .manpages line for GCC's manpage should be gcc-X.Y.1, not
-    X.Y.Z; the last number is the section number for the manpage,
 - update the debian/watch file,
 - add a new entry to debian/changelog with the new source package name
   before even *thinking* about building!
@@ -78,7 +72,7 @@ Syncing against a new Debian package release includes the following steps:
     debian/convert-debian-gcc-diff script
   - not all patches from debian/patches/ are applied to debian packages,
     have to check build scripts to find out what is applied and what is not
-    (some of this information is included in
+    (some of this information is included in the
     /usr/share/doc/gcc-X.Y-base/README.Debian.<arch>.gz file provided by the
     gcc-X.Y-base package, but this will miss architecture-specific patches that
     don't apply to the <arch> architecture),
@@ -87,4 +81,4 @@ Syncing against a new Debian package release includes the following steps:
 - check that package builds without any warnings! if not, find out what's
   wrong and fix it.
 
- -- Samuel Bronson <naesten@gmail.com>, Tue, 14 Feb 2012 13:53:57 -0500
+ -- Samuel Bronson <naesten@gmail.com>, Tue, 14 Feb 2012 19:37:00 -0500

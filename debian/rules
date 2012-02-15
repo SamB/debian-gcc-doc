@@ -3,10 +3,51 @@
 #export DH_VERBOSE=1
 #export DH_OPTIONS=-v
 
+help: # Default target
+.PHONY: help
+
 ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
 	NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
 	MAKEFLAGS += -j$(NUMJOBS)
 endif
+
+DEBIAN_DIR := $(dir $(firstword $(MAKEFILE_LIST)))
+
+GCC_VERSION  := $(shell dpkg-parsechangelog -l$(DEBIAN_DIR)/changelog \
+	                  | sed -rne 's,^Version: ([^-]+).*,\1,p')
+####
+# Simplified from debian/rules.conf of "gcc-4.6 (4.6.2-11)"
+BASE_VERSION := $(shell echo $(GCC_VERSION) | sed -e 's/\([1-9]\.[0-9]\).*/\1/')
+
+export GCC_VERSION
+export BASE_VERSION
+
+versioned-files:
+	fs=`echo debian/*BV* | sort -u`; \
+	for f in $$fs debian/source.lintian-overrides.in; do \
+	  [ -f $$f ] || echo "CANNOT FIND $$f"; \
+	  [ -f $$f ] || continue; \
+	  f2=$$(echo $$f \
+		| sed 's/BV/$(BASE_VERSION)/;s/\.in$$//'); \
+	  sed -e 's/@BV@/$(BASE_VERSION)/g' \
+	    $$f > $$f2; \
+	  touch -r $$f $$f2; \
+	done
+
+clean-versioned-files:
+	fs=`echo debian/*BV* | sort -u`; \
+	for f in $$fs; do \
+	  [ -f $$f ] || continue; \
+	  f2=$$(echo $$f \
+		| sed 's/BV/$(BASE_VERSION)/;s/\.in$$//'); \
+	  sed -e 's/@BV@/$(BASE_VERSION)/g' \
+	    $$f > $$f2; \
+	  rm -f $$f2; \
+	done
+
+#
+####
+
 
 %:
 	dh $@
@@ -14,9 +55,10 @@ endif
 override_dh_auto_build-indep:
 	$(MAKE) -f debian/Makefile
 
-override_dh_auto_clean:
+override_dh_auto_clean: clean-versioned-files
 	$(MAKE) -f debian/Makefile clean
 
+override_dh_auto_install: versioned-files
 
 # XXX: Policy says this rule should download the latest, but there
 # doesn't seem to be a good way to know what version uscan downloaded,
@@ -26,23 +68,19 @@ override_dh_auto_clean:
 # <https://wiki.ubuntu.com/PackagingGuide/Basic#Changing_the_Original_Tarball>,
 # though, so I (SamB) can't bring myself to feel very bad about it.
 
-DEB_DEBIAN_DIR=$(dir $(firstword $(MAKEFILE_LIST)))
-DEB_UPSTREAM_VERSION = $(shell dpkg-parsechangelog -l$(DEB_DEBIAN_DIR)/changelog \
-		                 | sed -rne 's,^Version: ([^-]+).*,\1,p')
-DEB_UPSTREAM_MAJOR   = $(shell dpkg-parsechangelog -l$(DEB_DEBIAN_DIR)/changelog \
-                                 | sed -rne 's,^Version: ([0-9]+\.[0-9]+).*,\1,p')
 get-orig-source:
         # Have uscan grab upstream tarball
-	uscan --noconf --force-download --download-current-version \
+	uscan --noconf --force-download --download-version $(GCC_VERSION) \
 	  --no-symlink --destdir=$(CURDIR) \
 	  --check-dirname-regex='(PACKAGE|gcc-doc)(-.+)?' \
-	  $(DEB_DEBIAN_DIR)/..
+	  $(DEBIAN_DIR)/..
 
         # Distill the tarball to just the docs (and texi2pod)
-	python $(DEB_DEBIAN_DIR)/extract-doc-tarball-from-upstream \
-	  gcc-$(DEB_UPSTREAM_VERSION).tar.gz \
-	  gcc-$(DEB_UPSTREAM_MAJOR)-doc-non-dfsg \
-	  $(DEB_UPSTREAM_VERSION)
+	python $(DEBIAN_DIR)/extract-doc-tarball-from-upstream \
+	  gcc-$(GCC_VERSION).tar.gz \
+	  gcc-$(BASE_VERSION)-doc-non-dfsg \
+	  $(GCC_VERSION)
 
         # Delete the upstream tarball
-	rm -f gcc-$(DEB_UPSTREAM_VERSION).tar.gz
+	rm -f gcc-$(GCC_VERSION).tar.gz
+
