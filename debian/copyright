@@ -1,4 +1,4 @@
-Format: http://dep.debian.net/deps/dep5/
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: GCC
 Upstream-Contact: http://gcc.gnu.org/bugzilla/
 Source: <http://gcc.gnu.org/>; most free parts removed to save disk

@@ -1,19 +1,16 @@
 Source: gcc-4.6-doc-non-dfsg
 Section: non-free/doc
 Priority: optional
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Uploaders:
- Nikita V. Youshchenko <yoush@debian.org>,
- Samuel Bronson <naesten@gmail.com>
+Maintainer: Samuel Bronson <naesten@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~)
 Build-Depends-Indep: texinfo, perl
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://gcc.gnu.org/
+Vcs-Browser: https://github.com/SamB/debian-gcc-doc
+Vcs-Git: https://github.com/SamB/debian-gcc-doc
 
 Package: gcc-doc-base
 Architecture: all
-Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Replaces: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
 Depends: ${misc:Depends}
 Description: several GNU manual pages
  This package provides gfdl.7, gpl.7, and fsf-funding.7 manual pages,
@@ -24,8 +21,6 @@ Package: gcc-4.6-doc
 Architecture: all
 Depends: gcc-doc-base (>= 4.1.1.nf3-1), ${misc:Depends}
 Suggests: doc-base
-Conflicts: gcc-docs (<< 2.95.2)
-Replaces: gcc (<= 2.7.2.3-4.3), gcc-docs (<< 2.95.2)
 Description: documentation for the GNU compilers (gcc, gobjc, g++)
  This package contains manual pages and documentation in info and
  html format, for the GNU compilers.

@@ -1,3 +1,16 @@
+gcc-4.6-doc-non-dfsg (4.6.2-1~naesten4) unstable; urgency=low
+
+  * debian/copyright:
+    + Switch to new URL for copyright format.
+  * debian/control:
+    + Drop the Conflicts and Replaces fields, since even lenny doesn't
+      have any of the affected package versions.
+    + Update Standards-Version to 3.9.3.
+    + Add Vcs-* fields.
+    + Set myself as Maintainer, remove Uploaders field.
+
+ -- Samuel Bronson <naesten@gmail.com>  Tue, 28 Feb 2012 16:32:28 -0500
+
 gcc-4.6-doc-non-dfsg (4.6.2-1~naesten3) unstable; urgency=low
 
   * README.source: Replace the paragraph about dpatch with one about
