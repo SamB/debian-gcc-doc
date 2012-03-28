@@ -1,9 +1,9 @@
-I_GCC = gcc gccint cpp cppinternals
+I_GCC = gcc gccint cpp cppinternals # install
 I_FORTRAN = gfortran
-I_ADA = gnat-style gnat_rm gnat_ugn
+I_ADA = gnat-style gnat_rm # gnat_ugn
 I_GCJ = gcj
 I_GO = gccgo
-I = $(I_GCC) $(I_FORTRAN) $(I_ADA) $(I_GCJ) $(I_GO)
+I = $(I_GCC) $(I_FORTRAN) $(I_ADA) gnat_ugn $(I_GCJ) $(I_GO)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
 HTMLDOCS = $(I:%=%.html)
 
@@ -19,7 +19,8 @@ FULLVER = $(GCC_VERSION)
 GCCVERS = gcc/doc/gcc-vers.texi
 
 TARGETS = $(INFODOCS) $(HTMLDOCS) $(MANS)
-GENFILES = $(TARGETS) $(PODS) $(GCCVERS)
+GENFILES_GNAT = xgnatugn* gcc/doc/gnat_ugn.texi gcc/doc/projects.texi
+GENFILES = $(TARGETS) $(PODS) $(GCCVERS) $(GENFILES_GNAT)
 
 MKINFO_DEFINES := -D "fncpp cpp-$(VER)" \
 		  -D "fncppint cppinternals-$(VER)" \
@@ -37,28 +38,28 @@ MKINFO = makeinfo $(MKINFO_DEFINES) $(MKINFO_FLAGS)
 TEXI2POD_DEFINES := -Dfngccint=gccint-$(VER) -DBUGURL=http://bugs.debian.org/
 TEXI2POD = perl ../../contrib/texi2pod.pl $(TEXI2POD_DEFINES)
 
+
 all : $(TARGETS)
+
+
+#
+# Simple makeinfo rules
+#
 
 $(I_GCC:%=%-$(VER).info) : %-$(VER).info : gcc/doc/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
-gccinstall-$(VER).info : gcc/doc/install.texi $(GCCVERS)
-	$(MKINFO) -o $@ $<
-
 $(I_GCC:%=%.html) : %.html : gcc/doc/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
+
+gccinstall-$(VER).info : gcc/doc/install.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
 
 $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_FORTRAN:%=%.html) : %.html : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
-
-$(I_ADA:%=%-$(VER).info) : %-$(VER).info : gcc/ada/%.texi $(GCCVERS)
-	$(MKINFO) -D unw -o $@ $<
-
-$(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
-	$(MKINFO) -D unw --html -o $@ $<
 
 $(I_GCJ:%=%-$(VER).info) : %-$(VER).info : gcc/java/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
@@ -71,6 +72,37 @@ $(I_GO:%=%-$(VER).info) : %-$(VER).info : gcc/go/%.texi $(GCCVERS)
 
 $(I_GO:%=%.html) : %.html : gcc/go/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
+
+
+#
+# ADA/GNAT documentation
+#
+
+xgnatugn : gcc/ada/xgnatugn.adb
+	gnatmake gcc/ada/xgnatugn
+
+gcc/doc/gnat_ugn.texi : gcc/ada/gnat_ugn.texi xgnatugn gcc/doc/projects.texi
+	./xgnatugn unw $< gcc/ada/ug_words $@
+
+gcc/doc/projects.texi : gcc/ada/projects.texi xgnatugn
+	./xgnatugn unw $< gcc/ada/ug_words $@
+
+gnat_ugn-$(VER).info : gcc/doc/gnat_ugn.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
+
+gnat_ugn.html : gcc/doc/gnat_ugn.texi $(GCCVERS)
+	$(MKINFO) --html -o $@ $<
+
+$(I_ADA:%=%-$(VER).info) : %-$(VER).info : gcc/ada/%.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
+
+$(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
+	$(MKINFO) --html -o $@ $<
+
+
+#
+# Manpages
+#
 
 %-$(VER).1 : %.pod
 	pod2man --center="GNU" --release="gcc-$(FULLVER)" --section=1 $< > $@
@@ -92,6 +124,7 @@ gfortran.pod: gcc/fortran/invoke.texi $(GCCVERS)
 
 gccgo.pod: gcc/go/gccgo.texi $(GCCVERS)
 	(cd gcc/go && $(TEXI2POD)) < $< > $@
+
 
 $(GCCVERS) :
 	(echo @set version-GCC $(FULLVER); \

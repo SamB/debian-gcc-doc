@@ -1,3 +1,12 @@
+gcc-4.6-doc-non-dfsg (4.6.2-1~naesten5) UNRELEASED; urgency=low
+
+  * Build gnat_ugn the way it's built upstream, using the "xgnatugn"
+    preprocessor.
+    + Update debian/extract-doc-tarball-from-upstream to include the
+      needed files in .orig tarballs.
+
+ -- Samuel Bronson <naesten@gmail.com>  Sun, 04 Mar 2012 14:32:51 -0500
+
 gcc-4.6-doc-non-dfsg (4.6.2-1~naesten4) unstable; urgency=low
 
   * debian/copyright:

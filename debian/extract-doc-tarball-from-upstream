@@ -34,14 +34,19 @@ except ValueError:
 
 outfn = '%s_%s.orig.tar.gz' % (pkg, ver)
 
-# directory that output tarball would extract to
-outdir = '%s-%s' % (pkg, ver)
+# directory that the output tarball would extract to
+outdir = '%s-%s.orig' % (pkg, ver)
 
 intar = tarfile.open(infn, 'r|*', format=tarfile.PAX_FORMAT)
 outtar = tarfile.open(outfn, 'w:gz')
 
-pat = re.compile(r"^gcc/.*\.(7|texi)$ | ^libiberty/at-file.texi$ | ^contrib/texi2pod\.pl$",
-                 re.VERBOSE)
+pat_s = r"""
+  ^gcc/.*\.(7|texi)$
+| ^gcc/ada/(xgnatugn.adb|ug_words)$
+| ^libiberty/at-file.texi$
+| ^contrib/texi2pod\.pl$
+"""
+pat = re.compile(pat_s, re.VERBOSE)
 
 for member in intar:
     if not member.isreg():
