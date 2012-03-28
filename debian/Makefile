@@ -5,6 +5,7 @@ I_GCJ = gcj
 I_GO = gccgo
 I = $(I_GCC) $(I_FORTRAN) $(I_ADA) $(I_GCJ) $(I_GO)
 INFODOCS = $(I:%=%-$(VER).info) gccinstall-$(VER).info
+PDFDOCS = $(I:%=%-$(VER).pdf) gccinstall-$(VER).pdf
 HTMLDOCS = $(I:%=%.html)
 
 GCJ_M1 = gcj gij jcf-dump jv-convert grmic gcj-dbtool gc-analyse
@@ -18,35 +19,45 @@ FULLVER = $(GCC_VERSION)
 
 GCCVERS = gcc/doc/gcc-vers.texi
 
-TARGETS = $(INFODOCS) $(HTMLDOCS) $(MANS)
+TARGETS = $(PDFDOCS) $(INFODOCS) $(HTMLDOCS) $(MANS)
 GENFILES = $(TARGETS) $(PODS) $(GCCVERS)
 
-MKINFO_DEFINES := -D "fncpp cpp-$(VER)" \
-		  -D "fncppint cppinternals-$(VER)" \
-		  -D "fngcc gcc-$(VER)" \
-		  -D "fngxx g++-$(VER)" \
-		  -D "fngccint gccint-$(VER)" \
-		  -D "fngccinstall gccinstall-$(VER)" \
-		  -D "fngcj gcj-$(VER)" \
-		  -D "fngfortran gfortran-$(VER)" \
-		  -D "fntreelang treelang-$(VER)" \
-		  -D "BUGURL http://bugs.debian.org/"
+MKINFO_DEFINES := -D"fncpp cpp-$(VER)" \
+		  -D"fncppint cppinternals-$(VER)" \
+		  -D"fngcc gcc-$(VER)" \
+		  -D"fngxx g++-$(VER)" \
+		  -D"fngccint gccint-$(VER)" \
+		  -D"fngccinstall gccinstall-$(VER)" \
+		  -D"fngcj gcj-$(VER)" \
+		  -D"fngfortran gfortran-$(VER)" \
+		  -D"fntreelang treelang-$(VER)" \
+		  -D"BUGURL http://bugs.debian.org/"
 MKINFO_FLAGS := --no-split -Igcc/doc -Igcc/doc/include
 MKINFO = makeinfo $(MKINFO_DEFINES) $(MKINFO_FLAGS)
 
 TEXI2POD_DEFINES := -Dfngccint=gccint-$(VER) -DBUGURL=http://bugs.debian.org/
 TEXI2POD = perl ../../contrib/texi2pod.pl $(TEXI2POD_DEFINES)
 
+TEXI2PDF_DEFINES := $(MKINFO_DEFINES:-D%=--command="@set "%)
+TEXI2PDF_FLAGS = --batch -t '\errorcontextlines16' --build-dir=build -I debian -I gcc/doc -I gcc/doc/include
+TEXI2PDF = texi2pdf $(TEXI2PDF_DEFINES) $(TEXI2PDF_FLAGS)
+
 all : $(TARGETS)
 
 $(I_GCC:%=%-$(VER).info) : %-$(VER).info : gcc/doc/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
-gccinstall-$(VER).info : gcc/doc/install.texi $(GCCVERS)
-	$(MKINFO) -o $@ $<
+$(I_GCC:%=%-$(VER).pdf) : %-$(VER).pdf : gcc/doc/%.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
 
 $(I_GCC:%=%.html) : %.html : gcc/doc/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
+
+gccinstall-$(VER).info : gcc/doc/install.texi $(GCCVERS)
+	$(MKINFO) -o $@ $<
+
+gccinstall-$(VER).pdf : gcc/doc/install.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
 
 $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
@@ -54,8 +65,14 @@ $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : gcc/fortran/%.texi $(GCCVERS)
 $(I_FORTRAN:%=%.html) : %.html : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
 
+$(I_FORTRAN:%=%-$(VER).pdf) : %-$(VER).pdf : gcc/fortran/%.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
+
 $(I_ADA:%=%-$(VER).info) : %-$(VER).info : gcc/ada/%.texi $(GCCVERS)
 	$(MKINFO) -D unw -o $@ $<
+
+$(I_ADA:%=%-$(VER).pdf) : %-$(VER).pdf : gcc/ada/%.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
 
 $(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
 	$(MKINFO) -D unw --html -o $@ $<
@@ -63,11 +80,17 @@ $(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
 $(I_GCJ:%=%-$(VER).info) : %-$(VER).info : gcc/java/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
+$(I_GCJ:%=%-$(VER).pdf) : %-$(VER).pdf : gcc/java/%.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
+
 $(I_GCJ:%=%.html) : %.html : gcc/java/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
 
 $(I_GO:%=%-$(VER).info) : %-$(VER).info : gcc/go/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
+
+$(I_GO:%=%-$(VER).pdf) : %-$(VER).pdf : gcc/go/%.texi $(GCCVERS)
+	$(TEXI2PDF) -o $@ $<
 
 $(I_GO:%=%.html) : %.html : gcc/go/%.texi $(GCCVERS)
 	$(MKINFO) --html -o $@ $<
@@ -99,4 +122,4 @@ $(GCCVERS) :
 	 echo @set srcdir `pwd`/gcc ) > $@
 
 clean:
-	rm -f $(GENFILES)
+	rm -f $(GENFILES) -r build
