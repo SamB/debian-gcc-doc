@@ -1,4 +1,4 @@
-Source: gcc-4.6-doc-non-dfsg
+Source: gcc-4.6-doc
 Section: non-free/doc
 Priority: optional
 Maintainer: Samuel Bronson <naesten@gmail.com>
