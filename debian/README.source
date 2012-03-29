@@ -39,29 +39,22 @@ after from-debian-gcc-* patches). Also better not to touch from-debian-gcc-*
 patches by hand and use debian/convert-debian-gcc-diff script instead.
 
 Updating to a new upstream release includes the following steps:
-- Generate the new .orig.tar.gz from the upstream tarball using the
-  debian/extract-doc-tarball-from-upstream script, which takes care of
-  the following:
-  - update existing .texi files from gcc/doc/, gcc/ada/, gcc/fortran/,
-    gcc/java/, and libiberty/,
-  - update *.7 manual pages from gcc/doc (those go unmodified to gcc-doc-base
-    package to match licensing requirements),
-  - update contrib/texi2pod.pl script (it is used by documentation build).
-  (In fact, the script just grabs all .texi and .7 files in the gcc/
-  subtree, along with the one .texi from libibirty/ and contrib/texi2pod.pl.)
-- Unpack the new .orig.tar.gz.
-- `cd' into the resulting directory and extract the existing .debian.tar.gz.
+
+- Create a new changelog entry with an appropriate version number.
+- If updating to a new X.Y release, bump the version numbers in
+  debian/watch and debian/gbp.conf accordingly.
+- Run "debian/rules get-orig-source", which will generate the new
+  .orig.tar.gz from the upstream tarball using the
+  debian/extract-doc-tarball-from-upstream script.
+- Switch to the new upstream tarball, preferably using
+  git-import-orig(1).
 - Update debian/Makefile to build any newly-referenced documents,
   and the various <package>.{docs,doc-base.*,info,links,manpages}
   files to install and register them appropriately.
 - Also follow the instructions below for syncing with a new Debian package
   release.
-
-If updating to a new X.Y release, you must also:
-- rename all packages in debian/control whose names should contain X.Y,
-- update the debian/watch file,
-- add a new entry to debian/changelog with the new source package name
-  before even *thinking* about building!
+- If updating to a new X.Y release, you must also rename all packages
+  in debian/control whose names should contain X.Y,
 
 Syncing against a new Debian package release includes the following steps:
 - check what .texi files are modified by patches from debian gcc source
@@ -81,4 +74,4 @@ Syncing against a new Debian package release includes the following steps:
 - check that package builds without any warnings! if not, find out what's
   wrong and fix it.
 
- -- Samuel Bronson <naesten@gmail.com>, Tue, 14 Feb 2012 19:37:00 -0500
+ -- Samuel Bronson <naesten@gmail.com>, Wed, 28 Mar 2012 19:40:11 -0400
