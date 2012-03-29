@@ -29,7 +29,7 @@ from pprint import pprint
 try:
     infn, pkg, ver = sys.argv[1:]
 except ValueError:
-    print "usage: %s gcc-X.Y.Z.tar.(gz|bz2) gcc-X.Y-doc-non-dfsg X.Y.Z[.mumble]" % sys.argv[0]
+    print "usage: %s gcc-X.Y.Z.tar.(gz|bz2) gcc-X.Y-doc X.Y.Z[.mumble]" % sys.argv[0]
     exit(1)
 
 outfn = '%s_%s.orig.tar.gz' % (pkg, ver)

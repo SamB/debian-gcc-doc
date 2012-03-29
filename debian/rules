@@ -78,7 +78,7 @@ get-orig-source:
         # Distill the tarball to just the docs (and texi2pod)
 	python $(DEBIAN_DIR)/extract-doc-tarball-from-upstream \
 	  gcc-$(GCC_VERSION).tar.gz \
-	  gcc-$(BASE_VERSION)-doc-non-dfsg \
+	  gcc-$(BASE_VERSION)-doc \
 	  $(GCC_VERSION)
 
         # Delete the upstream tarball
