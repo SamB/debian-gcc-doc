@@ -8,6 +8,7 @@ gcc-4.6-doc-non-dfsg (4.6.2-1~naesten5) UNRELEASED; urgency=low
     will be working in git.
   * debian/rules, debian/extract-doc-tarball-from-upstream:
     + Update for impending rename (of source package) to gcc-X.Y-doc.
+    + Set mtime=0 in gzip header, so tarballs are reproducible.
 
  -- Samuel Bronson <naesten@gmail.com>  Sun, 04 Mar 2012 14:32:51 -0500
 

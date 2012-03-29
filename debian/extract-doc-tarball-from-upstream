@@ -23,8 +23,13 @@
 # TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 # SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import sys, tarfile, re, posixpath
+import sys
+import tarfile
+import gzip
+import re
+import posixpath
 from pprint import pprint
+
 
 try:
     infn, pkg, ver = sys.argv[1:]
@@ -38,7 +43,8 @@ outfn = '%s_%s.orig.tar.gz' % (pkg, ver)
 outdir = '%s-%s.orig' % (pkg, ver)
 
 intar = tarfile.open(infn, 'r|*', format=tarfile.PAX_FORMAT)
-outtar = tarfile.open(outfn, 'w:gz')
+outtarball = gzip.GzipFile(outfn, 'wb', mtime=0)
+outtar = tarfile.open(None, 'w:tar', fileobj=outtarball)
 
 pat_s = r"""
   ^gcc/.*\.(7|texi)$
