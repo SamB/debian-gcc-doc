@@ -40,14 +40,15 @@ patches by hand and use debian/convert-debian-gcc-diff script instead.
 
 Updating to a new upstream release includes the following steps:
 
-- Create a new changelog entry with an appropriate version number.
+- Create a changelog entry with the new version number and package
+  name.
 - If updating to a new X.Y release, bump the version numbers in
   debian/watch and debian/gbp.conf accordingly.
 - Run "debian/rules get-orig-source", which will generate the new
   .orig.tar.gz from the upstream tarball using the
   debian/extract-doc-tarball-from-upstream script.
 - Switch to the new upstream tarball, preferably using
-  git-import-orig(1).
+  git-import-orig(1).  (You'll have to stash any uncommitted changes.)
 - Update debian/Makefile to build any newly-referenced documents,
   and the various <package>.{docs,doc-base.*,info,links,manpages}
   files to install and register them appropriately.
@@ -74,4 +75,4 @@ Syncing against a new Debian package release includes the following steps:
 - check that package builds without any warnings! if not, find out what's
   wrong and fix it.
 
- -- Samuel Bronson <naesten@gmail.com>, Wed, 28 Mar 2012 19:40:11 -0400
+ -- Samuel Bronson <naesten@gmail.com>, Thu, 29 Mar 2012 17:40:36 -0400
