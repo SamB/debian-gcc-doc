@@ -8,8 +8,8 @@ Abstract: The C preprocessor is a "macro processor" that is used automatically
 Section: Programming
 
 Format: html
-Index: /usr/share/doc/cpp-@BV@-doc/cpp.html
-Files: /usr/share/doc/cpp-@BV@-doc/cpp.html
+Index: /usr/share/doc/gcc-@BV@-doc/cpp.html
+Files: /usr/share/doc/gcc-@BV@-doc/cpp.html
 
 Format: info
 Index: /usr/share/info/cpp-@BV@.info.gz

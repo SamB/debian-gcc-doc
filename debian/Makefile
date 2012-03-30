@@ -35,6 +35,19 @@ MKINFO_DEFINES := -D "fncpp cpp-$(VER)" \
 MKINFO_FLAGS := --no-split -Igcc/doc -Igcc/doc/include
 MKINFO = makeinfo $(MKINFO_DEFINES) $(MKINFO_FLAGS)
 
+MKHTML_DEFINES := -D "fncpp cpp" \
+		  -D "fncppint cppinternals" \
+		  -D "fngcc gcc" \
+		  -D "fngxx g++" \
+		  -D "fngccint gccint" \
+		  -D "fngccinstall gccinstall" \
+		  -D "fngcj gcj" \
+		  -D "fngfortran gfortran" \
+		  -D "fntreelang treelang" \
+		  -D "BUGURL http://bugs.debian.org/"
+MKHTML_FLAGS := --no-split -Igcc/doc -Igcc/doc/include
+MKHTML = makeinfo $(MKHTML_DEFINES) $(MKHTML_FLAGS) --html
+
 TEXI2POD_DEFINES := -Dfngccint=gccint-$(VER) -DBUGURL=http://bugs.debian.org/
 TEXI2POD = perl ../../contrib/texi2pod.pl $(TEXI2POD_DEFINES)
 
@@ -50,7 +63,7 @@ $(I_GCC:%=%-$(VER).info) : %-$(VER).info : gcc/doc/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_GCC:%=%.html) : %.html : gcc/doc/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 gccinstall-$(VER).info : gcc/doc/install.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
@@ -59,19 +72,19 @@ $(I_FORTRAN:%=%-$(VER).info) : %-$(VER).info : gcc/fortran/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_FORTRAN:%=%.html) : %.html : gcc/fortran/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 $(I_GCJ:%=%-$(VER).info) : %-$(VER).info : gcc/java/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_GCJ:%=%.html) : %.html : gcc/java/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 $(I_GO:%=%-$(VER).info) : %-$(VER).info : gcc/go/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_GO:%=%.html) : %.html : gcc/go/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 
 #
@@ -91,13 +104,13 @@ gnat_ugn-$(VER).info : gcc/doc/gnat_ugn.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 gnat_ugn.html : gcc/doc/gnat_ugn.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 $(I_ADA:%=%-$(VER).info) : %-$(VER).info : gcc/ada/%.texi $(GCCVERS)
 	$(MKINFO) -o $@ $<
 
 $(I_ADA:%=%.html) : %.html : gcc/ada/%.texi $(GCCVERS)
-	$(MKINFO) --html -o $@ $<
+	$(MKHTML) -o $@ $<
 
 
 #

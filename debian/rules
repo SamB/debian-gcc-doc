@@ -52,13 +52,17 @@ clean-versioned-files:
 %:
 	dh $@
 
-override_dh_auto_build-indep:
+override_dh_auto_build:
 	$(MAKE) -f debian/Makefile
 
 override_dh_auto_clean: clean-versioned-files
 	$(MAKE) -f debian/Makefile clean
 
 override_dh_auto_install: versioned-files
+
+override_dh_installdocs:
+	dh_installdocs -pgcc-doc-base
+	dh_installdocs --remaining-packages --link-doc=gcc-$(BASE_VERSION)-doc
 
 # XXX: Policy says this rule should download the latest, but there
 # doesn't seem to be a good way to know what version uscan downloaded,

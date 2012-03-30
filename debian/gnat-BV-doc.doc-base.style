@@ -7,8 +7,8 @@ Abstract: Most of GNAT is written in Ada using a consistent style
 Section: Programming
 
 Format: html
-Index: /usr/share/doc/gnat-@BV@-doc/gnat-style.html
-Files: /usr/share/doc/gnat-@BV@-doc/gnat-style.html
+Index: /usr/share/doc/gcc-@BV@-doc/gnat-style.html
+Files: /usr/share/doc/gcc-@BV@-doc/gnat-style.html
 
 Format: info
 Index: /usr/share/info/gnat-style-@BV@.info.gz

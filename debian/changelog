@@ -1,3 +1,17 @@
+gcc-4.6-doc (4.6.3-1~naesten7) UNRELEASED; urgency=low
+
+  * Fix the links between HTML manuals.
+    + Use /usr/share/doc/gcc-X.Y-doc for all packages except gcc-doc-base,
+      since we can't use @xref between directories.
+    + Stop linking to (e.g.) gcc-4.6.html; the file is named gcc.html!
+    + Update the *.doc-base* files for the new paths.
+  * Unfortunately, many cross-references involving the GNAT *info* files
+    have been broken for a while (probably at least since the docs got
+    kicked out of gcc-X.Y proper for being non-free).  (This is arguably a
+    bug in the rename-info-files.patch from the gcc-X.Y packages.)
+
+ -- Samuel Bronson <naesten@gmail.com>  Fri, 30 Mar 2012 14:46:49 -0400
+
 gcc-4.6-doc (4.6.3-1~naesten6) unstable; urgency=low
 
   * New upstream release.
