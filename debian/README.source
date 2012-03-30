@@ -75,4 +75,13 @@ Syncing against a new Debian package release includes the following steps:
 - check that package builds without any warnings! if not, find out what's
   wrong and fix it.
 
- -- Samuel Bronson <naesten@gmail.com>, Thu, 29 Mar 2012 17:40:36 -0400
+It would be good to check the links in the HTML files from time to
+time.  Something like the following zsh command might be useful for
+this:
+
+% checklink $((for i in $(dcmd --deb gcc-4.6-doc_4.6.3-1\~naesten6_i386.changes); dpkg-deb --fsys-tarfile $i) | tar -ti | grep '\.html$' | cut -c2-) > gcc-4.6-doc.checklink.txt
+
+(Note that checklink comes from the w3c-linkchecker package.)
+
+ -- Samuel Bronson <naesten@gmail.com>, Fri, 30 Mar 2012 13:55:06 -0400
+ -- Nikita V. Youshchenko <yoush@debian.org>, Sun, 28 Sep 2008 19:40:54 +0400
