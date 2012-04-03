@@ -1,3 +1,15 @@
+gcc-4.4-doc-non-dfsg (4.4.4.nf1-2~naesten1) unstable; urgency=low
+
+  * Hijack package: gcc-doc packages need coordinated uploads (as Nikita
+    himself pointed out to me), and Nikita says he does not have
+    time for this at the moment.
+    Thanks to Nikita Youshchenko for all of his work in the past.
+  * No longer build gcc-doc-base package from gcc-4.4-doc-non-dfsg source;
+    it is now built from gcc-4.6-doc source.
+  * Bump Standards-Version to 3.9.3.  (No changes.)
+
+ -- Samuel Bronson <naesten@gmail.com>  Tue, 03 Apr 2012 16:26:15 -0400
+
 gcc-4.4-doc-non-dfsg (4.4.4.nf1-1) unstable; urgency=low
 
   * Packaged documentation files for gcc, gnat and gcj version 4.4.4.

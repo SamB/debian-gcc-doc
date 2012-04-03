@@ -1,22 +1,10 @@
 Source: gcc-4.4-doc-non-dfsg
 Section: non-free/doc
 Priority: optional
-Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
-Uploaders:
- Nikita V. Youshchenko <yoush@debian.org>
+Maintainer: Samuel Bronson <naesten@gmail.com>
 Build-Depends: debhelper (>> 5), dpatch
 Build-Depends-Indep: texinfo, perl
-Standards-Version: 3.8.4
-
-Package: gcc-doc-base
-Architecture: all
-Conflicts: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Replaces: gcc-docs (<< 2.95.2), gcc-4.1 (<< 4.1.1-11)
-Depends: ${misc:Depends}
-Description: several GNU manual pages
- This package provides gfdl.7, gpl.7, and fsf-funding.7 manual pages,
- which should be available together with gcc man pages to fit
- GNU Free Documentation License requirements.
+Standards-Version: 3.9.3
 
 Package: gcc-4.4-doc
 Architecture: all
@@ -76,7 +64,7 @@ Provides: gij-4.4-doc
 Description: documentation for the GNU Java tools (gcj, gij)
  This package contains manual pages and documentation in info and
  html format, for the GNU Java Compiler, the GNU interpreter for Java
- bytecode, and related tools.
+ bytecode, and relatedgcc-4..
  .
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be
