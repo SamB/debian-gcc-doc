@@ -11,6 +11,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gnat_rm.html
 Files: /usr/share/doc/gcc-@BV@-doc/gnat_rm.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gnat_rm.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gnat_rm.pdf
+
 Format: info
 Index: /usr/share/info/gnat_rm-@BV@.info.gz
 Files: /usr/share/info/gnat_rm-@BV@.info.gz

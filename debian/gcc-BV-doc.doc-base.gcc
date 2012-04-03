@@ -9,6 +9,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gcc.html
 Files: /usr/share/doc/gcc-@BV@-doc/gcc.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gcc.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gcc.pdf
+
 Format: info
 Index: /usr/share/info/gcc-@BV@.info.gz
 Files: /usr/share/info/gcc-@BV@*

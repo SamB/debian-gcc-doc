@@ -1,3 +1,20 @@
+gcc-4.6-doc (4.6.3-1~naesten8) unstable; urgency=low
+
+  * Build PDFs, at Robert Wotzlaw's suggestion and using parts of his changes.
+    (Perhaps "inspired by" might be more accurate.)
+    + Instead of hard-coding the filenames into the xrefs, which would
+      (a) require rewriting rename-info-files.patch from the gcc-X.Y package and
+      (b) preclude using different filenames for different output formats,
+      we "simply" add support for @value in xref filenames to texinfo.tex.
+      Thanks to tex.stackexchange.com for the TeX hints and to Karl Berry for
+      accepting my patch.
+    + Add the PDFs to our .docs and .doc-base* files, so they get installed and
+      registered as alternate forms of the relevant documents.
+    + Instruct dh_compress not to compress them, because that often leads
+      to trouble with browsers and/or web servers.
+
+ -- Samuel Bronson <naesten@gmail.com>  Tue, 03 Apr 2012 13:31:21 -0400
+
 gcc-4.6-doc (4.6.3-1~naesten7) unstable; urgency=low
 
   * Fix the links between HTML manuals.

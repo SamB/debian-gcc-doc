@@ -10,6 +10,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gnat-style.html
 Files: /usr/share/doc/gcc-@BV@-doc/gnat-style.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gnat-style.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gnat-style.pdf
+
 Format: info
 Index: /usr/share/info/gnat-style-@BV@.info.gz
 Files: /usr/share/info/gnat-style-@BV@.info.gz

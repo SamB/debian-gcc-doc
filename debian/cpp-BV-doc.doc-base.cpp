@@ -11,6 +11,11 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/cpp.html
 Files: /usr/share/doc/gcc-@BV@-doc/cpp.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/cpp.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/cpp.pdf
+
 Format: info
 Index: /usr/share/info/cpp-@BV@.info.gz
 Files: /usr/share/info/cpp-@BV@*
+

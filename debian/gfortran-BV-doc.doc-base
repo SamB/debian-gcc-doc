@@ -9,6 +9,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gfortran.html
 Files: /usr/share/doc/gcc-@BV@-doc/gfortran.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gfortran.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gfortran.pdf
+
 Format: info
 Index: /usr/share/info/gfortran-@BV@.info.gz
 Files: /usr/share/info/gfortran-@BV@*

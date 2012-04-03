@@ -8,6 +8,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gccgo.html
 Files: /usr/share/doc/gcc-@BV@-doc/gccgo.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gccgo.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gccgo.pdf
+
 Format: info
 Index: /usr/share/info/gccgo-@BV@.info.gz
 Files: /usr/share/info/gccgo-@BV@*

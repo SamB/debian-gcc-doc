@@ -12,6 +12,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gccint.html
 Files: /usr/share/doc/gcc-@BV@-doc/gccint.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gccint.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gccint.pdf
+
 Format: info
 Index: /usr/share/info/gccint-@BV@.info.gz
 Files: /usr/share/info/gccint-@BV@*

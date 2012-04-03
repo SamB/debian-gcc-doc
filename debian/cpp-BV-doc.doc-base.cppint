@@ -12,6 +12,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/cppinternals.html
 Files: /usr/share/doc/gcc-@BV@-doc/cppinternals.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/cppinternals.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/cppinternals.pdf
+
 Format: info
 Index: /usr/share/info/cppinternals-@BV@.info.gz
 Files: /usr/share/info/cppinternals-@BV@*

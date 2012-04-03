@@ -3,7 +3,12 @@ Section: non-free/doc
 Priority: optional
 Maintainer: Samuel Bronson <naesten@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~)
-Build-Depends-Indep: texinfo, perl, gnat-4.6 | gnat
+Build-Depends-Indep:
+ texinfo, 
+ gnat-4.6 | gnat,
+ texlive-base,
+ texlive-latex-base,
+ texlive-generic-recommended
 Standards-Version: 3.9.3
 Homepage: http://gcc.gnu.org/
 Vcs-Browser: https://github.com/SamB/debian-gcc-doc

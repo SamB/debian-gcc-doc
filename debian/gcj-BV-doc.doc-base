@@ -10,6 +10,10 @@ Format: html
 Index: /usr/share/doc/gcc-@BV@-doc/gcj.html
 Files: /usr/share/doc/gcc-@BV@-doc/gcj.html
 
+Format: pdf
+Index: /usr/share/doc/gcc-@BV@-doc/gcj.pdf
+Files: /usr/share/doc/gcc-@BV@-doc/gcj.pdf
+
 Format: info
 Index: /usr/share/info/gcj-@BV@.info.gz
 Files: /usr/share/info/gcj-@BV@*
