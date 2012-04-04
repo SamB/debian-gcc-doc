@@ -4,8 +4,10 @@
 # DP: Allow transformations on info file names. Reference the
 # DP: transformed info file names in the texinfo files.
 
---- a/gcc/fortran/gfortran.texi
-+++ b/gcc/fortran/gfortran.texi
+Index: b/gcc/fortran/gfortran.texi
+===================================================================
+--- a/gcc/fortran/gfortran.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/fortran/gfortran.texi	2012-04-03 20:37:52.000000000 -0400
 @@ -101,7 +101,7 @@
  @ifinfo
  @dircategory Software development
@@ -15,8 +17,10 @@
  @end direntry
  This file documents the use and the internals of
  the GNU Fortran compiler, (@command{gfortran}).
---- a/gcc/java/gcj.texi
-+++ b/gcc/java/gcj.texi
+Index: b/gcc/java/gcj.texi
+===================================================================
+--- a/gcc/java/gcj.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/java/gcj.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -55,25 +55,25 @@
  @format
  @dircategory Software development
@@ -61,40 +65,46 @@
  options specific to @command{gcj}.
  
  @c man end
---- a/gcc/ada/gnat-style.texi
-+++ b/gcc/ada/gnat-style.texi
+Index: b/gcc/ada/gnat-style.texi
+===================================================================
+--- a/gcc/ada/gnat-style.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/ada/gnat-style.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -31,7 +31,7 @@
  
  @dircategory Software development
  @direntry
 -* gnat-style: (gnat-style).      GNAT Coding Style
-+* gnat-style: (gnat-style-4.6).      GNAT Coding Style
++* gnat-style: (gnat-style-4.7).      GNAT Coding Style
  @end direntry
  
  @macro syntax{element}
---- a/gcc/ada/gnat_rm.texi
-+++ b/gcc/ada/gnat_rm.texi
+Index: b/gcc/ada/gnat_rm.texi
+===================================================================
+--- a/gcc/ada/gnat_rm.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/ada/gnat_rm.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -38,7 +38,7 @@
  
  @dircategory GNU Ada tools
  @direntry
 -* GNAT Reference Manual: (gnat_rm).  Reference Manual for GNU Ada tools.
-+* GNAT Reference Manual: (gnat_rm-4.6).  Reference Manual for GNU Ada tools.
++* GNAT Reference Manual: (gnat_rm-4.7).  Reference Manual for GNU Ada tools.
  @end direntry
  
  @titlepage
---- a/gcc/doc/invoke.texi
-+++ b/gcc/doc/invoke.texi
-@@ -9061,7 +9061,7 @@
+Index: b/gcc/doc/invoke.texi
+===================================================================
+--- a/gcc/doc/invoke.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/invoke.texi	2012-04-03 20:37:53.000000000 -0400
+@@ -9439,7 +9439,7 @@
  @option{-nodefaultlibs} is @file{libgcc.a}, a library of internal subroutines
- that GCC uses to overcome shortcomings of particular machines, or special
+ which GCC uses to overcome shortcomings of particular machines, or special
  needs for some languages.
 -(@xref{Interface,,Interfacing to GCC Output,gccint,GNU Compiler
 +(@xref{Interface,,Interfacing to GCC Output,@value{fngccint},GNU Compiler
  Collection (GCC) Internals},
  for more discussion of @file{libgcc.a}.)
  In most cases, you need @file{libgcc.a} even when you want to avoid
-@@ -9069,7 +9069,7 @@
+@@ -9447,7 +9447,7 @@
  or @option{-nodefaultlibs} you should usually specify @option{-lgcc} as well.
  This ensures that you have no unresolved references to internal GCC
  library subroutines.  (For example, @samp{__main}, used to ensure C++
@@ -103,7 +113,7 @@
  GNU Compiler Collection (GCC) Internals}.)
  
  @item -pie
-@@ -18314,7 +18314,7 @@
+@@ -19477,7 +19477,7 @@
  @option{-B}, @option{-I} and @option{-L} (@pxref{Directory Options}).  These
  take precedence over places specified using environment variables, which
  in turn take precedence over those specified by the configuration of GCC@.
@@ -112,7 +122,7 @@
  GNU Compiler Collection (GCC) Internals}.
  
  @table @env
-@@ -18469,7 +18469,7 @@
+@@ -19638,7 +19638,7 @@
  
  A precompiled header file will be searched for when @code{#include} is
  seen in the compilation.  As it searches for the included file
@@ -121,9 +131,11 @@
  compiler looks for a precompiled header in each directory just before it
  looks for the include file in that directory.  The name searched for is
  the name specified in the @code{#include} with @samp{.gch} appended.  If
---- a/gcc/doc/extend.texi
-+++ b/gcc/doc/extend.texi
-@@ -13684,7 +13684,7 @@
+Index: b/gcc/doc/extend.texi
+===================================================================
+--- a/gcc/doc/extend.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/extend.texi	2012-04-03 20:37:53.000000000 -0400
+@@ -14834,7 +14834,7 @@
  test for the GNU compiler the same way as for C programs: check for a
  predefined macro @code{__GNUC__}.  You can also use @code{__GNUG__} to
  test specifically for GNU C++ (@pxref{Common Predefined Macros,,
@@ -132,9 +144,11 @@
  
  @menu
  * C++ Volatiles::       What constitutes an access to a volatile object.
---- a/gcc/doc/standards.texi
-+++ b/gcc/doc/standards.texi
-@@ -287,8 +287,8 @@
+Index: b/gcc/doc/standards.texi
+===================================================================
+--- a/gcc/doc/standards.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/standards.texi	2012-04-03 20:37:53.000000000 -0400
+@@ -295,8 +295,8 @@
  GNAT Reference Manual}, for information on standard
  conformance and compatibility of the Ada compiler.
  
@@ -145,8 +159,10 @@
 -@xref{Compatibility,,Compatibility with the Java Platform, gcj, GNU gcj},
 +@xref{Compatibility,,Compatibility with the Java Platform, @value{fngcj}, GNU gcj},
  for details of compatibility between @command{gcj} and the Java Platform.
---- a/gcc/doc/libgcc.texi
-+++ b/gcc/doc/libgcc.texi
+Index: b/gcc/doc/libgcc.texi
+===================================================================
+--- a/gcc/doc/libgcc.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/libgcc.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -25,7 +25,7 @@
  GCC will also generate calls to C library routines, such as
  @code{memcpy} and @code{memset}, in some cases.  The set of routines
@@ -156,8 +172,10 @@
  
  These routines take arguments and return values of a specific machine
  mode, not a specific C type.  @xref{Machine Modes}, for an explanation
---- a/gcc/doc/gccint.texi
-+++ b/gcc/doc/gccint.texi
+Index: b/gcc/doc/gccint.texi
+===================================================================
+--- a/gcc/doc/gccint.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/gccint.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -51,7 +51,7 @@
  @ifnottex
  @dircategory Software development
@@ -176,8 +194,10 @@
  Compiler Collection (GCC)}.
  
  This manual is mainly a reference manual rather than a tutorial.  It
---- a/gcc/doc/cpp.texi
-+++ b/gcc/doc/cpp.texi
+Index: b/gcc/doc/cpp.texi
+===================================================================
+--- a/gcc/doc/cpp.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/cpp.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -53,7 +53,7 @@
  @ifinfo
  @dircategory Software development
@@ -187,9 +207,11 @@
  @end direntry
  @end ifinfo
  
---- a/gcc/doc/passes.texi
-+++ b/gcc/doc/passes.texi
-@@ -201,7 +201,7 @@
+Index: b/gcc/doc/passes.texi
+===================================================================
+--- a/gcc/doc/passes.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/passes.texi	2012-04-03 20:37:53.000000000 -0400
+@@ -199,7 +199,7 @@
  @item Mudflap declaration registration
  
  If mudflap (@pxref{Optimize Options,,-fmudflap -fmudflapth
@@ -198,8 +220,10 @@
  enabled, we generate code to register some variable declarations with
  the mudflap runtime.  Specifically, the runtime tracks the lifetimes of
  those variable declarations that have their addresses taken, or whose
---- a/gcc/doc/gcc.texi
-+++ b/gcc/doc/gcc.texi
+Index: b/gcc/doc/gcc.texi
+===================================================================
+--- a/gcc/doc/gcc.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/gcc.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -65,8 +65,8 @@
  @ifnottex
  @dircategory Software development
@@ -220,8 +244,10 @@
  
  @menu
  * G++ and GCC::     You can compile C or C++ programs.
---- a/gcc/doc/makefile.texi
-+++ b/gcc/doc/makefile.texi
+Index: b/gcc/doc/makefile.texi
+===================================================================
+--- a/gcc/doc/makefile.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/makefile.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -140,7 +140,7 @@
  Builds a compiler with profiling feedback information.  In this case,
  the second and third stages are named @samp{profile} and @samp{feedback},
@@ -231,8 +257,10 @@
  
  @item restrap
  Restart a bootstrap, so that everything that was not built with
---- a/gcc/doc/install.texi
-+++ b/gcc/doc/install.texi
+Index: b/gcc/doc/install.texi
+===================================================================
+--- a/gcc/doc/install.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/install.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -98,7 +98,7 @@
  @end ifinfo
  @dircategory Software development
@@ -242,8 +270,10 @@
  @end direntry
  
  @c Part 3 Titlepage and Copyright
---- a/gcc/doc/cppinternals.texi
-+++ b/gcc/doc/cppinternals.texi
+Index: b/gcc/doc/cppinternals.texi
+===================================================================
+--- a/gcc/doc/cppinternals.texi	2012-04-03 20:37:02.000000000 -0400
++++ b/gcc/doc/cppinternals.texi	2012-04-03 20:37:53.000000000 -0400
 @@ -7,7 +7,7 @@
  @ifinfo
  @dircategory Software development

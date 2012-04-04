@@ -1,4 +1,4 @@
 # format version number, currently 3; this line is compulsory!
 version=3
 
-ftp://gcc.gnu.org/pub/gcc/releases/gcc-(4\.6[\d\.]*)/gcc-(4\.6[\d\.]*).tar.gz
+ftp://gcc.gnu.org/pub/gcc/releases/gcc-(4\.7[\d\.]*)/gcc-(4\.7[\d\.]*).tar.gz

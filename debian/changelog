@@ -1,3 +1,11 @@
+gcc-4.7-doc (4.7.0-1~naesten1) unstable; urgency=low
+
+  * Package documentation for GCC & friends version 4.7.0.
+  * Sync patches with gcc-4.7 version 4.7.0-1.
+    + Had to refresh patches to get them all to apply; some were fuzzy.
+
+ -- Samuel Bronson <naesten@gmail.com>  Tue, 03 Apr 2012 18:06:08 -0400
+
 gcc-4.6-doc (4.6.3-1~naesten8) unstable; urgency=low
 
   * Build PDFs, at Robert Wotzlaw's suggestion and using parts of his changes.
