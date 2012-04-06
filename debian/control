@@ -64,7 +64,7 @@ Provides: gij-4.4-doc
 Description: documentation for the GNU Java tools (gcj, gij)
  This package contains manual pages and documentation in info and
  html format, for the GNU Java Compiler, the GNU interpreter for Java
- bytecode, and relatedgcc-4..
+ bytecode, and related tools.
  .
  This documentation is licensed under the terms of the GNU Free
  Documentation License, and contains invariant sections, so it can't be
