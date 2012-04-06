@@ -5,6 +5,9 @@ Maintainer: Samuel Bronson <naesten@gmail.com>
 Build-Depends: debhelper (>> 5), dpatch
 Build-Depends-Indep: texinfo, perl
 Standards-Version: 3.9.3
+Homepage: http://gcc.gnu.org/
+Vcs-Browser: https://github.com/SamB/debian-gcc-doc
+Vcs-Git: https://github.com/SamB/debian-gcc-doc
 
 Package: gcc-4.4-doc
 Architecture: all
